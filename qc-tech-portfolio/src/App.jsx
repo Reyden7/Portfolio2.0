@@ -10,6 +10,7 @@ import Websites from "./pages/Websites/Websites";
 import Apps from "./pages/Apps/Apps";
 import Modeling3D from "./pages/Modeling3D/Modeling3D";
 import ProjectDetail from "./pages/ProjectDetail/ProjectDetail";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,6 +30,7 @@ function App() {
               <Route path="/applications-logiciels" element={<Apps />} />
               <Route path="/modelisation-3d" element={<Modeling3D />} />
               <Route path="/projets/:slug" element={<ProjectDetail />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </PageTransitionProvider>
         )}

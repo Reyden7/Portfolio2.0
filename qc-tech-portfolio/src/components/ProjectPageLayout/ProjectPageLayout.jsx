@@ -4,9 +4,14 @@ import ProjectCard from "../ProjectCard/ProjectCard";
 import "./ProjectPageLayout.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import useMagneticElements from "../../hooks/useMagneticElements";
+import usePageMeta from "../../hooks/usePageMeta";
 
 function ProjectPageLayout({ eyebrow, title, description, projects }) {
     useRevealOnScroll();
+     usePageMeta({
+        title,
+        description,
+    });
     //useMagneticElements();
   return (
     <main className="project-page">

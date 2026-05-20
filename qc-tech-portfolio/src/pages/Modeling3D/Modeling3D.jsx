@@ -5,9 +5,15 @@ import { modelingProjects } from "../../data/projects";
 import "./Modeling3D.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import useMagneticElements from "../../hooks/useMagneticElements";
+import usePageMeta from "../../hooks/usePageMeta";
 
 function Modeling3D() {
     useRevealOnScroll();
+    usePageMeta({
+      title: "Modélisation 3D",
+      description:
+        "Projets de modélisation 3D et visualisation interactive intégrés dans des expériences web modernes.",
+    });
     //useMagneticElements();
   return (
     <main className="modeling-page">

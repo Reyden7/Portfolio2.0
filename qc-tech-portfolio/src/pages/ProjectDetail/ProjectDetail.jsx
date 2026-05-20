@@ -7,13 +7,22 @@ import { getProjectBySlug } from "../../data/projects";
 import "./ProjectDetail.css";
 import ModelViewer from "../../components/ModelViewer/ModelViewer";
 import useMagneticElements from "../../hooks/useMagneticElements";
+import usePageMeta from "../../hooks/usePageMeta";
 
 function ProjectDetail() {
   useRevealOnScroll();
+  
   //useMagneticElements();
 
   const { slug } = useParams();
   const project = getProjectBySlug(slug);
+
+  usePageMeta({
+    title: project ? project.title : "Projet introuvable",
+    description: project
+      ? project.description
+      : "Le projet demandé n’existe pas ou a été déplacé.",
+  });
 
   if (!project) {
     return (
