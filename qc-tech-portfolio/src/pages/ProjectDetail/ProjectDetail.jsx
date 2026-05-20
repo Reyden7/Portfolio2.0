@@ -5,9 +5,12 @@ import TransitionLink from "../../components/TransitionLink/TransitionLink";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import { getProjectBySlug } from "../../data/projects";
 import "./ProjectDetail.css";
+import ModelViewer from "../../components/ModelViewer/ModelViewer";
+import useMagneticElements from "../../hooks/useMagneticElements";
 
 function ProjectDetail() {
   useRevealOnScroll();
+  useMagneticElements();
 
   const { slug } = useParams();
   const project = getProjectBySlug(slug);
@@ -46,8 +49,21 @@ function ProjectDetail() {
 
       <section className="project-detail__body">
         <div className="project-detail__inner">
-          <div className="project-detail__media reveal">
-            {project.image ? (
+
+          <div
+            className={`project-detail__media reveal ${
+              project.model ? "project-detail__media--model" : ""
+            }`}
+          >
+            {project.model ? (
+              <ModelViewer
+                modelUrl={project.model}
+                scale={project.modelScale}
+                position={project.modelPosition}
+                rotation={project.modelRotation}
+                autoRotate={project.autoRotate}
+              />
+            ) : project.image ? (
               <img src={project.image} alt={project.title} />
             ) : (
               <div className="project-detail__placeholder">
@@ -60,20 +76,20 @@ function ProjectDetail() {
           </div>
 
           <div className="project-detail__grid">
-            <article className="project-detail__panel reveal">
+            <article className="project-detail__panel reveal" data-reveal-direction="left">
               <p className="project-detail__kicker">Contexte</p>
               <h2>Le besoin</h2>
               <p>{project.context}</p>
             </article>
 
-            <article className="project-detail__panel reveal">
+            <article className="project-detail__panel reveal" data-reveal-direction="right"  data-reveal-delay="120">
               <p className="project-detail__kicker">Objectif</p>
               <h2>Ce que le projet doit apporter</h2>
               <p>{project.goal}</p>
             </article>
           </div>
 
-          <div className="project-detail__tech reveal">
+          <div className="project-detail__tech reveal" data-reveal-delay="160">
             <p className="project-detail__kicker">Technologies</p>
 
             <div className="project-detail__tech-list">
@@ -83,15 +99,15 @@ function ProjectDetail() {
             </div>
           </div>
 
-          <div className="project-detail__actions reveal">
-            <TransitionLink to={project.backPath} className="project-detail__button project-detail__button--ghost">
+          <div className="project-detail__actions reveal" data-reveal-delay="220">
+            <TransitionLink to={project.backPath} className="project-detail__button project-detail__button--ghost magnetic">
               ← Retour aux projets
             </TransitionLink>
 
             {hasGithub && (
               <a
                 href={project.github}
-                className="project-detail__button project-detail__button--dark"
+                className="project-detail__button project-detail__button--dark magnetic"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -102,7 +118,7 @@ function ProjectDetail() {
             {hasDemo && (
               <a
                 href={project.demo}
-                className="project-detail__button"
+                className="project-detail__button magnetic"
                 target="_blank"
                 rel="noreferrer"
               >

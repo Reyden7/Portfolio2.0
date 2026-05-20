@@ -1,0 +1,52 @@
+.custom-cursor,
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.custom-cursor {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(0, 151, 178, 0.78);
+  border-radius: 50%;
+  box-shadow: 0 0 24px rgba(0, 151, 178, 0.24);
+  transition:
+    opacity 180ms ease,
+    border-color 220ms ease,
+    background 220ms ease;
+}
+
+.custom-cursor-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 14px rgba(0, 151, 178, 0.75);
+  transition: opacity 180ms ease;
+}
+
+.custom-cursor--visible,
+.custom-cursor-dot--visible {
+  opacity: 1;
+}
+
+.cursor-hover .custom-cursor {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(0, 151, 178, 0.12);
+}
+
+.cursor-hover .custom-cursor-dot {
+  opacity: 0.15;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .custom-cursor,
+  .custom-cursor-dot {
+    display: none;
+  }
+}

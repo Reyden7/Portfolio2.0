@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Loader from "./components/Loader/Loader";
+import CustomCursor from "./components/CustomCursor/CustomCursor";
 import { PageTransitionProvider } from "./context/PageTransitionContext";
 
 import Home from "./pages/Home/Home";
@@ -15,6 +16,8 @@ function App() {
 
   return (
     <>
+      <CustomCursor />
+
       {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
 
       <BrowserRouter>

@@ -4,9 +4,11 @@ import ModelProjectCard from "../../components/ModelProjectCard/ModelProjectCard
 import { modelingProjects } from "../../data/projects";
 import "./Modeling3D.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
+import useMagneticElements from "../../hooks/useMagneticElements";
 
 function Modeling3D() {
     useRevealOnScroll();
+    useMagneticElements();
   return (
     <main className="modeling-page">
       <Header />
@@ -25,8 +27,13 @@ function Modeling3D() {
       <section className="modeling-page__list">
         <div className="modeling-page__inner">
           {modelingProjects.map((project, index) => (
-            <div className="reveal" key={project.id}>
-                <ModelProjectCard project={project} index={index} />
+            <div
+              className="reveal"
+              key={project.id}
+              data-reveal-direction={index % 2 === 0 ? "left" : "right"}
+              data-reveal-delay={index * 90}
+            >
+              <ModelProjectCard project={project} index={index} />
             </div>
           ))}
         </div>

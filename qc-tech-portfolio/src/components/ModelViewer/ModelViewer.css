@@ -41,8 +41,24 @@
   letter-spacing: 0.14em;
 }
 
+.model-viewer canvas {
+  cursor: grab;
+}
+
+.model-viewer canvas:active {
+  cursor: grabbing;
+}
+
 @media (max-width: 700px) {
   .model-viewer {
     height: 320px;
   }
+}
+
+.model-viewer canvas {
+  cursor: grab;
+}
+
+.model-viewer canvas:active {
+  cursor: grabbing;
 }

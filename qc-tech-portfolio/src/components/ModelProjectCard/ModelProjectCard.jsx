@@ -1,22 +1,27 @@
+import TransitionLink from "../TransitionLink/TransitionLink";
 import ModelViewer from "../ModelViewer/ModelViewer";
 import "./ModelProjectCard.css";
 
 function ModelProjectCard({ project, index = 0 }) {
   return (
     <article className="model-project-card">
-      <a
-        className="model-project-card__viewer"
-        href={project.link}
-        target="_blank"
-        rel="noreferrer"
-        aria-label={`Voir le projet ${project.title}`}
+      <TransitionLink
+        to={`/projets/${project.slug}`}
+        className="model-project-card__viewer magnetic"
+        ariaLabel={`Voir le projet ${project.title}`}
       >
-        <ModelViewer modelUrl={project.model} />
-      </a>
+        <ModelViewer
+          modelUrl={project.model}
+          scale={project.modelScale}
+          position={project.modelPosition}
+          rotation={project.modelRotation}
+          autoRotate={project.autoRotate}
+        />
+      </TransitionLink>
 
       <div className="model-project-card__content">
         <p className="model-project-card__kicker">
-          Modèle {String(index + 1).padStart(2, "0")}
+          Modèle {String(index + 1).padStart(2, "0")} — {project.type}
         </p>
 
         <h2>{project.title}</h2>
@@ -31,15 +36,13 @@ function ModelProjectCard({ project, index = 0 }) {
           ))}
         </div>
 
-        <a
-          href={project.link}
-          className="model-project-card__link"
-          target="_blank"
-          rel="noreferrer"
+        <TransitionLink
+          to={`/projets/${project.slug}`}
+          className="model-project-card__link magnetic"
         >
           Ouvrir le projet
           <span>↗</span>
-        </a>
+        </TransitionLink>
       </div>
     </article>
   );

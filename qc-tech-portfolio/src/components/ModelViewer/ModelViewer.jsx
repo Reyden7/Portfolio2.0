@@ -14,17 +14,28 @@ function CameraSetup() {
   return null;
 }
 
-function FBXModel({ url }) {
+function FBXModel({ url, scale, position, rotation }) {
   const model = useFBX(url);
 
   return (
     <Center>
-      <primitive object={model} scale={0.015} />
+      <primitive
+        object={model}
+        scale={scale}
+        position={position}
+        rotation={rotation}
+      />
     </Center>
   );
 }
 
-function ModelViewer({ modelUrl }) {
+function ModelViewer({
+  modelUrl,
+  scale = 0.015,
+  position = [0, 0, 0],
+  rotation = [0, 0, 0],
+  autoRotate = true,
+}) {
   return (
     <div className="model-viewer">
       <Canvas camera={{ fov: 45 }}>
@@ -35,14 +46,22 @@ function ModelViewer({ modelUrl }) {
         <directionalLight position={[-4, 2, -3]} intensity={0.7} />
 
         <Suspense fallback={null}>
-          {modelUrl ? <FBXModel url={modelUrl} /> : null}
+          {modelUrl ? (
+            <FBXModel
+              url={modelUrl}
+              scale={scale}
+              position={position}
+              rotation={rotation}
+            />
+          ) : null}
+
           <Environment preset="city" />
         </Suspense>
 
         <OrbitControls
           enableZoom
           enablePan={false}
-          autoRotate
+          autoRotate={autoRotate}
           autoRotateSpeed={0.8}
         />
       </Canvas>

@@ -4,9 +4,11 @@ import "./Home.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import { profile } from "../../data/profile";
 import Footer from "../../components/Footer/Footer";
+import useMagneticElements from "../../hooks/useMagneticElements";
 
 function Home() {
       useRevealOnScroll();
+      useMagneticElements();
   return (
     <main className="home">
       <Header />
@@ -31,12 +33,17 @@ function Home() {
           </p>
 
           <div className="home-hero__actions">
-            <button onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}>
+            <button
+              className="magnetic"
+              onClick={() =>
+                document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
               Voir les projets
             </button>
 
             <button
-              className="home-hero__actions-secondary"
+              className="home-hero__actions-secondary magnetic"
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
             >
               Me contacter
@@ -58,7 +65,7 @@ function Home() {
         <div className="home-story__inner">
           <p className="section-kicker">Présentation</p>
 
-          <div className="home-story__grid reveal">
+          <div className="home-story__grid reveal" data-reveal-direction="left">
             <div>
               <h2>Je conçois des solutions digitales solides, utiles et élégantes.</h2>
             </div>
@@ -80,12 +87,65 @@ function Home() {
           </div>
         </div>
       </section>
+            <section className="home-method">
+        <div className="home-method__inner">
+          <p className="section-kicker">Méthode</p>
 
+          <div className="home-method__heading reveal" data-reveal-direction="left">
+            <h2>Une méthode claire pour éviter les projets flous.</h2>
+
+            <p>
+              Un bon projet ne commence pas par du code. Il commence par une
+              compréhension précise du besoin, des priorités et du résultat
+              attendu.
+            </p>
+          </div>
+
+          <div className="home-method__steps">
+            <article className="home-method__step reveal" data-reveal-delay="0">
+              <span>01</span>
+              <h3>Comprendre</h3>
+              <p>
+                On échange sur votre activité, votre objectif, vos contraintes
+                et les problèmes que le projet doit résoudre.
+              </p>
+            </article>
+
+            <article className="home-method__step reveal" data-reveal-delay="110">
+              <span>02</span>
+              <h3>Structurer</h3>
+              <p>
+                Je transforme l’idée en plan concret : fonctionnalités,
+                arborescence, parcours utilisateur, priorités et choix
+                techniques.
+              </p>
+            </article>
+
+            <article className="home-method__step reveal" data-reveal-delay="220">
+              <span>03</span>
+              <h3>Concevoir</h3>
+              <p>
+                On pose une interface propre, lisible et cohérente avec votre
+                image pour éviter un rendu générique.
+              </p>
+            </article>
+
+            <article className="home-method__step reveal" data-reveal-delay="330">
+              <span>04</span>
+              <h3>Développer</h3>
+              <p>
+                Je construis une solution performante, maintenable et adaptée à
+                l’évolution future de votre projet.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>          
       <section className="home-projects" id="projects">
         <div className="home-projects__inner">
           <p className="section-kicker">Expertises</p>
 
-          <div className="home-projects__heading reveal">
+          <div className="home-projects__heading reveal" data-reveal-direction="right">
             <h2>Choisissez votre besoin.</h2>
             <p>
               Chaque catégorie mène vers une sélection de réalisations adaptées :
@@ -93,23 +153,23 @@ function Home() {
             </p>
           </div>
 
-          <div className="home-category-list reveal">
+          <div className="home-category-list reveal ">
             <TransitionLink
                 to="/sites-internet"
-                className="home-category-card home-category-card--web"
+                className="home-category-card home-category-card--web  "
                 >
               <span>01</span>
               <h3>Site internet</h3>
               <p>Vitrine, landing page, refonte, présence professionnelle.</p>
             </TransitionLink>
 
-            <TransitionLink to="/applications-logiciels" className="home-category-card home-category-card--app">
+            <TransitionLink to="/applications-logiciels" className="home-category-card home-category-card--app ">
               <span>02</span>
               <h3>Application / Logiciels</h3>
               <p>Outils métier, interfaces web, automatisation, dashboards.</p>
             </TransitionLink>
 
-            <TransitionLink to="/modelisation-3d" className="home-category-card home-category-card--model">
+            <TransitionLink to="/modelisation-3d" className="home-category-card home-category-card--model ">
               <span>03</span>
               <h3>Modélisation 3D</h3>
               <p>Objets 3D, visualisation interactive, intégration web.</p>
@@ -121,7 +181,7 @@ function Home() {
         <div className="home-start__inner">
             <p className="section-kicker">Démarrer un projet</p>
 
-            <div className="home-start__heading reveal">
+            <div className="home-start__heading reveal" data-reveal-direction="right">
                 <h2>Vous avez une idée ? Je vous aide à la rendre concrète.</h2>
 
                 <p>
@@ -131,8 +191,8 @@ function Home() {
                 </p>
             </div>
 
-            <div className="home-start__cards reveal">
-                <article className="home-start__card">
+            <div className="home-start__cards ">
+                <article className="home-start__card reveal" data-reveal-delay="0">
                 <span>01</span>
                 <h3>Site internet</h3>
                 <p>
@@ -141,7 +201,7 @@ function Home() {
                 </p>
                 </article>
 
-                <article className="home-start__card">
+                <article className="home-start__card reveal" data-reveal-delay="120">
                 <span>02</span>
                 <h3>Application / Logiciel</h3>
                 <p>
@@ -150,7 +210,7 @@ function Home() {
                 </p>
                 </article>
 
-                <article className="home-start__card">
+                <article className="home-start__card reveal" data-reveal-delay="240">
                 <span>03</span>
                 <h3>Expérience 3D</h3>
                 <p>
@@ -160,8 +220,8 @@ function Home() {
                 </article>
             </div>
 
-            <div className="home-start__cta reveal">
-                <a href={`mailto:${profile.email}`}>
+            <div className="home-start__cta" data-reveal-delay="340">
+                <a href={`mailto:${profile.email}`} className="magnetic">
                 Parler de mon projet
                 <span>↗</span>
                 </a>

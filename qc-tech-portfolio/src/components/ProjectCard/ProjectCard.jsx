@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./ProjectCard.css";
+import TransitionLink from "../TransitionLink/TransitionLink";
 
 function ProjectCard({ project, index = 0 }) {
   const [hasImageError, setHasImageError] = useState(false);
@@ -11,16 +12,11 @@ function ProjectCard({ project, index = 0 }) {
         index % 2 === 1 ? "project-card--reverse" : ""
       }`}
     >
-      <a
-        href={project.link || "#"}
-        className="project-card__media"
-        target={project.link && project.link !== "#" ? "_blank" : undefined}
-        rel={project.link && project.link !== "#" ? "noreferrer" : undefined}
-        aria-label={`Voir le projet ${project.title}`}
-        onClick={(event) => {
-            if (!project.link || project.link === "#") event.preventDefault();
-        }}
-        >
+      <TransitionLink
+        to={`/projets/${project.slug}`}
+        className="project-card__media magnetic"
+        ariaLabel={`Voir le projet ${project.title}`}
+      >
         {hasImage ? (
           <img
             src={project.image}
@@ -37,7 +33,7 @@ function ProjectCard({ project, index = 0 }) {
         <div className="project-card__badge">
           {project.status || "Projet"}
         </div>
-      </a>
+      </TransitionLink>
 
       <div className="project-card__content">
         <p className="project-card__kicker">
@@ -54,18 +50,13 @@ function ProjectCard({ project, index = 0 }) {
           ))}
         </div>
 
-        <a
-        href={project.link || "#"}
-        className="project-card__link"
-        target={project.link && project.link !== "#" ? "_blank" : undefined}
-        rel={project.link && project.link !== "#" ? "noreferrer" : undefined}
-        onClick={(event) => {
-            if (!project.link || project.link === "#") event.preventDefault();
-        }}
-        >
-          Voir le projet
-          <span>↗</span>
-        </a>
+        <TransitionLink
+        to={`/projets/${project.slug}`}
+        className="project-card__link magnetic"
+      >
+        Voir le projet
+        <span>↗</span>
+      </TransitionLink>
       </div>
     </article>
   );
