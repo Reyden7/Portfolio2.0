@@ -1,0 +1,15 @@
+:root {
+  --color-bg: #070a0e;
+  --color-bg-soft: #0d1117;
+  --color-primary: #0097b2;
+  --color-white: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.68);
+
+  --font-main: Arial, Helvetica, sans-serif;
+
+  --transition-fast: 180ms ease;
+  --transition-medium: 320ms ease;
+  --transition-slow: 700ms ease;
+
+  --container-width: 1180px;
+}
