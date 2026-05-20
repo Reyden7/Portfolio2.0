@@ -1,0 +1,66 @@
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at center, rgba(0, 151, 178, 0.18), transparent 34%),
+    #070a0e;
+  transform: translateY(100%);
+}
+
+.page-transition::before,
+.page-transition::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(0, 151, 178, 0.28) 0 58px,
+    transparent 58px 76px
+  );
+  opacity: 0.55;
+}
+
+.page-transition::before {
+  top: 26%;
+  left: 8%;
+}
+
+.page-transition::after {
+  right: 8%;
+  bottom: 22%;
+}
+
+.page-transition__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 2.4vw, 30px);
+  color: #ffffff;
+}
+
+.page-transition__content strong {
+  font-size: clamp(2.6rem, 8vw, 7.8rem);
+  line-height: 0.9;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+  font-weight: 950;
+}
+
+.page-transition__content span {
+  color: var(--color-primary);
+  font-size: clamp(2.4rem, 6.5vw, 6rem);
+  font-weight: 950;
+  text-shadow: 0 0 32px rgba(0, 151, 178, 0.52);
+}
+
+@media (max-width: 620px) {
+  .page-transition::before,
+  .page-transition::after {
+    display: none;
+  }
+}

@@ -2,8 +2,10 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import "./ProjectPageLayout.css";
+import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
 function ProjectPageLayout({ eyebrow, title, description, projects }) {
+    useRevealOnScroll();
   return (
     <main className="project-page">
       <Header />
@@ -19,7 +21,9 @@ function ProjectPageLayout({ eyebrow, title, description, projects }) {
       <section className="project-page__list">
         <div className="project-page__inner">
           {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <div className="reveal" key={project.id}>
+                <ProjectCard project={project} index={index} />
+            </div>
           ))}
         </div>
       </section>
