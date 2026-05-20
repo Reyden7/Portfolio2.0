@@ -8,7 +8,7 @@ import useMagneticElements from "../../hooks/useMagneticElements";
 
 function Modeling3D() {
     useRevealOnScroll();
-    useMagneticElements();
+    //useMagneticElements();
   return (
     <main className="modeling-page">
       <Header />

@@ -7,7 +7,7 @@ import useMagneticElements from "../../hooks/useMagneticElements";
 
 function ProjectPageLayout({ eyebrow, title, description, projects }) {
     useRevealOnScroll();
-    useMagneticElements();
+    //useMagneticElements();
   return (
     <main className="project-page">
       <Header />

@@ -10,7 +10,7 @@ import useMagneticElements from "../../hooks/useMagneticElements";
 
 function ProjectDetail() {
   useRevealOnScroll();
-  useMagneticElements();
+  //useMagneticElements();
 
   const { slug } = useParams();
   const project = getProjectBySlug(slug);
