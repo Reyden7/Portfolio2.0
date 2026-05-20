@@ -2,6 +2,7 @@ import { createContext, useContext, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import anime from "animejs";
 import "../components/PageTransition/PageTransition.css";
+import { shouldReduceMotion } from "../utils/motion";
 
 const PageTransitionContext = createContext(null);
 
@@ -15,6 +16,20 @@ export function PageTransitionProvider({ children }) {
 
   const navigateWithTransition = (to, options = {}) => {
     const { scrollTarget } = options;
+
+    if (shouldReduceMotion()) {
+      navigate(to);
+
+      requestAnimationFrame(() => {
+        if (scrollTarget) {
+          document.getElementById(scrollTarget)?.scrollIntoView({ behavior: "auto" });
+        } else {
+          window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+        }
+      });
+
+      return;
+    }
 
     if (isAnimatingRef.current) return;
 

@@ -11,6 +11,7 @@ import Apps from "./pages/Apps/Apps";
 import Modeling3D from "./pages/Modeling3D/Modeling3D";
 import ProjectDetail from "./pages/ProjectDetail/ProjectDetail";
 import NotFound from "./pages/NotFound/NotFound";
+import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,6 +19,7 @@ function App() {
   return (
     <>
       <CustomCursor />
+      <ScrollProgress />
 
       {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
 

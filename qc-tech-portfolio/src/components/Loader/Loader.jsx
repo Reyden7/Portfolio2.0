@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import anime from "animejs";
 import "./Loader.css";
+import { shouldReduceMotion } from "../../utils/motion";
 
 function Loader({ onComplete }) {
   const loaderRef = useRef(null);
@@ -9,11 +10,17 @@ function Loader({ onComplete }) {
   const percentRef = useRef(null);
 
   useEffect(() => {
-    const counter = { value: 0 };
 
+    if (shouldReduceMotion()) {
+      onComplete();
+      return;
+    }
+    const counter = { value: 0 };
+    
     const timeline = anime.timeline({
       easing: "easeInOutExpo",
     });
+    
 
     timeline
       .add({

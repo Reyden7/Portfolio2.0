@@ -23,6 +23,18 @@ function Home() {
           "QC-Tech accompagne les entreprises dans la création de sites internet, applications métier et modélisation 3D",
       });
       //useMagneticElements();
+
+      const handleOfferContact = (projectType) => {
+        window.dispatchEvent(
+          new CustomEvent("qc-contact-project-type", {
+            detail: { projectType },
+          })
+        );
+
+        document.getElementById("contact")?.scrollIntoView({
+          behavior: "smooth",
+        });
+      };
   return (
     <main className="home">
       <Header />
@@ -268,10 +280,14 @@ function Home() {
                   ))}
                 </ul>
 
-                <a href={`mailto:${profile.email}`} className="magnetic">
+                <button
+                  type="button"
+                  className="magnetic"
+                  onClick={() => handleOfferContact(offer.projectType)}
+                >
                   {offer.cta}
                   <span>↗</span>
-                </a>
+                </button>
               </article>
             ))}
           </div>

@@ -1,11 +1,24 @@
 import { useEffect } from "react";
 import anime from "animejs";
+import { shouldReduceMotion } from "../utils/motion";
+
+
 
 function useRevealOnScroll(selector = ".reveal") {
   useEffect(() => {
     const elements = document.querySelectorAll(selector);
 
     if (!elements.length) return;
+
+   if (shouldReduceMotion()) {
+      elements.forEach((element) => {
+        element.classList.add("is-visible");
+        element.style.opacity = 1;
+        element.style.transform = "none";
+      });
+
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {

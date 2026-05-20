@@ -1209,8 +1209,9 @@
   box-shadow: 0 0 16px rgba(0, 151, 178, 0.7);
 }
 
-.home-offers__card a {
-  display: flex;
+.home-offers__card a,
+.home-offers__card button {
+   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -1221,10 +1222,14 @@
   margin-top: auto;
   padding: 0 16px 0 20px;
 
+  border: 0;
   border-radius: 999px;
+  cursor: pointer;
+
   background: #ffffff;
   color: #071014;
 
+  font-family: inherit;
   font-size: clamp(0.82rem, 0.9vw, 0.95rem);
   font-weight: 950;
   line-height: 1;
@@ -1236,11 +1241,13 @@
     background var(--transition-medium);
 }
 
-.home-offers__card a:hover {
+.home-offers__card a:hover,
+.home-offers__card button:hover {
   background: var(--color-primary);
 }
 
-.home-offers__card a span {
+.home-offers__card a span,
+.home-offers__card button span {
   flex: 0 0 28px;
   display: grid;
   place-items: center;

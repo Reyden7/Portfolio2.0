@@ -3,12 +3,12 @@ export const profile = {
   displayName: "Quentin Cordiero",
   jobTitle: "Freelance développeur",
 
-  email: "contact@qc-tech.fr",
+  email: "quentin.cordiero@gmail.com",
 
   location: "Dijon / Bourgogne-Franche-Comté",
 
-  github: "https://github.com/",
-  linkedin: "https://linkedin.com/",
+  github: "https://github.com/Reyden7",
+  linkedin: "https://www.linkedin.com/in/quentin-c-17a36028b/",
 
   heroTitle: "QC TECH",
 

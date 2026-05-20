@@ -118,6 +118,7 @@ export const offers = [
     ],
     cta: "Demander un site",
     featured: false,
+    projectType: "Site internet",
   },
   {
     number: "02",
@@ -132,6 +133,7 @@ export const offers = [
     ],
     cta: "Landing page",
     featured: true,
+    projectType: "Landing page",
   },
   {
     number: "03",
@@ -146,6 +148,7 @@ export const offers = [
     ],
     cta: "Application",
     featured: false,
+    projectType: "Application métier",
   },
   {
     number: "04",
@@ -160,5 +163,6 @@ export const offers = [
     ],
     cta: "Modèle 3D",
     featured: false,
+    projectType: "Modélisation 3D",
   },
 ];

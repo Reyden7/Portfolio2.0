@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import anime from "animejs";
 import "./CustomCursor.css";
+import { shouldReduceMotion } from "../../utils/motion";
 
 function CustomCursor() {
   const cursorRef = useRef(null);
@@ -13,7 +14,8 @@ function CustomCursor() {
       window.matchMedia("(pointer: coarse)").matches;
 
     if (isTouchDevice) return;
-
+    if (shouldReduceMotion()) return;
+    
     const cursor = cursorRef.current;
     const dot = dotRef.current;
 
