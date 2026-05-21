@@ -1176,8 +1176,22 @@
   letter-spacing: -0.075em;
 }
 
+.home-offers__price {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 18px;
+  padding: 9px 13px;
+  border: 1px solid rgba(0, 151, 178, 0.28);
+  border-radius: 999px;
+  background: rgba(0, 151, 178, 0.09);
+  color: #ffffff;
+  font-size: 0.86rem;
+  font-weight: 950;
+  letter-spacing: 0.02em;
+}
+
 .home-offers__card p {
-  margin: 24px 0 0;
+  margin: 22px 0 0;
   color: var(--color-text-muted);
   line-height: 1.75;
 }

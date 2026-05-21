@@ -2,38 +2,59 @@ export const websiteProjects = [
   {
     id: "website-01",
     slug: "site-vitrine-professionnel",
-    type: "Site internet",
-    title: "Site vitrine ",
+    type: "Site-vitrine",
+    title: "SkyVision ",
     description:
-      "Création d’un site vitrine moderne pour présenter une activité, rassurer les visiteurs et faciliter la prise de contact.",
-    technologies: ["React", "JavaScript", "CSS", "Responsive Design"],
-    image: "/images/projects/websites/site-vitrine.jpg",
+      "Création d’un site vitrine moderne pour présenter l'activité du client.",
+    technologies: ["React JS", "JavaScript", "CSS", "Responsive Design"],
+    image: "/images/projects/websites/SkyvISION.png",
+    detailImage: "/images/projects/websites/",
+    detailVideo: "/videos/projects/websites/skyvision.mp4",
     link: "#",
     status: "Projet vitrine",
+
+     context:
+    "L'entreprise SkyVision dans le domaine de la prise de photo et video aérienne nous a fais confiance ! Ils avaient besoin d’un site vitrine impactant pour présenter son activité et rassurer ses futurs clients. Ils leur fallait un site dynamique et moderne pour présenter leur activité",
+     goal:
+    "Créer une présence en ligne claire, moderne et professionnelle. Les clients devaient tout de suite conaître les tarifs et ce qu'ils impliquaient",
   },
   {
     id: "website-02",
-    slug: "Landing page",
-    type: "Landing page",
-    title: "Landing page conversion",
+    slug: "Site-vitrine association",
+    type: "Site-vitrine",
+    title: "Master Revi",
     description:
-      "Page optimisée pour présenter une offre claire, guider l’utilisateur et convertir les visiteurs en prospects.",
-    technologies: ["React", "UX/UI", "SEO", "Animation"],
-    image: "/images/projects/websites/landing-page.jpg",
+      "Site internet pour présenter la juniore agence du master REVI",
+    technologies: ["HTML","CSS", "UX/UI", "Tailwind CSS"],
+    image: "/images/projects/websites/revi2.png",
+    detailImage: "/images/projects/websites/revi2.png",
+    detailVideo: "/videos/projects/websites/revinetwork.mp4",
     link: "#",
-    status: "Conversion",
+    status: "Presentation",
+
+    context:
+    "en 2022 L'association  'La juniore agence' du Master Revi de Dijon m'a contacté afin de leur créer un site web. ",
+     goal:
+    "La juniore agence souhaitait un site web dans le but de présenter leur école ainsi que leur activitée. ",
   },
   {
     id: "website-03",
     slug: "website-03",
-    type: "Refonte",
-    title: "Refonte graphique",
+    type: "Site internet",
+    title: "Mon portfolio",
     description:
-      "Modernisation complète d’une interface existante afin de renforcer l’image de marque et améliorer l’expérience utilisateur.",
-    technologies: ["Design System", "CSS", "Accessibilité", "Performance"],
-    image: "/images/projects/websites/refonte.jpg",
+      "Portfolio de l'entreprise QCTech",
+    technologies: ["HTML","CSS","React JS", "TreeJS", "Vite", "AnimeJS", "EmailJS"],
+    image: "/images/projects/websites/Portfolio.png",
+    detailImage: "/images/projects/websites/Portfolio.png",
+    detailVideo: "/videos/projects/websites/qctech.mp4",
     link: "#",
-    status: "Modernisation",
+    status: "Presentation",
+
+    context:
+    "J'ai crée mon entreprise de développeur freelance en 2026, mon objectif est de présenter mon travail. Je créer des site internet, des application mobiles et je fais de la modélisation 3D",
+     goal:
+    "Présenter le travail de l'entreprise QCtech.",
   },
 ];
 
@@ -41,58 +62,163 @@ export const appProjects = [
   {
     id: "app-01",
     slug: "app-01",
-    type: "Application métier",
-    title: "Application métier",
+    type: "Application métier web",
+    title: "TicketMaster",
     description:
-      "Développement d’un outil interne sur mesure pour simplifier les tâches répétitives et centraliser les informations importantes.",
-    technologies: ["React", "Node.js", "API", "Dashboard"],
-    image: "/images/projects/apps/app-metier.jpg",
+      "Développement d’un outil de ticketing avec messagerie instantanée simplifiant la création et la gestion de ticket en entreprise.",
+    technologies: ["React JS", "HTML", "CSS", "TailwindCSS", "Firebase" ],
+    image: "/images/projects/apps/ticketmaster.png",
+    detailImage: "/images/projects/apps/ticketmaster.png.jpg",
+    detailVideo: "/videos/projects/apps/TicketMaster.mp4",
     link: "#",
     status: "Outil sur mesure",
+
+    context:
+    "Lorsque j'etait développeur en CDI dans un entreprise de chimie, cette dernière utilisait un système de ticketing vraiment archaïque basé sur google sheet. Le nombre de ticket et la rapidité du résaux ralentissait grandement sont utilisation. J'ai donc eu l'idée de crée un système de ticketing en m'inspirant de GLPI"  ,
+     goal:
+    "Avoir un outils de ticketing rapide et efficace.",
   },
   {
     id: "app-02",
     slug: "app-02",
-    type: "Logiciel",
-    title: "Logiciel de gestion",
+    type: "Application compagnon ",
+    title: "APP compagnon Maussritter ",
+
+    detailMediaFit: "contain",
+    detailMediaMaxWidth: "390px",
     description:
-      "Interface claire pour gérer des données, suivre une activité et automatiser certains processus métier.",
-    technologies: ["C#", "SQL", "Architecture", "UI"],
-    image: "/images/projects/apps/logiciel-gestion.jpg",
+      "Application compagnon pour le jeu de rôle Maussritter",
+    technologies: ["Flutter", "SupaBase", "Architecture", "UI","CrossPlatform" ],
+    image: "/images/projects/apps/MausseRitterLogo.png",
+    detailImage: "/images/projects/websites/MausseRitterLogo.png",
+    detailVideo: "/videos/projects/apps/MaussRitter.mp4",
     link: "#",
     status: "Gestion",
+
+        context:
+    "Un ami qui fait du JDR papier avec l'aventure MaussRitter s'est retrouvé avec énomément de feuille, de petit morceau de papier et c'est rapidement devenu compliqué a géré, j'ai alors eu l'idée de faire une application. "  ,
+     goal:
+    "L'application devait avoir un système de gestion de compte pour stocker toutes les souris de chaques joueurs, le MJ a sa propre page lui permetant de crée des items avec plusieurs catégories. A la creation de son compte chaque MJ reçois un code MJ qu'il peut partager avec ses joueurs, lorsqu'un joueur se crée un compte il n'a plus qu'a renseigner le code de son MJ afin de voir uniquement les items qui lui sont propre",
   },
-  {
-    id: "app-03",
-    slug: "app-03",
-    type: "Mobile",
-    title: "Application mobile",
-    description:
-      "Prototype mobile pensé pour une navigation rapide, lisible et adaptée aux usages quotidiens.",
-    technologies: ["Flutter", "Supabase", "Auth", "Mobile UX"],
-    image: "/images/projects/apps/mobile-app.jpg",
-    link: "#",
-    status: "Mobile",
-  },
+  
 ];
 
 export const modelingProjects = [
-  {
+    {
     id: "model-01",
-    slug: "objet-3d-interactif",
-    type: "Objet 3D",
-    title: "Objet 3D interactif",
+    slug: "paleactica-character",
+    type: "Personnage",
+    title: "Personnage du jeu Paleactica",
     description:
-      "Visualisation 3D intégrée directement dans une page web, avec rotation libre et inspection du modèle.",
-    technologies: ["Three.js", "React Three Fiber", "FBX", "WebGL"],
-    model: "",
-    modelScale: 0.015,
-    modelPosition: [0, 0, 0],
-    modelRotation: [0, 0, 0],
-    autoRotate: true,
+      "Modélisation 3D du personnage joueur du jeu vidéo Paleactica.",
+    technologies: ["Blender"],
+
+    model: "/models/Perso.fbx",
+    modelScale: 0.025,
+    modelPosition: [1, 0, 3.4],
+    modelRotation: [0, 0.7, 0],
+    autoRotate: false,
+
     link: "#",
     status: "WebGL",
+    context:
+      "Modèle 3D conçu pour un projet de jeu vidéo avec une intégration temps réel.",
+    goal:
+      "Création d'un personnage en 3D dans blender",
   },
+
+  {
+    id: "model-02",
+    slug: "paleactica-robotBOB",
+    type: "Robot",
+    title: "Robot du jeu Paleactica",
+    description:
+      "Modélisation 3D du robot compagnon du jeu vidéo Paleactica.",
+    technologies: ["Blender"],
+
+    model: "/models/BOB.fbx",
+    modelScale: 0.008,
+    modelPosition: [2, -4, 5],
+    modelRotation: [-1.7, -0.1, 1.1],
+    autoRotate: false,
+
+    link: "#",
+    status: "WebGL",
+    context:
+      "Modèle 3D conçu pour un projet de jeu vidéo avec une intégration temps réel.",
+    goal:
+      "Création d'un robot en 3D dans blender",
+  },
+  {
+    id: "model-03",
+    slug: "paleactica-tools",
+    type: "Outils",
+    title: "Une pelle",
+    description:
+      "Modélisation 3D d'une pelle'.",
+    technologies: ["Blender"],
+
+    model: "/models/Pelle.fbx",
+    modelScale: 0.05,
+    modelPosition: [2, -4, 5],
+    modelRotation: [-1.7, -0.1, 1.1],
+    autoRotate: false,
+
+    link: "#",
+    status: "WebGL",
+    context:
+      "Modèle 3D conçu pour un projet de jeu vidéo avec une intégration temps réel.",
+    goal:
+      "Création d'une pelle en 3D dans blender",
+  },
+
+  {
+    id: "model-04",
+    slug: "paleactica-flore",
+    type: "Nature",
+    title: "Un champignon géant",
+    description:
+      "Modélisation 3D d'un champignon géant'.",
+    technologies: ["Blender"],
+
+    model: "/models/MushroomBigCavefbx.fbx",
+    modelScale: 0.010,
+    modelPosition: [2.4, 0, 5],
+    modelRotation: [-1.7, -0.1, 0],
+    autoRotate: false,
+
+    link: "#",
+    status: "WebGL",
+    context:
+      "Modèle 3D conçu pour un projet de jeu vidéo avec une intégration temps réel.",
+    goal:
+      "Création d'un gros champignon en 3D dans blender",
+  },
+
+  {
+    id: "model-05",
+    slug: "paleactica-bot",
+    type: "Robot",
+    title: "BOB version cube",
+    description:
+      "Modélisation 3D de la version cube du robot BOB'.",
+    technologies: ["Blender"],
+
+    model: "/models/BOBCube.fbx",
+    modelScale: 0.010,
+    modelPosition: [2.4, 0, 5],
+    modelRotation: [-1.7, -0.1, 0],
+    autoRotate: false,
+
+    link: "#",
+    status: "WebGL",
+    context:
+      "Modèle 3D conçu pour un projet de jeu vidéo avec une intégration temps réel.",
+    goal:
+      "Création d'un petit cube robot en 3D dans blender",
+  },
+
+
 ];
 
 export const allProjects = [

@@ -271,7 +271,7 @@ function Home() {
                 </div>
 
                 <h3>{offer.title}</h3>
-
+                <strong className="home-offers__price">{offer.price}</strong>
                 <p>{offer.text}</p>
 
                 <ul>

@@ -109,6 +109,7 @@ export const offers = [
     number: "01",
     label: "Présence pro",
     title: "Site vitrine",
+    price: "À partir de 1 200 €",
     text: "Pour présenter votre activité, vos services, vos réalisations et donner confiance à vos futurs clients.",
     items: [
       "Design responsive",
@@ -124,6 +125,7 @@ export const offers = [
     number: "02",
     label: "Conversion",
     title: "Landing page",
+    price: "À partir de 800 €",
     text: "Pour mettre en avant une offre précise et guider le visiteur vers une action claire : contact, demande de devis, inscription.",
     items: [
       "Message commercial clair",
@@ -139,6 +141,7 @@ export const offers = [
     number: "03",
     label: "Sur mesure",
     title: "Application métier",
+    price: "À partir de 3000 €",
     text: "Pour créer un outil adapté à votre organisation : gestion, automatisation, tableau de bord ou interface interne.",
     items: [
       "Analyse du besoin",
@@ -154,6 +157,7 @@ export const offers = [
     number: "04",
     label: "3D interactive",
     title: "Modélisation 3D",
+    price: "À partir de 600 €",
     text: "Pour présenter un objet, un produit ou un concept avec une visualisation 3D interactive directement intégrée à votre site.",
     items: [
       "Modèle 3D optimisé web",

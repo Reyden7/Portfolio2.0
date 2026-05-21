@@ -61,7 +61,11 @@ function ProjectDetail() {
 
           <div
             className={`project-detail__media reveal ${
-              project.model ? "project-detail__media--model" : ""
+               project.model ? "project-detail__media--model" : ""
+            } ${
+              project.detailMediaFit === "contain"
+                ? "project-detail__media--contain"
+                : ""
             }`}
           >
             {project.model ? (
@@ -72,6 +76,20 @@ function ProjectDetail() {
                 rotation={project.modelRotation}
                 autoRotate={project.autoRotate}
               />
+            ) : project.detailVideo ? (
+              <video
+                src={project.detailVideo}
+                poster={project.detailImage || project.image}
+                autoPlay
+                muted
+                loop
+                playsInline
+                style={{
+                  maxWidth: project.detailMediaMaxWidth || "100%",
+                }}
+              />
+            ) : project.detailImage ? (
+              <img src={project.detailImage} alt={project.title} />
             ) : project.image ? (
               <img src={project.image} alt={project.title} />
             ) : (

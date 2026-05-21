@@ -1,4 +1,5 @@
-import { Suspense, useEffect } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
+import * as THREE from "three";
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, useFBX, Center, Environment } from "@react-three/drei";
 import "./ModelViewer.css";
@@ -36,8 +37,50 @@ function ModelViewer({
   rotation = [0, 0, 0],
   autoRotate = true,
 }) {
+  const controlsRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isShiftMode, setIsShiftMode] = useState(false);
+
+  const setLeftButtonMode = (mode) => {
+    if (!controlsRef.current) return;
+
+    controlsRef.current.mouseButtons.LEFT = mode;
+  };
+
+  const handlePointerEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handlePointerLeave = () => {
+    setIsHovered(false);
+    setIsShiftMode(false);
+    setLeftButtonMode(THREE.MOUSE.ROTATE);
+  };
+
+  const handlePointerDown = (event) => {
+    if (event.shiftKey) {
+      setIsShiftMode(true);
+      setLeftButtonMode(THREE.MOUSE.PAN);
+      return;
+    }
+
+    setIsShiftMode(false);
+    setLeftButtonMode(THREE.MOUSE.ROTATE);
+  };
+
+  const handlePointerUp = () => {
+    setIsShiftMode(false);
+    setLeftButtonMode(THREE.MOUSE.ROTATE);
+  };
+
   return (
-    <div className="model-viewer">
+    <div
+      className={`model-viewer ${isHovered ? "model-viewer--active" : ""}`}
+      onPointerEnter={handlePointerEnter}
+      onPointerLeave={handlePointerLeave}
+      onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerUp}
+    >
       <Canvas camera={{ fov: 45 }}>
         <CameraSetup />
 
@@ -59,10 +102,26 @@ function ModelViewer({
         </Suspense>
 
         <OrbitControls
+          ref={controlsRef}
+          enabled={isHovered}
+          enableRotate
+          enablePan
           enableZoom
-          enablePan={false}
-          autoRotate={autoRotate}
-          autoRotateSpeed={0.8}
+          enableDamping
+          dampingFactor={0.08}
+          screenSpacePanning
+          panSpeed={0.75}
+          rotateSpeed={0.7}
+          zoomSpeed={0.9}
+          autoRotate={autoRotate && isHovered}
+          autoRotateSpeed={0.55}
+          minDistance={1.2}
+          maxDistance={12}
+          mouseButtons={{
+            LEFT: THREE.MOUSE.ROTATE,
+            MIDDLE: THREE.MOUSE.DOLLY,
+            RIGHT: THREE.MOUSE.PAN,
+          }}
         />
       </Canvas>
 
@@ -70,6 +129,20 @@ function ModelViewer({
         <div className="model-viewer__empty">
           <span>3D</span>
           <p>Modèle bientôt disponible</p>
+        </div>
+      )}
+
+      {modelUrl && (
+        <div className="model-viewer__controls">
+          <span>Clic gauche : rotation</span>
+          <span>Shift + clic : déplacement</span>
+          <span>Molette : zoom</span>
+        </div>
+      )}
+
+      {isShiftMode && (
+        <div className="model-viewer__mode">
+          Déplacement caméra
         </div>
       )}
     </div>
