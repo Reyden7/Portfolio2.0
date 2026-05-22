@@ -8,6 +8,7 @@ import {
   fetchProjectsFromApi,
   updateProjectFromApi,
   restoreProjectsToApi,
+  uploadProjectMedia,
 } from "../../services/projectsApi";
 
 import { projects as defaultProjects } from "../../data/projects";
@@ -48,6 +49,7 @@ function AdminProjects() {
   const [adminProjects, setAdminProjects] = useState([]);
   const [editingProjectId, setEditingProjectId] = useState(null);
   const [project, setProject] = useState(getEmptyProject());
+  const [uploadingField, setUploadingField] = useState(null);
 
   async function loadAdminProjects() {
     try {
@@ -93,6 +95,41 @@ function AdminProjects() {
   useEffect(() => {
     loadAdminProjects();
   }, []);
+
+  async function handleMediaUpload(fieldName, file, mediaType) {
+  if (!file) {
+    return;
+  }
+
+  if (!isAdminUnlocked) {
+    alert("Déverrouille l’espace admin avant d’importer un fichier.");
+    return;
+  }
+
+  if (!adminPassword) {
+    alert("Mot de passe admin manquant.");
+    return;
+  }
+
+  try {
+    setUploadingField(fieldName);
+
+    const result = await uploadProjectMedia(file, adminPassword, {
+      mediaType,
+      category: project.category,
+    });
+
+    setProject((currentProject) => ({
+      ...currentProject,
+      [fieldName]: result.url,
+    }));
+  } catch (error) {
+    console.error(error);
+    alert("Erreur pendant l'import du fichier.");
+  } finally {
+    setUploadingField(null);
+  }
+}
 
   function handleUnlockAdmin(event) {
     event.preventDefault();
@@ -395,31 +432,58 @@ function AdminProjects() {
           <label>
             Image principale
             <input
-              name="image"
-              value={project.image}
-              onChange={handleChange}
-              placeholder="/images/projects/websites/image.png"
+              type="file"
+              accept="image/*"
+              onChange={(event) =>
+                handleMediaUpload("image", event.target.files?.[0], "image")
+              }
             />
+
+            {uploadingField === "image" && <small>Import de l’image...</small>}
+
+            {project.image && (
+              <small className="admin-projects__file-path">
+                Fichier actuel : {project.image}
+              </small>
+            )}
           </label>
 
           <label>
             Image détail
             <input
-              name="detailImage"
-              value={project.detailImage}
-              onChange={handleChange}
-              placeholder="/images/projects/websites/image.png"
+              type="file"
+              accept="image/*"
+              onChange={(event) =>
+                handleMediaUpload("detailImage", event.target.files?.[0], "detail-image")
+              }
             />
+
+            {uploadingField === "detailImage" && <small>Import de l’image détail...</small>}
+
+            {project.detailImage && (
+              <small className="admin-projects__file-path">
+                Fichier actuel : {project.detailImage}
+              </small>
+            )}
           </label>
 
           <label>
             Vidéo détail
             <input
-              name="detailVideo"
-              value={project.detailVideo}
-              onChange={handleChange}
-              placeholder="/videos/projects/websites/video.mp4"
+              type="file"
+              accept="video/*"
+              onChange={(event) =>
+                handleMediaUpload("detailVideo", event.target.files?.[0], "video")
+              }
             />
+
+            {uploadingField === "detailVideo" && <small>Import de la vidéo...</small>}
+
+            {project.detailVideo && (
+              <small className="admin-projects__file-path">
+                Fichier actuel : {project.detailVideo}
+              </small>
+            )}
           </label>
 
           <label>

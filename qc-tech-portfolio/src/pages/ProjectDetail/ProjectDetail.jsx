@@ -3,16 +3,13 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import TransitionLink from "../../components/TransitionLink/TransitionLink";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
-import { getStoredProjects } from "../../services/projectsLocalStorage";
 import "./ProjectDetail.css";
 import ModelViewer from "../../components/ModelViewer/ModelViewer";
-import useMagneticElements from "../../hooks/useMagneticElements";
 import usePageMeta from "../../hooks/usePageMeta";
 import useProjects from "../../hooks/useProjects";
+
 function ProjectDetail() {
   useRevealOnScroll();
-  
-  //useMagneticElements();
 
   const { slug } = useParams();
   const { projects, loading } = useProjects();
@@ -27,8 +24,13 @@ function ProjectDetail() {
   });
 
   if (loading) {
-    return null;
+    return (
+      <main className="project-detail">
+        <Header />
+      </main>
+    );
   }
+
   if (!project) {
     return (
       <main className="project-detail">
@@ -63,10 +65,9 @@ function ProjectDetail() {
 
       <section className="project-detail__body">
         <div className="project-detail__inner">
-
           <div
-            className={`project-detail__media reveal ${
-               project.model ? "project-detail__media--model" : ""
+            className={`project-detail__media ${
+              project.model ? "project-detail__media--model" : ""
             } ${
               project.detailMediaFit === "contain"
                 ? "project-detail__media--contain"
@@ -110,31 +111,39 @@ function ProjectDetail() {
           </div>
 
           <div className="project-detail__grid">
-            <article className="project-detail__panel reveal" data-reveal-direction="left">
+            <article className="project-detail__panel">
               <p className="project-detail__kicker">Contexte</p>
               <h2>Le besoin</h2>
-              <p>{project.context}</p>
+              <p>{project.context || "Aucun contexte renseigné."}</p>
             </article>
 
-            <article className="project-detail__panel reveal" data-reveal-direction="right"  data-reveal-delay="120">
+            <article className="project-detail__panel">
               <p className="project-detail__kicker">Objectif</p>
               <h2>Ce que le projet doit apporter</h2>
-              <p>{project.goal}</p>
+              <p>{project.goal || "Aucun objectif renseigné."}</p>
             </article>
           </div>
 
-          <div className="project-detail__tech reveal" data-reveal-delay="160">
+          <div className="project-detail__tech">
             <p className="project-detail__kicker">Technologies</p>
 
             <div className="project-detail__tech-list">
-              {project.technologies.map((tech) => (
-                <span key={tech}>{tech}</span>
-              ))}
+              {Array.isArray(project.technologies) &&
+              project.technologies.length > 0 ? (
+                project.technologies.map((tech) => (
+                  <span key={tech}>{tech}</span>
+                ))
+              ) : (
+                <span>Aucune technologie renseignée</span>
+              )}
             </div>
           </div>
 
-          <div className="project-detail__actions reveal" data-reveal-delay="220">
-            <TransitionLink to={project.backPath} className="project-detail__button project-detail__button--ghost magnetic">
+          <div className="project-detail__actions">
+            <TransitionLink
+              to={project.backPath || "/"}
+              className="project-detail__button project-detail__button--ghost magnetic"
+            >
               ← Retour aux projets
             </TransitionLink>
 

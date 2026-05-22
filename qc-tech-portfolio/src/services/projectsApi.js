@@ -77,3 +77,35 @@ export async function restoreProjectsToApi(projects, adminPassword) {
   return response.json();
 }
 
+
+export async function uploadProjectMedia(file, adminPassword, options = {}) {
+  const formData = new FormData();
+
+  formData.append("file", file);
+  formData.append("mediaType", options.mediaType || "media");
+  formData.append("category", options.category || "general");
+
+  const response = await fetch("/.netlify/functions/upload-media", {
+    method: "POST",
+    headers: {
+      "x-admin-password": adminPassword,
+    },
+    body: formData,
+  });
+
+  const responseText = await response.text();
+
+  let data;
+
+  try {
+    data = JSON.parse(responseText);
+  } catch {
+    data = { message: responseText };
+  }
+
+  if (!response.ok) {
+    throw new Error(data.message || "Impossible d'uploader le fichier");
+  }
+
+  return data;
+}
