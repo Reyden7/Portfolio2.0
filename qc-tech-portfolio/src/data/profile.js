@@ -1,5 +1,5 @@
 export const profile = {
-  companyName: "QC-Tech",
+  companyName: "DigitalLoom",
   displayName: "Quentin Cordiero",
   jobTitle: "Freelance développeur",
 
@@ -10,7 +10,7 @@ export const profile = {
   github: "https://github.com/Reyden7",
   linkedin: "https://www.linkedin.com/in/quentin-c-17a36028b/",
 
-  heroTitle: "QC TECH",
+  heroTitle: "DigitalLoom",
 
   heroSubtitle:
     "Sites internet, applications métier et expériences digitales propres, rapides et pensées pour convertir vos visiteurs en clients.",
