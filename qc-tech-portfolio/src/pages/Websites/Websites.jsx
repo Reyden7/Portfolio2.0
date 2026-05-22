@@ -1,7 +1,17 @@
 import ProjectPageLayout from "../../components/ProjectPageLayout/ProjectPageLayout";
-import { websiteProjects } from "../../data/projects";
+import useProjects from "../../hooks/useProjects";
 
 function Websites() {
+  const { projects, loading } = useProjects();
+
+  const websiteProjects = projects.filter(
+    (project) => project.category === "websites"
+  );
+
+  if (loading) {
+    return null;
+  }
+
   return (
     <ProjectPageLayout
       eyebrow="Sites internet"

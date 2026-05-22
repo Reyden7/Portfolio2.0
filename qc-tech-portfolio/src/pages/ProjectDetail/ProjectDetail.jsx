@@ -3,19 +3,21 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import TransitionLink from "../../components/TransitionLink/TransitionLink";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
-import { getProjectBySlug } from "../../data/projects";
+import { getStoredProjects } from "../../services/projectsLocalStorage";
 import "./ProjectDetail.css";
 import ModelViewer from "../../components/ModelViewer/ModelViewer";
 import useMagneticElements from "../../hooks/useMagneticElements";
 import usePageMeta from "../../hooks/usePageMeta";
-
+import useProjects from "../../hooks/useProjects";
 function ProjectDetail() {
   useRevealOnScroll();
   
   //useMagneticElements();
 
   const { slug } = useParams();
-  const project = getProjectBySlug(slug);
+  const { projects, loading } = useProjects();
+
+  const project = projects.find((project) => project.slug === slug);
 
   usePageMeta({
     title: project ? project.title : "Projet introuvable",
@@ -24,6 +26,9 @@ function ProjectDetail() {
       : "Le projet demandé n’existe pas ou a été déplacé.",
   });
 
+  if (loading) {
+    return null;
+  }
   if (!project) {
     return (
       <main className="project-detail">

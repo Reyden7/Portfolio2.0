@@ -12,6 +12,7 @@ import Modeling3D from "./pages/Modeling3D/Modeling3D";
 import ProjectDetail from "./pages/ProjectDetail/ProjectDetail";
 import NotFound from "./pages/NotFound/NotFound";
 import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
+import AdminProjects from "./pages/AdminProject/AdminProjects";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -33,6 +34,7 @@ function App() {
               <Route path="/modelisation-3d" element={<Modeling3D />} />
               <Route path="/projets/:slug" element={<ProjectDetail />} />
               <Route path="*" element={<NotFound />} />
+              <Route path="/admin" element={<AdminProjects />} />
             </Routes>
           </PageTransitionProvider>
         )}

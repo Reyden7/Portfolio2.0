@@ -1,20 +1,30 @@
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import ModelProjectCard from "../../components/ModelProjectCard/ModelProjectCard";
-import { modelingProjects } from "../../data/projects";
+import useProjects from "../../hooks/useProjects";
 import "./Modeling3D.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
-import useMagneticElements from "../../hooks/useMagneticElements";
 import usePageMeta from "../../hooks/usePageMeta";
 
 function Modeling3D() {
-    useRevealOnScroll();
-    usePageMeta({
-      title: "Modélisation 3D",
-      description:
-        "Projets de modélisation 3D et visualisation interactive intégrés dans des expériences web modernes.",
-    });
-    //useMagneticElements();
+  useRevealOnScroll();
+
+  usePageMeta({
+    title: "Modélisation 3D",
+    description:
+      "Projets de modélisation 3D",
+  });
+
+  const { projects, loading } = useProjects();
+
+  const modelingProjects = projects.filter(
+    (project) => project.category === "modeling"
+  );
+
+  if (loading) {
+    return null;
+  }
+
   return (
     <main className="modeling-page">
       <Header />
