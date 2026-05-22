@@ -144,7 +144,7 @@ function Home() {
       </section>    
       <section className="home-trust">
         <div className="home-trust__inner">
-          <p className="section-kicker">Pourquoi QC-Tech</p>
+          <p className="section-kicker">Pourquoi DigitalLoom</p>
 
           <div className="home-trust__heading reveal" data-reveal-direction="right">
             <h2>Un site beau, c’est bien. Un site utile, c’est mieux.</h2>

@@ -14,6 +14,21 @@
   user-select: none;
 }
 
+.model-viewer--mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.model-viewer__mobile-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  border-radius: 20px;
+}
+
 .model-viewer--active {
   cursor: grab;
 }

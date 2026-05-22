@@ -1,13 +1,7 @@
 import { Suspense, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useThree } from "@react-three/fiber";
-import {
-  OrbitControls,
-  useFBX,
-  useGLTF,
-  Center,
-  Environment,
-} from "@react-three/drei";
+import { OrbitControls, useFBX, Center, Environment } from "@react-three/drei";
 import "./ModelViewer.css";
 
 function CameraSetup() {
@@ -19,45 +13,6 @@ function CameraSetup() {
   }, [camera]);
 
   return null;
-}
-
-function Model({ url, scale, position, rotation }) {
-  const extension = url.split(".").pop().toLowerCase();
-
-  if (extension === "glb" || extension === "gltf") {
-    return (
-      <GLBModel
-        url={url}
-        scale={scale}
-        position={position}
-        rotation={rotation}
-      />
-    );
-  }
-
-  return (
-    <FBXModel
-      url={url}
-      scale={scale}
-      position={position}
-      rotation={rotation}
-    />
-  );
-}
-
-function GLBModel({ url, scale, position, rotation }) {
-  const gltf = useGLTF(url);
-
-  return (
-    <Center>
-      <primitive
-        object={gltf.scene}
-        scale={scale}
-        position={position}
-        rotation={rotation}
-      />
-    </Center>
-  );
 }
 
 function FBXModel({ url, scale, position, rotation }) {
@@ -77,6 +32,8 @@ function FBXModel({ url, scale, position, rotation }) {
 
 function ModelViewer({
   modelUrl,
+  fallbackImage,
+  alt = "Aperçu du modèle 3D",
   scale = 0.015,
   position = [0, 0, 0],
   rotation = [0, 0, 0],
@@ -85,6 +42,23 @@ function ModelViewer({
   const controlsRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isShiftMode, setIsShiftMode] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+    const updateIsMobile = () => {
+      setIsMobile(mediaQuery.matches);
+    };
+
+    updateIsMobile();
+
+    mediaQuery.addEventListener("change", updateIsMobile);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateIsMobile);
+    };
+  }, []);
 
   const setLeftButtonMode = (mode) => {
     if (!controlsRef.current) return;
@@ -117,6 +91,25 @@ function ModelViewer({
     setLeftButtonMode(THREE.MOUSE.ROTATE);
   };
 
+  if (isMobile) {
+    return (
+      <div className="model-viewer model-viewer--mobile">
+        {fallbackImage ? (
+          <img
+            src={fallbackImage}
+            alt={alt}
+            className="model-viewer__mobile-image"
+          />
+        ) : (
+          <div className="model-viewer__empty">
+            <span>3D</span>
+            <p>Aperçu bientôt disponible</p>
+          </div>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div
       className={`model-viewer ${isHovered ? "model-viewer--active" : ""}`}
@@ -133,14 +126,14 @@ function ModelViewer({
         <directionalLight position={[-4, 2, -3]} intensity={0.7} />
 
         <Suspense fallback={null}>
-          {modelUrl && (
-            <Model
+          {modelUrl ? (
+            <FBXModel
               url={modelUrl}
               scale={scale}
               position={position}
               rotation={rotation}
             />
-          )}
+          ) : null}
 
           <Environment preset="city" />
         </Suspense>
@@ -184,7 +177,11 @@ function ModelViewer({
         </div>
       )}
 
-      {isShiftMode && <div className="model-viewer__mode">Déplacement caméra</div>}
+      {isShiftMode && (
+        <div className="model-viewer__mode">
+          Déplacement caméra
+        </div>
+      )}
     </div>
   );
 }

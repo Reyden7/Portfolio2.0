@@ -135,3 +135,98 @@
     opacity: 0.7;
   }
 }
+
+@media (max-width: 700px) {
+  .loader {
+    overflow: hidden;
+  }
+
+  .loader__content {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100svh;
+    padding: 32px 20px;
+  }
+
+  .loader__logo {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .loader__brand {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .loader__brand strong {
+    font-size: clamp(2rem, 9.6vw, 3.2rem);
+    line-height: 0.9;
+    letter-spacing: -0.055em;
+    white-space: nowrap;
+  }
+
+  .loader__bracket {
+    flex: 0 0 auto;
+    font-size: clamp(2rem, 9vw, 3rem);
+    line-height: 1;
+  }
+
+  .loader__logo p {
+    margin-top: 16px;
+    font-size: clamp(0.62rem, 2.4vw, 0.78rem);
+    letter-spacing: 0.18em;
+    white-space: nowrap;
+  }
+
+  .loader__progress {
+    width: min(250px, calc(100vw - 72px));
+    gap: 12px;
+  }
+
+  .loader__percent {
+    min-width: 34px;
+    font-size: 0.68rem;
+  }
+
+  .loader__background span:nth-child(1) {
+    width: 180px;
+    left: 12%;
+  }
+
+  .loader__background span:nth-child(2) {
+    width: 210px;
+    right: 8%;
+  }
+
+  .loader__background span:nth-child(3) {
+    width: 150px;
+  }
+}
+
+@media (max-width: 430px) {
+  .loader__logo {
+    max-width: 300px;
+  }
+
+  .loader__brand {
+    gap: 6px;
+  }
+
+  .loader__brand strong {
+    font-size: clamp(1.8rem, 8.9vw, 2.55rem);
+    letter-spacing: -0.045em;
+  }
+
+  .loader__bracket {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+  }
+
+  .loader__logo p {
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+  }
+
+  .loader__progress {
+    width: min(220px, calc(100vw - 80px));
+  }
+}

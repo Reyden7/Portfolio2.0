@@ -114,6 +114,7 @@ export const modelingProjects = [
     technologies: ["Blender"],
 
     model: "/models/Perso.fbx",
+    image:"/images/projects/modeling/Perso.png",
     modelScale: 0.025,
     modelPosition: [1, 0, 3.4],
     modelRotation: [0, 0.7, 0],
@@ -136,9 +137,10 @@ export const modelingProjects = [
       "Modélisation 3D du robot compagnon du jeu vidéo Paleactica.",
     technologies: ["Blender"],
 
-    model: "/models/BOB.glb",
-    modelScale: 0.02,
-    modelPosition: [-6, -80, 0],
+    model: "/models/BOB.fbx",
+    image:"/images/projects/modeling/BOB.png",
+    modelScale: 0.005,
+    modelPosition: [-6, -1, 0],
     modelRotation: [-1.7, -0.1, 1.1],
     autoRotate: false,
 
@@ -159,6 +161,7 @@ export const modelingProjects = [
     technologies: ["Blender"],
 
     model: "/models/Pelle.fbx",
+    image:"/images/projects/modeling/Pelle.png",
     modelScale: 0.05,
     modelPosition: [2, -4, 5],
     modelRotation: [-1.7, -0.1, 1.1],
@@ -182,6 +185,7 @@ export const modelingProjects = [
     technologies: ["Blender"],
 
     model: "/models/MushroomBigCavefbx.fbx",
+    image:"/images/projects/modeling/ChampiGeant.png",
     modelScale: 0.010,
     modelPosition: [2.4, 0, 5],
     modelRotation: [-1.7, -0.1, 0],
@@ -205,6 +209,7 @@ export const modelingProjects = [
     technologies: ["Blender"],
 
     model: "/models/BOBCube.fbx",
+    image:"/images/projects/modeling/BOBCube.png",
     modelScale: 0.010,
     modelPosition: [2.4, 0, 5],
     modelRotation: [-1.7, -0.1, 0],

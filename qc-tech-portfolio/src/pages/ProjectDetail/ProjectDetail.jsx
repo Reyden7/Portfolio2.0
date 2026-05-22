@@ -71,6 +71,8 @@ function ProjectDetail() {
             {project.model ? (
               <ModelViewer
                 modelUrl={project.model}
+                fallbackImage={project.image}
+                alt={project.title}
                 scale={project.modelScale}
                 position={project.modelPosition}
                 rotation={project.modelRotation}

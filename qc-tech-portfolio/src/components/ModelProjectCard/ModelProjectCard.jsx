@@ -12,6 +12,8 @@ function ModelProjectCard({ project, index = 0 }) {
       >
         <ModelViewer
           modelUrl={project.model}
+          fallbackImage={project.image}
+          alt={project.title}
           scale={project.modelScale}
           position={project.modelPosition}
           rotation={project.modelRotation}
