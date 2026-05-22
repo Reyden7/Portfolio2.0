@@ -37,7 +37,7 @@ function usePageMeta({ title, description }) {
 
     const finalDescription =
       description ||
-      "Portfolio QC-Tech : développement de sites internet, applications sur mesure et expériences 3D interactives.";
+      "Portfolio DigitalLoom : développement de sites internet, applications sur mesure et expériences 3D interactives.";
 
     document.title = finalTitle;
 

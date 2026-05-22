@@ -8,7 +8,7 @@ function NotFound() {
      usePageMeta({
     title: "Page introuvable",
     description:
-      "Cette page n’existe pas ou a été déplacée. Retournez sur le portfolio QC-Tech.",
+      "Cette page n’existe pas ou a été déplacée. Retournez sur le portfolio DigitalLoom.",
   });
   return (
     <main className="not-found">

@@ -20,7 +20,7 @@ function Home() {
       usePageMeta({
         title: "Accueil",
         description:
-          "QC-Tech accompagne les entreprises dans la création de sites internet, applications métier et modélisation 3D",
+          "DigitalLoom accompagne les entreprises dans la création de sites internet, applications métier et modélisation 3D",
       });
       //useMagneticElements();
 

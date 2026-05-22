@@ -123,7 +123,7 @@ export function PageTransitionProvider({ children }) {
       <div className="page-transition" ref={transitionRef}>
         <div className="page-transition__content" ref={labelRef}>
           <span>&lt;</span>
-          <strong>QC-Tech</strong>
+          <strong>DigitalLoom</strong>
           <span>/&gt;</span>
         </div>
       </div>
