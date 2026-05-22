@@ -88,7 +88,7 @@ function Loader({ onComplete }) {
         <div className="loader__logo" ref={logoRef}>
           <div className="loader__brand">
             <span className="loader__bracket">&lt;</span>
-            <strong>QC-Tech</strong>
+            <strong>DigitalLoom</strong>
             <span className="loader__bracket">/&gt;</span>
           </div>
 

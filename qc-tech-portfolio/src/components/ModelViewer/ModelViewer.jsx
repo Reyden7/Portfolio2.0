@@ -1,7 +1,13 @@
 import { Suspense, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useThree } from "@react-three/fiber";
-import { OrbitControls, useFBX, Center, Environment } from "@react-three/drei";
+import {
+  OrbitControls,
+  useFBX,
+  useGLTF,
+  Center,
+  Environment,
+} from "@react-three/drei";
 import "./ModelViewer.css";
 
 function CameraSetup() {
@@ -13,6 +19,45 @@ function CameraSetup() {
   }, [camera]);
 
   return null;
+}
+
+function Model({ url, scale, position, rotation }) {
+  const extension = url.split(".").pop().toLowerCase();
+
+  if (extension === "glb" || extension === "gltf") {
+    return (
+      <GLBModel
+        url={url}
+        scale={scale}
+        position={position}
+        rotation={rotation}
+      />
+    );
+  }
+
+  return (
+    <FBXModel
+      url={url}
+      scale={scale}
+      position={position}
+      rotation={rotation}
+    />
+  );
+}
+
+function GLBModel({ url, scale, position, rotation }) {
+  const gltf = useGLTF(url);
+
+  return (
+    <Center>
+      <primitive
+        object={gltf.scene}
+        scale={scale}
+        position={position}
+        rotation={rotation}
+      />
+    </Center>
+  );
 }
 
 function FBXModel({ url, scale, position, rotation }) {
@@ -43,7 +88,6 @@ function ModelViewer({
 
   const setLeftButtonMode = (mode) => {
     if (!controlsRef.current) return;
-
     controlsRef.current.mouseButtons.LEFT = mode;
   };
 
@@ -89,14 +133,14 @@ function ModelViewer({
         <directionalLight position={[-4, 2, -3]} intensity={0.7} />
 
         <Suspense fallback={null}>
-          {modelUrl ? (
-            <FBXModel
+          {modelUrl && (
+            <Model
               url={modelUrl}
               scale={scale}
               position={position}
               rotation={rotation}
             />
-          ) : null}
+          )}
 
           <Environment preset="city" />
         </Suspense>
@@ -140,11 +184,7 @@ function ModelViewer({
         </div>
       )}
 
-      {isShiftMode && (
-        <div className="model-viewer__mode">
-          Déplacement caméra
-        </div>
-      )}
+      {isShiftMode && <div className="model-viewer__mode">Déplacement caméra</div>}
     </div>
   );
 }

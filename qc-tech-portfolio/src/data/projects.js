@@ -136,9 +136,9 @@ export const modelingProjects = [
       "Modélisation 3D du robot compagnon du jeu vidéo Paleactica.",
     technologies: ["Blender"],
 
-    model: "/models/BOB.fbx",
-    modelScale: 0.008,
-    modelPosition: [2, -4, 5],
+    model: "/models/BOB.glb",
+    modelScale: 0.02,
+    modelPosition: [-6, -80, 0],
     modelRotation: [-1.7, -0.1, 1.1],
     autoRotate: false,
 

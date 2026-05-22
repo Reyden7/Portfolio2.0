@@ -3,7 +3,7 @@ export const profile = {
   displayName: "Quentin Cordiero",
   jobTitle: "Freelance développeur",
 
-  email: "quentin.cordiero@gmail.com",
+  email: "contact@digitalloom.fr",
 
   location: "Dijon / Bourgogne-Franche-Comté",
 
