@@ -4,7 +4,9 @@ import TransitionLink from "../TransitionLink/TransitionLink";
 
 function ProjectCard({ project, index = 0 }) {
   const [hasImageError, setHasImageError] = useState(false);
+
   const hasImage = project.image && !hasImageError;
+  const technologies = project.technologies || project.tech || project.tags || [];
 
   return (
     <article
@@ -12,11 +14,7 @@ function ProjectCard({ project, index = 0 }) {
         index % 2 === 1 ? "project-card--reverse" : ""
       }`}
     >
-      <TransitionLink
-        to={`/projets/${project.slug}`}
-        className="project-card__media magnetic"
-        ariaLabel={`Voir le projet ${project.title}`}
-      >
+      <div className="project-card__media">
         {hasImage ? (
           <img
             src={project.image}
@@ -33,7 +31,7 @@ function ProjectCard({ project, index = 0 }) {
         <div className="project-card__badge">
           {project.status || "Projet"}
         </div>
-      </TransitionLink>
+      </div>
 
       <div className="project-card__content">
         <p className="project-card__kicker">
@@ -44,19 +42,21 @@ function ProjectCard({ project, index = 0 }) {
 
         <p className="project-card__description">{project.description}</p>
 
-        <div className="project-card__techs">
-          {project.technologies.map((tech) => (
-            <span key={tech}>{tech}</span>
-          ))}
-        </div>
+        {technologies.length > 0 && (
+          <div className="project-card__techs">
+            {technologies.map((tech) => (
+              <span key={tech}>{tech}</span>
+            ))}
+          </div>
+        )}
 
         <TransitionLink
-        to={`/projets/${project.slug}`}
-        className="project-card__link magnetic"
-      >
-        Voir le projet
-        <span>↗</span>
-      </TransitionLink>
+          to={`/projets/${project.slug}`}
+          className="project-card__link magnetic"
+        >
+          Voir le projet
+          <span>↗</span>
+        </TransitionLink>
       </div>
     </article>
   );

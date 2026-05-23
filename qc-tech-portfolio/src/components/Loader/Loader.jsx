@@ -33,7 +33,7 @@ function Loader({ onComplete }) {
         {
           targets: barRef.current,
           width: ["0%", "100%"],
-          duration: 1800,
+          duration: 1000,
           easing: "easeInOutQuart",
         },
         "-=350"
@@ -86,11 +86,17 @@ function Loader({ onComplete }) {
 
       <div className="loader__content">
         <div className="loader__logo" ref={logoRef}>
-          <div className="loader__brand">
-            <span className="loader__bracket">&lt;</span>
-            <strong>DigitalLoom</strong>
-            <span className="loader__bracket">/&gt;</span>
+             <div className="loader__brand">
+            <div className="loader__brand-mark">
+              <span></span>
+            </div>
+
+            <strong>
+              Digital<span>Loom</span>
+            </strong>
           </div>
+
+          <p>Création d’expériences digitales modernes, mémorables et orientées résultats.</p>
 
           <p>Freelance développeur</p>
         </div>

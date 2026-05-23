@@ -37,12 +37,17 @@ function ProjectDetail() {
         <Header />
 
         <section className="project-detail__not-found">
-          <p>Projet introuvable</p>
-          <h1>Cette page n’existe pas.</h1>
+          <div className="project-detail__noise"></div>
 
-          <TransitionLink to="/" className="project-detail__button">
-            Retour à l’accueil
-          </TransitionLink>
+          <div className="project-detail__not-found-inner">
+            <p>Projet introuvable</p>
+            <h1>Cette page n’existe pas.</h1>
+
+            <TransitionLink to="/" className="project-detail__button">
+              Retour à l’accueil
+              <span>↗</span>
+            </TransitionLink>
+          </div>
         </section>
       </main>
     );
@@ -56,10 +61,16 @@ function ProjectDetail() {
       <Header />
 
       <section className="project-detail__hero">
+        <div className="project-detail__noise"></div>
+
         <div className="project-detail__hero-inner">
-          <p>{project.categoryLabel}</p>
+          <p className="project-detail__eyebrow">{project.categoryLabel}</p>
+
           <h1>{project.title}</h1>
+
           <span>{project.description}</span>
+
+          
         </div>
       </section>
 
@@ -128,8 +139,7 @@ function ProjectDetail() {
             <p className="project-detail__kicker">Technologies</p>
 
             <div className="project-detail__tech-list">
-              {Array.isArray(project.technologies) &&
-              project.technologies.length > 0 ? (
+              {Array.isArray(project.technologies) && project.technologies.length > 0 ? (
                 project.technologies.map((tech) => (
                   <span key={tech}>{tech}</span>
                 ))
@@ -154,7 +164,8 @@ function ProjectDetail() {
                 target="_blank"
                 rel="noreferrer"
               >
-                GitHub ↗
+                GitHub
+                <span>↗</span>
               </a>
             )}
 
@@ -165,7 +176,8 @@ function ProjectDetail() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Voir la démo ↗
+                Voir la démo
+                <span>↗</span>
               </a>
             )}
           </div>

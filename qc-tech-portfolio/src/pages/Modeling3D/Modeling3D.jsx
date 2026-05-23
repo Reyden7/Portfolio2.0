@@ -12,7 +12,7 @@ function Modeling3D() {
   usePageMeta({
     title: "Modélisation 3D",
     description:
-      "Projets de modélisation 3D",
+      "Création et intégration de modèles 3D interactifs pour enrichir une expérience web, présenter un produit ou créer un effet mémorable.",
   });
 
   const { projects, loading } = useProjects();
@@ -30,28 +30,54 @@ function Modeling3D() {
       <Header />
 
       <section className="modeling-page__hero">
+        <div className="modeling-page__noise"></div>
+
         <div className="modeling-page__hero-inner">
-          <p>Modélisation 3D</p>
-          <h1>Objets 3D</h1>
+          <p className="modeling-page__eyebrow">Expériences 3D</p>
+
+          <h1>Des objets 3D qui rendent votre projet plus mémorable.</h1>
+
           <span>
-            Des modèles 3D intégrés directement dans une expérience web
-            interactive, pensés pour être manipulés, observés et valorisés.
+            J’intègre des modèles 3D directement dans des expériences web
+            interactives pour présenter un produit, valoriser un univers ou
+            créer un effet waouh auprès de vos visiteurs.
           </span>
+
+          <div className="modeling-page__hero-proof">
+            <strong>{modelingProjects.length}</strong>
+            <small>
+              {modelingProjects.length > 1
+                ? "projets 3D disponibles"
+                : "projet 3D disponible"}
+            </small>
+          </div>
         </div>
       </section>
 
       <section className="modeling-page__list">
         <div className="modeling-page__inner">
-          {modelingProjects.map((project, index) => (
-            <div
-              className="reveal"
-              key={project.id}
-              data-reveal-direction={index % 2 === 0 ? "left" : "right"}
-              data-reveal-delay={index * 90}
-            >
-              <ModelProjectCard project={project} index={index} />
+          <div className="modeling-page__list-heading reveal">
+            <p className="section-kicker">Réalisations 3D</p>
+           
+          </div>
+
+          {modelingProjects.length > 0 ? (
+            <div className="modeling-page__grid">
+              {modelingProjects.map((project, index) => (
+                <div key={project.id}>
+                  <ModelProjectCard project={project} index={index} />
+                </div>
+              ))}
             </div>
-          ))}
+          ) : (
+            <div className="modeling-page__empty reveal">
+              <p>
+                Les projets 3D seront bientôt disponibles. En attendant, vous
+                pouvez me contacter pour discuter d’une expérience interactive
+                ou d’une intégration 3D sur votre site.
+              </p>
+            </div>
+          )}
         </div>
       </section>
 

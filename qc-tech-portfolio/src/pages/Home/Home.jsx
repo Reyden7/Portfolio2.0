@@ -46,34 +46,43 @@ function Home() {
         <div className="home-hero__noise"></div>
 
         <div className="home-hero__content">
-          <p className="home-hero__eyebrow">Freelance développeur</p>
+          <p className="home-hero__eyebrow">Sites web • Applications • Expériences digitales</p>
 
           <h1>
-            <span className="home-hero__bracket">&lt;</span>
-            {profile.heroTitle}
-            <span className="home-hero__bracket">/&gt;</span>
+            DigitalLoom
           </h1>
 
           <p className="home-hero__subtitle">
-            {profile.heroSubtitle}
+            DigitalLoom accompagne les indépendants et entreprises dans la création
+            d’expériences digitales modernes, rapides et pensées pour transformer les
+            visiteurs en clients.
           </p>
 
           <div className="home-hero__actions">
             <button
               className="magnetic"
               onClick={() =>
-                document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
               }
             >
-              Voir les projets
+              Discuter de mon projet
+              <span>↗</span>
             </button>
 
             <button
               className="home-hero__actions-secondary magnetic"
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() =>
+                document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+              }
             >
-              Me contacter
+              Voir les réalisations
             </button>
+          </div>
+
+          <div className="home-hero__proofs">
+            <span>Design impactant</span>
+            <span>Développement sur mesure</span>
+            <span>Objectif conversion</span>
           </div>
         </div>
 
@@ -89,26 +98,62 @@ function Home() {
 
       <section className="home-story" id="story">
         <div className="home-story__inner">
-          <p className="section-kicker">Présentation</p>
+          <p className="section-kicker">À propos</p>
 
           <div className="home-story__grid reveal" data-reveal-direction="left">
-            <div>
-              <h2>Je conçois des solutions digitales solides, utiles et élégantes.</h2>
+            <div className="home-story__heading">
+              <h2>
+                Je crée des expériences qui donnent envie de passer à l’action.
+              </h2>
+
+              <div className="home-story__stats">
+                <div>
+                  <strong>6+</strong>
+                  <span>années d’expérience</span>
+                </div>
+
+                <div>
+                  <strong>100%</strong>
+                  <span>sur mesure</span>
+                </div>
+              </div>
             </div>
 
             <div className="home-story__content">
-                <p>
-                    {profile.shortPresentation} Mon objectif est simple : transformer une
-                    idée en produit clair, performant et agréable à utiliser.
-                </p>
+              <p>
+                Un bon site ne doit pas seulement être beau. Il doit être clair,
+                rapide, rassurant et pensé pour guider le visiteur vers la bonne
+                action : vous contacter, demander un devis ou découvrir vos services.
+              </p>
 
-                <p>{profile.longPresentation}</p>
+              <p>
+                Avec DigitalLoom, je vous accompagne de la réflexion à la mise en
+                ligne pour construire une présence digitale cohérente, moderne et
+                adaptée à vos objectifs réels.
+              </p>
 
-                <div className="home-story__skills">
-                {profile.skills.map((skill) => (
-                    <span key={skill}>{skill}</span>
-                ))}
+              <div className="home-story__value-list">
+                <div>
+                  <span>01</span>
+                  <p>Une direction artistique plus marquante pour sortir du lot.</p>
                 </div>
+
+                <div>
+                  <span>02</span>
+                  <p>Une structure pensée pour convertir, pas seulement décorer.</p>
+                </div>
+
+                <div>
+                  <span>03</span>
+                  <p>Un développement propre, rapide et maintenable dans le temps.</p>
+                </div>
+              </div>
+
+              <div className="home-story__skills">
+                {profile.skills.map((skill) => (
+                  <span key={skill}>{skill}</span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -121,9 +166,9 @@ function Home() {
             <h2>Une méthode claire pour éviter les projets flous.</h2>
 
             <p>
-              Un bon projet ne commence pas par du code. Il commence par une
-              compréhension précise du besoin, des priorités et du résultat
-              attendu.
+              Je vous accompagne étape par étape : clarification du besoin, direction
+              artistique, développement, mise en ligne et optimisation. Le but est
+              d’avancer vite, proprement, sans zone floue.
             </p>
           </div>
 
@@ -147,12 +192,13 @@ function Home() {
           <p className="section-kicker">Pourquoi DigitalLoom</p>
 
           <div className="home-trust__heading reveal" data-reveal-direction="right">
-            <h2>Un site beau, c’est bien. Un site utile, c’est mieux.</h2>
+            <h2>
+              Un site beau attire l’œil. Un site stratégique transforme vos visiteurs en clients.
+            </h2>
 
             <p>
-              Mon objectif n’est pas seulement de livrer quelque chose de joli.
-              Je veux créer une solution claire, rapide, maintenable et pensée
-              pour servir votre activité.
+              Je ne construis pas seulement une interface agréable. Je pense votre site
+              comme un outil commercial : clair, rapide, crédible et orienté action.
             </p>
           </div>
 
@@ -176,7 +222,7 @@ function Home() {
           <p className="section-kicker">Expertises</p>
 
           <div className="home-projects__heading reveal" data-reveal-direction="right">
-            <h2>Choisissez votre besoin.</h2>
+            <h2>Nos Réalisations.</h2>
             <p>
               Chaque catégorie mène vers une sélection de réalisations adaptées :
               sites web, applications métier ou contenus 3D interactifs.
@@ -247,12 +293,11 @@ function Home() {
           <p className="section-kicker">Offres</p>
 
           <div className="home-offers__heading reveal" data-reveal-direction="right">
-            <h2>Pret pour commencer ?</h2>
+            <h2>Choisissez l’offre qui vous correspond</h2>
 
             <p>
-              Chaque projet est différent. L’objectif est de choisir une solution
-              cohérente : assez solide pour durer, sans ajouter de complexité
-              inutile.
+              Site vitrine, application web ou accompagnement sur mesure : chaque offre
+        est pensée pour créer un support professionnel, évolutif et orienté résultat.
             </p>
           </div>
 

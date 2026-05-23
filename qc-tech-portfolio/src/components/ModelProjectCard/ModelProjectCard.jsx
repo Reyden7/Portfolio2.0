@@ -3,8 +3,14 @@ import ModelViewer from "../ModelViewer/ModelViewer";
 import "./ModelProjectCard.css";
 
 function ModelProjectCard({ project, index = 0 }) {
+  const technologies = project.technologies || project.tech || project.tags || [];
+
   return (
-    <article className="model-project-card">
+    <article
+      className={`model-project-card ${
+        index % 2 === 1 ? "model-project-card--reverse" : ""
+      }`}
+    >
       <TransitionLink
         to={`/projets/${project.slug}`}
         className="model-project-card__viewer magnetic"
@@ -32,11 +38,13 @@ function ModelProjectCard({ project, index = 0 }) {
           {project.description}
         </p>
 
-        <div className="model-project-card__techs">
-          {project.technologies.map((tech) => (
-            <span key={tech}>{tech}</span>
-          ))}
-        </div>
+        {technologies.length > 0 && (
+          <div className="model-project-card__techs">
+            {technologies.map((tech) => (
+              <span key={tech}>{tech}</span>
+            ))}
+          </div>
+        )}
 
         <TransitionLink
           to={`/projets/${project.slug}`}

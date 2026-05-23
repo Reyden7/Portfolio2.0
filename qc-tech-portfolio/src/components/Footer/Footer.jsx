@@ -249,8 +249,10 @@ function Footer() {
           </form>
 
           <aside className="footer__side">
+            
+
             <div className="footer__contact-card">
-              <span>Email professionnel</span>
+              <span>Email</span>
               <a href={`mailto:${profile.email}`}>{profile.email}</a>
             </div>
 
@@ -259,17 +261,7 @@ function Footer() {
               <p>{profile.location}</p>
             </div>
 
-            <div className="footer__links">
-              <a href={profile.github} target="_blank" rel="noreferrer">
-                GitHub
-                <span>↗</span>
-              </a>
-
-              <a href={profile.linkedin} target="_blank" rel="noreferrer">
-                LinkedIn
-                <span>↗</span>
-              </a>
-            </div>
+            
           </aside>
         </div>
       </div>
@@ -279,7 +271,7 @@ function Footer() {
           © {new Date().getFullYear()} {profile.companyName}. Tous droits
           réservés.
         </p>
-        <p>Développement web, applications et expériences 3D.</p>
+        <p>Sites web, applications et expériences digitales pensées pour convertir un visiteur en client.</p>
       </div>
     </footer>
   );

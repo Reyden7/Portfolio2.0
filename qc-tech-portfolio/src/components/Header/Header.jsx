@@ -83,50 +83,66 @@ function Header() {
       </button>
 
       <nav className="header__nav">
-        <button  className={getNavButtonClass("story")} onClick={() => scrollToSection("story")}>Histoire</button>
-        <button  className={getNavButtonClass("method")} onClick={() => scrollToSection("method")}>Méthode</button>
+        <button
+          className={getNavButtonClass("story")}
+          onClick={() => scrollToSection("story")}
+        >
+          À propos
+        </button>
+
+        <button
+          className={getNavButtonClass("method")}
+          onClick={() => scrollToSection("method")}
+        >
+          Méthode
+        </button>
+
         <div className="header__dropdown">
-          
           <button
-             className={`header__dropdown-trigger ${getNavButtonClass("projects")}`}
+            className={`header__dropdown-trigger ${getNavButtonClass("projects")}`}
             onClick={() => scrollToSection("projects")}
           >
-            Projets
+            Réalisations
           </button>
 
           <div className="header__dropdown-menu">
-            <TransitionLink
-              to="/sites-internet"
-              className="header__dropdown-link"
-            >
+            <TransitionLink to="/sites-internet" className="header__dropdown-link">
               <span>01</span>
-              Sites internet
+              Sites vitrines
             </TransitionLink>
 
-            <TransitionLink
-              to="/applications-logiciels"
-              className="header__dropdown-link"
-            >
+            <TransitionLink to="/applications-logiciels" className="header__dropdown-link">
               <span>02</span>
-              Applications
+              Applications 
             </TransitionLink>
 
-            <TransitionLink
-              to="/modelisation-3d"
-              className="header__dropdown-link"
-            >
+            <TransitionLink to="/modelisation-3d" className="header__dropdown-link">
               <span>03</span>
               Modélisation 3D
             </TransitionLink>
           </div>
         </div>
-        
-        
-        <button  className={getNavButtonClass("faq")} onClick={() => scrollToSection("faq")}>FAQ</button>
-        <button className={getNavButtonClass("offers")} onClick={() => scrollToSection("offers")}>Offres</button>
-        <button  className={getNavButtonClass("contact")} className="header__cta" onClick={() => scrollToSection("contact")}>Contacter</button>
 
-        
+        <button
+          className={getNavButtonClass("faq")}
+          onClick={() => scrollToSection("faq")}
+        >
+          FAQ
+        </button>
+
+        <button
+          className={getNavButtonClass("offers")}
+          onClick={() => scrollToSection("offers")}
+        >
+          Services
+        </button>
+
+        <button
+          className={`${getNavButtonClass("contact")} header__cta`}
+          onClick={() => scrollToSection("contact")}
+        >
+          Discutons
+        </button>
       </nav>
     </header>
   );

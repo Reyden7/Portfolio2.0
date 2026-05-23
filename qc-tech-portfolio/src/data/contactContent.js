@@ -11,7 +11,7 @@ export const contactIntro = {
   title: "Prêt à transformer une idée en vrai projet ?",
   text:
     "Envoyez-moi quelques lignes sur votre besoin. Pas besoin d’avoir un cahier des charges parfait : on peut clarifier les choses ensemble.",
-  formTitle: "Parlez-moi du projet",
+  formTitle: "Décrivez-moi votre projet",
   formBadge: "Réponse rapide",
   submitLabel: "Envoyer l’email",
   feedbackMessage: "Votre email est prêt à être envoyé.",
