@@ -4,6 +4,7 @@ import { profile } from "../../data/profile";
 import { contactIntro, projectTypeOptions } from "../../data/contactContent";
 import "./Footer.css";
 import Fireworks from "../Fireworks/Fireworks";
+import BackgroundShapes from "../../components/BackgroundShapes/BackgroundShapes";
 
 function Footer() {
   const fireworksTimeoutRef = useRef(null);
@@ -180,6 +181,7 @@ function Footer() {
   return (
     <>
       <footer className="footer" id="contact">
+        <BackgroundShapes variant="dark" />
         <div className="footer__inner">
           <div className="footer__hero">
             <p className="footer__kicker">{contactIntro.kicker}</p>
