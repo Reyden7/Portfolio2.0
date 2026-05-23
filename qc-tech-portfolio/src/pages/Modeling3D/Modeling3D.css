@@ -24,13 +24,13 @@
 .modeling-page__hero::before {
   content: "";
   position: absolute;
-  width: min(980px, 86vw);
-  height: min(500px, 56vw);
+  width: min(1200px, 86vw);
+  height: min(1000px, 56vw);
   left: 50%;
   top: 52%;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 46px;
-  transform: translate(-50%, -50%) rotate(-4deg);
+  transform: translate(-50%, -50%) ;
   background:
     linear-gradient(
       135deg,
