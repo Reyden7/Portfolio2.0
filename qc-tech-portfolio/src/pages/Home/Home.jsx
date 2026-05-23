@@ -6,6 +6,7 @@ import { profile } from "../../data/profile";
 import Footer from "../../components/Footer/Footer";
 import useMagneticElements from "../../hooks/useMagneticElements";
 import usePageMeta from "../../hooks/usePageMeta";
+import BackgroundShapes from "../../components/BackgroundShapes/BackgroundShapes";
 
 import {
   methodSteps,
@@ -16,53 +17,60 @@ import {
 } from "../../data/homeContent";
 
 function Home() {
-      useRevealOnScroll();
-      usePageMeta({
-        title: "Accueil",
-        description:
-          "DigitalLoom accompagne les entreprises dans la création de sites internet, applications métier et modélisation 3D",
-      });
-      //useMagneticElements();
+  useRevealOnScroll();
 
-      const handleOfferContact = (projectType) => {
-        window.dispatchEvent(
-          new CustomEvent("qc-contact-project-type", {
-            detail: { projectType },
-          })
-        );
+  usePageMeta({
+    title: "Accueil",
+    description:
+      "DigitalLoom accompagne les entreprises dans la création de sites internet, applications métier et modélisation 3D",
+  });
 
-        document.getElementById("contact")?.scrollIntoView({
-          behavior: "smooth",
-        });
-      };
+  // useMagneticElements();
+
+  const handleOfferContact = (projectType) => {
+    window.dispatchEvent(
+      new CustomEvent("qc-contact-project-type", {
+        detail: { projectType },
+      })
+    );
+
+    document.getElementById("contact")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
     <main className="home">
       <Header />
 
       <section className="home-hero">
+        <BackgroundShapes variant="dark" />
+
         <div className="home-hero__decor home-hero__decor--left"></div>
         <div className="home-hero__decor home-hero__decor--right"></div>
 
         <div className="home-hero__noise"></div>
 
         <div className="home-hero__content">
-          <p className="home-hero__eyebrow">Sites web • Applications • Expériences digitales</p>
+          <p className="home-hero__eyebrow">
+            Sites web • Applications • Expériences digitales
+          </p>
 
-          <h1>
-            DigitalLoom
-          </h1>
+          <h1>DigitalLoom</h1>
 
           <p className="home-hero__subtitle">
-            DigitalLoom accompagne les indépendants et entreprises dans la création
-            d’expériences digitales modernes, rapides et pensées pour transformer les
-            visiteurs en clients.
+            DigitalLoom accompagne les indépendants et entreprises dans la
+            création d’expériences digitales modernes, rapides et pensées pour
+            transformer les visiteurs en clients.
           </p>
 
           <div className="home-hero__actions">
             <button
               className="magnetic"
               onClick={() =>
-                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
               }
             >
               Discuter de mon projet
@@ -72,7 +80,9 @@ function Home() {
             <button
               className="home-hero__actions-secondary magnetic"
               onClick={() =>
-                document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" })
               }
             >
               Voir les réalisations
@@ -88,7 +98,11 @@ function Home() {
 
         <button
           className="home-hero__scroll"
-          onClick={() => document.getElementById("story")?.scrollIntoView({ behavior: "smooth" })}
+          onClick={() =>
+            document.getElementById("story")?.scrollIntoView({
+              behavior: "smooth",
+            })
+          }
           aria-label="Scroller vers la présentation"
         >
           <span>Scroll</span>
@@ -97,6 +111,8 @@ function Home() {
       </section>
 
       <section className="home-story" id="story">
+        <BackgroundShapes variant="light" />
+
         <div className="home-story__inner">
           <p className="section-kicker">À propos</p>
 
@@ -123,13 +139,14 @@ function Home() {
               <p>
                 Un bon site ne doit pas seulement être beau. Il doit être clair,
                 rapide, rassurant et pensé pour guider le visiteur vers la bonne
-                action : vous contacter, demander un devis ou découvrir vos services.
+                action : vous contacter, demander un devis ou découvrir vos
+                services.
               </p>
 
               <p>
-                Avec DigitalLoom, je vous accompagne de la réflexion à la mise en
-                ligne pour construire une présence digitale cohérente, moderne et
-                adaptée à vos objectifs réels.
+                Avec DigitalLoom, je vous accompagne de la réflexion à la mise
+                en ligne pour construire une présence digitale cohérente,
+                moderne et adaptée à vos objectifs réels.
               </p>
 
               <div className="home-story__value-list">
@@ -158,7 +175,10 @@ function Home() {
           </div>
         </div>
       </section>
+
       <section className="home-method" id="method">
+        <BackgroundShapes variant="dark" />
+
         <div className="home-method__inner">
           <p className="section-kicker">Méthode</p>
 
@@ -166,39 +186,45 @@ function Home() {
             <h2>Une méthode claire pour éviter les projets flous.</h2>
 
             <p>
-              Je vous accompagne étape par étape : clarification du besoin, direction
-              artistique, développement, mise en ligne et optimisation. Le but est
-              d’avancer vite, proprement, sans zone floue.
+              Je vous accompagne étape par étape : clarification du besoin,
+              direction artistique, développement, mise en ligne et
+              optimisation. Le but est d’avancer vite, proprement, sans zone
+              floue.
             </p>
           </div>
 
           <div className="home-method__steps">
-          {methodSteps.map((step, index) => (
-            <article
-              key={step.number}
-              className="home-method__step reveal"
-              data-reveal-delay={index * 110}
-            >
-              <span>{step.number}</span>
-              <h3>{step.title}</h3>
-              <p>{step.text}</p>
-            </article>
-          ))}
+            {methodSteps.map((step, index) => (
+              <article
+                key={step.number}
+                className="home-method__step reveal"
+                data-reveal-delay={index * 110}
+              >
+                <span>{step.number}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
+            ))}
+          </div>
         </div>
-        </div>
-      </section>    
+      </section>
+
       <section className="home-trust">
+        <BackgroundShapes variant="light" />
+
         <div className="home-trust__inner">
           <p className="section-kicker">Pourquoi DigitalLoom</p>
 
           <div className="home-trust__heading reveal" data-reveal-direction="right">
             <h2>
-              Un site beau attire l’œil. Un site stratégique transforme vos visiteurs en clients.
+              Un site beau attire l’œil. Un site stratégique transforme vos
+              visiteurs en clients.
             </h2>
 
             <p>
-              Je ne construis pas seulement une interface agréable. Je pense votre site
-              comme un outil commercial : clair, rapide, crédible et orienté action.
+              Je ne construis pas seulement une interface agréable. Je pense
+              votre site comme un outil commercial : clair, rapide, crédible et
+              orienté action.
             </p>
           </div>
 
@@ -216,8 +242,11 @@ function Home() {
             ))}
           </div>
         </div>
-      </section>     
+      </section>
+
       <section className="home-projects" id="projects">
+        <BackgroundShapes variant="dark" />
+
         <div className="home-projects__inner">
           <p className="section-kicker">Expertises</p>
 
@@ -256,7 +285,10 @@ function Home() {
           </div>
         </div>
       </section>
+
       <section className="home-faq" id="faq">
+        <BackgroundShapes variant="light" />
+
         <div className="home-faq__inner">
           <p className="section-kicker">FAQ</p>
 
@@ -288,7 +320,10 @@ function Home() {
           </div>
         </div>
       </section>
+
       <section className="home-offers" id="offers">
+        <BackgroundShapes variant="dark" />
+
         <div className="home-offers__inner">
           <p className="section-kicker">Offres</p>
 
@@ -296,8 +331,9 @@ function Home() {
             <h2>Choisissez l’offre qui vous correspond</h2>
 
             <p>
-              Site vitrine, application web ou accompagnement sur mesure : chaque offre
-        est pensée pour créer un support professionnel, évolutif et orienté résultat.
+              Site vitrine, application web ou accompagnement sur mesure :
+              chaque offre est pensée pour créer un support professionnel,
+              évolutif et orienté résultat.
             </p>
           </div>
 
@@ -338,7 +374,7 @@ function Home() {
           </div>
         </div>
       </section>
-        
+
       <Footer />
     </main>
   );
