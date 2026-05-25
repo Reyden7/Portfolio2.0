@@ -209,83 +209,6 @@ function Home() {
         </div>
       </section>
 
-      <section className="home-trust">
-        <BackgroundShapes variant="light" />
-
-        <div className="home-trust__inner">
-          <p className="section-kicker">Pourquoi DigitalLoom</p>
-
-          <div className="home-trust__heading reveal" data-reveal-direction="right">
-            <h2>
-              Un site beau attire l’œil. Un site stratégique transforme vos
-              visiteurs en clients.
-            </h2>
-
-            <p>
-              Je ne construis pas seulement une interface agréable. Je pense
-              votre site comme un outil commercial : clair, rapide, crédible et
-              orienté action.
-            </p>
-          </div>
-
-          <div className="home-trust__grid">
-            {trustCards.map((card, index) => (
-              <article
-                key={card.number}
-                className="home-trust__card reveal"
-                data-reveal-delay={index * 120}
-              >
-                <span>{card.number}</span>
-                <h3>{card.title}</h3>
-                <p>{card.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="home-projects" id="projects">
-        <BackgroundShapes variant="dark" />
-
-        <div className="home-projects__inner">
-          <p className="section-kicker">Expertises</p>
-
-          <div className="home-projects__heading reveal" data-reveal-direction="right">
-            <h2>Nos Réalisations.</h2>
-            <p>
-              Chaque catégorie mène vers une sélection de réalisations adaptées :
-              sites web, applications métier ou contenus 3D interactifs.
-            </p>
-          </div>
-
-          <div className="home-category-list reveal">
-            {categoryCards.map((card) => (
-              <TransitionLink
-                key={card.number}
-                to={card.path}
-                className={`home-category-card ${card.className} magnetic`}
-              >
-                <span className="home-category-card__number">{card.number}</span>
-                <span className="home-category-card__badge">{card.badge}</span>
-
-                <div className="home-category-card__visual">
-                  <i></i>
-                  <i></i>
-                  <i></i>
-                </div>
-
-                <div className="home-category-card__content">
-                  <h3>{card.title}</h3>
-                  <p>{card.text}</p>
-                </div>
-
-                <strong className="home-category-card__arrow">↗</strong>
-              </TransitionLink>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="home-faq" id="faq">
         <BackgroundShapes variant="light" />
 
@@ -320,6 +243,50 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <section className="home-projects" id="projects">
+        <BackgroundShapes variant="dark" />
+
+        <div className="home-projects__inner">
+          <p className="section-kicker">Expertises</p>
+
+          <div className="home-projects__heading reveal" data-reveal-direction="right">
+            <h2>Mes Réalisations.</h2>
+            <p>
+              Chaque catégorie mène vers une sélection de réalisations adaptées :
+              sites web, applications métier ou contenus 3D.
+            </p>
+          </div>
+
+          <div className="home-category-list reveal">
+            {categoryCards.map((card) => (
+              <TransitionLink
+                key={card.number}
+                to={card.path}
+                className={`home-category-card ${card.className} magnetic`}
+              >
+                <span className="home-category-card__number">{card.number}</span>
+                <span className="home-category-card__badge">{card.badge}</span>
+
+                <div className="home-category-card__visual">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                </div>
+
+                <div className="home-category-card__content">
+                  <h3>{card.title}</h3>
+                  <p>{card.text}</p>
+                </div>
+
+                <strong className="home-category-card__arrow">↗</strong>
+              </TransitionLink>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      
 
       <section className="home-offers" id="offers">
         <BackgroundShapes variant="dark" />

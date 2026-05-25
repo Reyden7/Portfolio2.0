@@ -2,7 +2,7 @@ export const methodSteps = [
   {
     number: "01",
     title: "Comprendre",
-    text: "On échange sur votre activité, votre objectif, vos contraintes et les problèmes que le projet doit résoudre.",
+    text: "j'échange avec vous sur votre activité, votre objectif, vos contraintes et les problèmes que le projet doit résoudre.",
   },
   {
     number: "02",
@@ -12,7 +12,7 @@ export const methodSteps = [
   {
     number: "03",
     title: "Concevoir",
-    text: "On pose une interface propre, lisible et cohérente avec votre image pour éviter un rendu générique.",
+    text: "Conception d'une interface propre, lisible et cohérente avec votre image pour éviter un rendu générique.",
   },
   {
     number: "04",
@@ -49,7 +49,7 @@ export const categoryCards = [
     number: "01",
     badge: "Web",
     title: "Sites internet",
-    text: "Sites vitrines, landing pages et interfaces modernes pensées pour convertir.",
+    text: "Sites vitrines, landing pages et interfaces modernes.",
     path: "/sites-internet",
     className: "home-category-card--web",
   },
@@ -156,14 +156,14 @@ export const offers = [
   {
     number: "04",
     label: "3D interactive",
-    title: "Modélisation 3D",
+    title: "3D",
     price: "À partir de 600 €",
-    text: "Pour présenter un objet, un produit ou un concept avec une visualisation 3D interactive directement intégrée à votre site.",
+    text: "Pour me demander de modéliser  un objet ou un personnage en 3D.",
     items: [
-      "Modèle 3D optimisé web",
-      "Viewer interactif",
-      "Rotation et zoom utilisateur",
-      "Intégration web moderne",
+      "Modèle 3D optimisé",
+      "Retopologie",
+      "Texture",
+      "Exportation FBX",
     ],
     cta: "Modèle 3D",
     featured: false,

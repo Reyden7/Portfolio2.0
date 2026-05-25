@@ -97,6 +97,13 @@ function Header() {
           Méthode
         </button>
 
+        <button
+          className={getNavButtonClass("faq")}
+          onClick={() => scrollToSection("faq")}
+        >
+          FAQ
+        </button>
+
         <div className="header__dropdown">
           <button
             className={`header__dropdown-trigger ${getNavButtonClass("projects")}`}
@@ -123,12 +130,7 @@ function Header() {
           </div>
         </div>
 
-        <button
-          className={getNavButtonClass("faq")}
-          onClick={() => scrollToSection("faq")}
-        >
-          FAQ
-        </button>
+        
 
         <button
           className={getNavButtonClass("offers")}
