@@ -5,7 +5,6 @@ import { usePageTransition } from "../../context/PageTransitionContext";
 import { profile } from "../../data/profile";
 import "./Header.css";
 
-
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -28,13 +27,18 @@ function Header() {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const goToServices = () => {
+    closeMenu();
+    navigateWithTransition("/services");
+  };
+
   useEffect(() => {
     if (location.pathname !== "/") {
       setActiveSection("");
       return;
     }
 
-    const sectionIds = ["story", "projects", "method", "faq", "offers", "contact"];
+    const sectionIds = ["story", "projects", "method", "faq", "contact"];
 
     const sections = sectionIds
       .map((id) => document.getElementById(id))
@@ -64,7 +68,14 @@ function Header() {
   }, [location.pathname]);
 
   const getNavButtonClass = (sectionId) =>
-  activeSection === sectionId ? "header__nav-button is-active" : "header__nav-button";
+    activeSection === sectionId
+      ? "header__nav-button is-active"
+      : "header__nav-button";
+
+  const getServicesButtonClass = () =>
+    location.pathname === "/services"
+      ? "header__nav-button is-active"
+      : "header__nav-button";
 
   return (
     <header className={`header ${isMenuOpen ? "header--open" : ""}`}>
@@ -118,9 +129,12 @@ function Header() {
               Sites vitrines
             </TransitionLink>
 
-            <TransitionLink to="/applications-logiciels" className="header__dropdown-link">
+            <TransitionLink
+              to="/applications-logiciels"
+              className="header__dropdown-link"
+            >
               <span>02</span>
-              Applications 
+              Applications
             </TransitionLink>
 
             <TransitionLink to="/modelisation-3d" className="header__dropdown-link">
@@ -130,11 +144,9 @@ function Header() {
           </div>
         </div>
 
-        
-
         <button
-          className={getNavButtonClass("offers")}
-          onClick={() => scrollToSection("offers")}
+          className={getServicesButtonClass()}
+          onClick={goToServices}
         >
           Services
         </button>

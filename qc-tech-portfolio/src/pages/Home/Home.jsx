@@ -137,15 +137,13 @@ function Home() {
 
             <div className="home-story__content">
               <p>
-                Un bon site ne doit pas seulement être beau. Il doit être clair,
-                rapide, rassurant et pensé pour guider le visiteur vers la bonne
-                action : vous contacter, demander un devis ou découvrir vos
-                services.
+                Un bon site ne doit pas seulement être beau. Il doit être <b>clair,
+                ergonomique, s'adapter a plusieurs support numérique et  Rapide </b>. 
               </p>
 
               <p>
-                Avec DigitalLoom, je vous accompagne de la réflexion à la mise
-                en ligne pour construire une présence digitale cohérente,
+                Nous vous accompagnons de la réflexion à la mise
+                en ligne pour vous construire une présence digitale cohérente,
                 moderne et adaptée à vos objectifs réels.
               </p>
 
@@ -186,7 +184,7 @@ function Home() {
             <h2>Une méthode claire pour éviter les projets flous.</h2>
 
             <p>
-              Je vous accompagne étape par étape : clarification du besoin,
+              Nous vous accompagnons étape par étape : clarification du besoin,
               direction artistique, développement, mise en ligne et
               optimisation. Le but est d’avancer vite, proprement, sans zone
               floue.
@@ -251,7 +249,7 @@ function Home() {
           <p className="section-kicker">Expertises</p>
 
           <div className="home-projects__heading reveal" data-reveal-direction="right">
-            <h2>Mes Réalisations.</h2>
+            <h2>Nos Réalisations.</h2>
             <p>
               Chaque catégorie mène vers une sélection de réalisations adaptées :
               sites web, applications métier ou contenus 3D.
@@ -287,60 +285,6 @@ function Home() {
       </section>
 
       
-
-      <section className="home-offers" id="offers">
-        <BackgroundShapes variant="dark" />
-
-        <div className="home-offers__inner">
-          <p className="section-kicker">Offres</p>
-
-          <div className="home-offers__heading reveal" data-reveal-direction="right">
-            <h2>Choisissez l’offre qui vous correspond</h2>
-
-            <p>
-              Site vitrine, application web ou accompagnement sur mesure :
-              chaque offre est pensée pour créer un support professionnel,
-              évolutif et orienté résultat.
-            </p>
-          </div>
-
-          <div className="home-offers__grid">
-            {offers.map((offer, index) => (
-              <article
-                key={offer.number}
-                className={`home-offers__card ${
-                  offer.featured ? "home-offers__card--featured" : ""
-                } reveal`}
-                data-reveal-delay={index * 120}
-              >
-                <div className="home-offers__top">
-                  <span>{offer.number}</span>
-                  <strong>{offer.label}</strong>
-                </div>
-
-                <h3>{offer.title}</h3>
-                <strong className="home-offers__price">{offer.price}</strong>
-                <p>{offer.text}</p>
-
-                <ul>
-                  {offer.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-
-                <button
-                  type="button"
-                  className="magnetic"
-                  onClick={() => handleOfferContact(offer.projectType)}
-                >
-                  {offer.cta}
-                  <span>↗</span>
-                </button>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </main>

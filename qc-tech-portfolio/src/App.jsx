@@ -13,6 +13,7 @@ import ProjectDetail from "./pages/ProjectDetail/ProjectDetail";
 import NotFound from "./pages/NotFound/NotFound";
 import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
 import AdminProjects from "./pages/AdminProject/AdminProjects";
+import Services from "./pages/Services/Services";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,6 +36,7 @@ function App() {
               <Route path="/projets/:slug" element={<ProjectDetail />} />
               <Route path="*" element={<NotFound />} />
               <Route path="/admin" element={<AdminProjects />} />
+              <Route path="/services" element={<Services />} />
             </Routes>
           </PageTransitionProvider>
         )}

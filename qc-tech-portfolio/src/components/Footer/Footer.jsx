@@ -38,13 +38,13 @@ function Footer() {
     };
 
     window.addEventListener(
-      "qc-contact-project-type",
+      "digitalloom-project-type",
       handleProjectTypeSelection
     );
 
     return () => {
       window.removeEventListener(
-        "qc-contact-project-type",
+        "digitalloom-project-type",
         handleProjectTypeSelection
       );
 

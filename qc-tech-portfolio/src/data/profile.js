@@ -1,14 +1,14 @@
 export const profile = {
   companyName: "DigitalLoom",
-  displayName: "Quentin Cordiero",
-  jobTitle: "Freelance développeur",
+  displayName: "DigitalLoom",
+  jobTitle: "Agence digital",
 
   email: "contact@digitalloom.fr",
 
   location: "Dijon / Bourgogne-Franche-Comté",
 
-  github: "https://github.com/Reyden7",
-  linkedin: "https://www.linkedin.com/in/quentin-c-17a36028b/",
+  github: "",
+  linkedin: "",
 
   heroTitle: "DigitalLoom",
 
@@ -28,6 +28,6 @@ export const profile = {
     "C#",
     "Flutter",
     "UX/UI",
-    "Modélisation 3D",
+    "Blender",
   ],
 };

@@ -38,9 +38,7 @@ function Modeling3D() {
           <h1>Des objets 3D qui rendent votre projet plus mémorable.</h1>
 
           <span>
-            J’intègre des modèles 3D directement dans des expériences web
-            interactives pour présenter un produit, valoriser un univers ou
-            créer un effet waouh auprès de vos visiteurs.
+            Nous réalisons des modélisations 3D d'objet pour impression, animations, décors, pièce mecaniques ou intégration dans un site internet ou une application pour presenter un produit.
           </span>
 
           <div className="modeling-page__hero-proof">
@@ -73,7 +71,7 @@ function Modeling3D() {
             <div className="modeling-page__empty reveal">
               <p>
                 Les projets 3D seront bientôt disponibles. En attendant, vous
-                pouvez me contacter pour discuter d’une expérience interactive
+                pouvez Nous contacter pour discuter d’une expérience interactive
                 ou d’une intégration 3D sur votre site.
               </p>
             </div>

@@ -2,12 +2,12 @@ export const methodSteps = [
   {
     number: "01",
     title: "Comprendre",
-    text: "j'échange avec vous sur votre activité, votre objectif, vos contraintes et les problèmes que le projet doit résoudre.",
+    text: "Echange sur votre activité, vos objectifs, vos contraintes et les problèmes que le projet doit résoudre.",
   },
   {
     number: "02",
     title: "Structurer",
-    text: "Je transforme l’idée en plan concret : fonctionnalités, arborescence, parcours utilisateur, priorités et choix techniques.",
+    text: "Transformation de l'idée en plan concret : fonctionnalités, arborescence, parcours utilisateur, priorités et choix techniques.",
   },
   {
     number: "03",
@@ -17,7 +17,7 @@ export const methodSteps = [
   {
     number: "04",
     title: "Développer",
-    text: "Je construis une solution performante, maintenable et adaptée à l’évolution future de votre projet.",
+    text: "Construction d'une solution performante, maintenable et adaptée à l’évolution future de votre projet.",
   },
 ];
 
@@ -65,7 +65,7 @@ export const categoryCards = [
     number: "03",
     badge: "3D",
     title: "Modélisation 3D",
-    text: "Objets, produits et concepts intégrés dans des expériences web interactives.",
+    text: "Objets, produits et concepts 3D",
     path: "/modelisation-3d",
     className: "home-category-card--model",
   },
@@ -92,15 +92,21 @@ export const faqItems = [
   },
   {
     number: "04",
-    question: "Est-ce que tu peux faire évoluer le projet après livraison ?",
+    question: "Est-ce que Digitaloom peu faire évoluer le projet après livraison ?",
     answer:
-      "Oui. Le projet est structuré pour rester maintenable. On peut prévoir des évolutions, ajouter des sections, améliorer des fonctionnalités ou faire évoluer l’interface plus tard.",
+      "Oui. Le projet est structuré pour rester maintenable. On peut prévoir des évolutions, ajouter des sections, améliorer des fonctionnalités ou faire évoluer l’interface plus tard. Cela dépend du plan de maintenance choisi",
   },
   {
     number: "05",
-    question: "Est-ce que tu peux m’aider à choisir la bonne solution ?",
+    question: "Est-ce que vous pouvez m’aider à choisir la bonne solution ?",
     answer:
-      "Oui. Mon rôle n’est pas seulement d’exécuter. Je peux t’aider à choisir entre un site vitrine, une landing page, une application métier, une solution simple ou une approche plus évolutive.",
+      "Oui. Nôtre rôle n’est pas seulement d’exécuter. Nous pouvons vous aider à choisir entre un site vitrine, une landing page, une application métier, une solution simple ou une approche plus évolutive.",
+  },
+  {
+    number: "06",
+    question: "Est-ce que vous utiliser l'IA ?",
+    answer:
+      "Oui. Nous utilisons l'IA en tant que support, cela nous permet de produire un travail plus efficace, rapide et de vous proposer des tarifs vraiment intéréssant",
   },
 ];
 

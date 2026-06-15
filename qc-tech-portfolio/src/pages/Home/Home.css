@@ -310,6 +310,7 @@
 }
 
 .home-hero__scroll {
+  margin-top: 0;
   position: absolute;
   left: 50%;
   bottom: 28px;
@@ -1992,6 +1993,7 @@
   
 
  .home-hero__content {
+  margin-top: -50px;
   width: 100%;
   max-width: 320px;
   margin-inline: auto;
@@ -1999,6 +2001,7 @@
 }
 
 .home-hero__scroll {
+  
   z-index: 3;
 }
 
@@ -2050,8 +2053,15 @@
   }
 
   .home-hero__scroll {
-    bottom: 22px;
+    bottom: 5px;
   }
+
+  .home-hero__scroll span {
+  
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
 
   /* Story */
 
