@@ -4,6 +4,7 @@ import ProjectCard from "../ProjectCard/ProjectCard";
 import "./ProjectPageLayout.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import usePageMeta from "../../hooks/usePageMeta";
+import BackgroundShapes from "../BackgroundShapes/BackgroundShapes";
 
 function ProjectPageLayout({ eyebrow, title, description, projects }) {
   useRevealOnScroll();
@@ -16,6 +17,7 @@ function ProjectPageLayout({ eyebrow, title, description, projects }) {
   return (
     <main className="project-page">
       <Header />
+      <BackgroundShapes variant="dark" />
 
       <section className="project-page__hero">
         <div className="project-page__noise"></div>

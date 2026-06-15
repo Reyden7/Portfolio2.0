@@ -38,7 +38,7 @@ function Modeling3D() {
           <h1>Des objets 3D qui rendent votre projet plus mémorable.</h1>
 
           <span>
-            Nous réalisons des modélisations 3D d'objet pour impression, animations, décors, pièce mecaniques ou intégration dans un site internet ou une application pour presenter un produit.
+            Nous réalisons des modélisations 3D d'objet pour impression, animations, décors, pièce mecaniques, intégration dans un site internet ou une application pour presenter un produit.
           </span>
 
           <div className="modeling-page__hero-proof">

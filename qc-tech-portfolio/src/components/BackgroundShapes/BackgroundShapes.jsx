@@ -7,6 +7,7 @@ function BackgroundShapes({ variant = "dark" }) {
       <span className="background-shapes__shape background-shapes__shape--two"></span>
       <span className="background-shapes__shape background-shapes__shape--three"></span>
       <span className="background-shapes__shape background-shapes__shape--four"></span>
+      <span className="background-shapes__shape background-shapes__shape--five"></span>
     </div>
   );
 }

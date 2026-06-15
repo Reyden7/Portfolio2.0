@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import "./Services.css";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import BackgroundShapes from "../../components/BackgroundShapes/BackgroundShapes";
 
 const serviceTabs = [
   {
@@ -341,7 +342,9 @@ export default function Services() {
 
   return (
     <main className="services-page">
+      <BackgroundShapes variant="dark" />
       <Header />
+      
       <section className="services-hero">
         <span className="services-hero__eyebrow">DigitalLoom</span>
         <h1>Nos prestations</h1>
@@ -392,7 +395,7 @@ export default function Services() {
           </div>
         </section>
       )}
-      <div ref={contactRef}>
+      <div ref={contactRef} className="services-contact">
         <Footer />
       </div>
     </main>

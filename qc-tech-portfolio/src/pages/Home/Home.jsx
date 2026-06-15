@@ -29,7 +29,7 @@ function Home() {
 
   const handleOfferContact = (projectType) => {
     window.dispatchEvent(
-      new CustomEvent("qc-contact-project-type", {
+      new CustomEvent("digitalloom-project-type", {
         detail: { projectType },
       })
     );
@@ -42,9 +42,11 @@ function Home() {
   return (
     <main className="home">
       <Header />
-
+      <BackgroundShapes variant="dark" />
+      
+      
       <section className="home-hero">
-        <BackgroundShapes variant="dark" />
+        
 
         <div className="home-hero__decor home-hero__decor--left"></div>
         <div className="home-hero__decor home-hero__decor--right"></div>
@@ -111,7 +113,7 @@ function Home() {
       </section>
 
       <section className="home-story" id="story">
-        <BackgroundShapes variant="light" />
+        
 
         <div className="home-story__inner">
           <p className="section-kicker">À propos</p>
@@ -119,7 +121,7 @@ function Home() {
           <div className="home-story__grid reveal" data-reveal-direction="left">
             <div className="home-story__heading">
               <h2>
-                Je crée des expériences qui donnent envie de passer à l’action.
+                Création d'expériences qui donnent envie de passer à l’action.
               </h2>
 
               <div className="home-story__stats">
@@ -175,7 +177,7 @@ function Home() {
       </section>
 
       <section className="home-method" id="method">
-        <BackgroundShapes variant="dark" />
+        
 
         <div className="home-method__inner">
           <p className="section-kicker">Méthode</p>
@@ -208,7 +210,7 @@ function Home() {
       </section>
 
       <section className="home-faq" id="faq">
-        <BackgroundShapes variant="light" />
+        
 
         <div className="home-faq__inner">
           <p className="section-kicker">FAQ</p>
@@ -243,7 +245,7 @@ function Home() {
       </section>
 
       <section className="home-projects" id="projects">
-        <BackgroundShapes variant="dark" />
+        
 
         <div className="home-projects__inner">
           <p className="section-kicker">Expertises</p>

@@ -145,17 +145,17 @@ function Header() {
         </div>
 
         <button
-          className={getServicesButtonClass()}
+          className={`${getServicesButtonClass()} header__services-button`}
           onClick={goToServices}
         >
-          Services
+          Nos Prestations
         </button>
 
         <button
           className={`${getNavButtonClass("contact")} header__cta`}
           onClick={() => scrollToSection("contact")}
         >
-          Discutons
+          Nous contacter
         </button>
       </nav>
     </header>

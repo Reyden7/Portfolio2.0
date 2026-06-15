@@ -18,9 +18,11 @@
    ========================================================= */
 
 .home {
+  position: relative;
   min-height: 100vh;
-  background: #050510;
+  overflow: hidden;
   color: #ffffff;
+  background: #050510;
 }
 
 .section-kicker {
@@ -2591,4 +2593,226 @@
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.8),
     0 28px 80px rgba(7, 16, 20, 0.08);
+}
+/* =========================================================
+   HOME — BACKGROUND UNIQUE SOBRE
+   ========================================================= */
+
+.home {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  color: #ffffff;
+  background: #050510;
+}
+
+.home::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(255, 0, 200, 0.075), transparent 28%),
+    radial-gradient(circle at 84% 18%, rgba(124, 60, 255, 0.07), transparent 32%),
+    radial-gradient(circle at 72% 88%, rgba(0, 212, 255, 0.055), transparent 30%);
+}
+
+.home::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.34;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.34) 1px, transparent 1px),
+    radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+  background-size: 42px 42px, 86px 86px;
+  background-position: 0 0, 23px 31px;
+  mask-image: radial-gradient(circle at center, black, transparent 76%);
+}
+
+.home > :not(.header):not(.background-shapes) {
+  position: relative;
+  z-index: 1;
+}
+
+.home > .background-shapes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.home > .background-shapes .background-shapes__shape {
+  opacity: 0.85;
+}
+
+.home > .background-shapes .background-shapes__shape--one {
+  border-color: rgba(255, 0, 200, 0.24);
+}
+
+.home > .background-shapes .background-shapes__shape--two {
+  border-color: rgba(124, 60, 255, 0.24);
+}
+
+.home > .background-shapes .background-shapes__shape--three {
+  border-color: rgba(0, 212, 255, 0.2);
+}
+
+
+.home > .header {
+  position: fixed;
+  z-index: 100000 !important;
+}
+
+/* Toutes les sections utilisent le même fond */
+.home-hero,
+.home-story,
+.home-method,
+.home-trust,
+.home-projects,
+.home-faq,
+.home-offers {
+  background: transparent !important;
+  color: #ffffff !important;
+}
+
+/* Suppression des anciens halos / fonds de section */
+.home-hero::after,
+.home-story::before,
+.home-story::after,
+.home-method::before,
+.home-method::after,
+.home-trust::before,
+.home-trust::after,
+.home-projects::before,
+.home-projects::after,
+.home-faq::before,
+.home-faq::after,
+.home-offers::before,
+.home-offers::after {
+  display: none !important;
+}
+
+/* On garde le grand panneau du hero */
+.home-hero::before {
+  display: block !important;
+}
+
+/* Textes globaux en version sombre */
+.home h1,
+.home h2,
+.home h3,
+.home-story h2,
+.home-method__heading h2,
+.home-projects__heading h2,
+.home-faq__heading h2,
+.home-offers__heading h2 {
+  color: #ffffff !important;
+}
+
+.home p,
+.home-story__content p,
+.home-story__value-list p,
+.home-method__heading p,
+.home-method__step p,
+.home-projects__heading p,
+.home-category-card p,
+.home-faq__heading p,
+.home-faq__item p,
+.home-offers__heading p {
+  color: rgba(255, 255, 255, 0.68) !important;
+}
+
+.section-kicker,
+.home-story .section-kicker,
+.home-faq .section-kicker,
+.home-trust .section-kicker {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+/* Cartes glass sombres */
+.home-story__content,
+.home-story__stats div,
+.home-story__value-list div,
+.home-story__skills span,
+.home-method__step,
+.home-category-card,
+.home-faq__item,
+.home-trust__card,
+.home-offers__card {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.105),
+      rgba(255, 255, 255, 0.026)
+    ),
+    rgba(8, 8, 22, 0.58) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(24px) saturate(1.35);
+  -webkit-backdrop-filter: blur(24px) saturate(1.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.035),
+    0 30px 90px rgba(0, 0, 0, 0.28),
+    0 0 54px rgba(124, 60, 255, 0.1) !important;
+}
+
+/* Stats et petits textes */
+.home-story__stats strong {
+  background: linear-gradient(135deg, #ff00c8 0%, #7c3cff 58%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+.home-story__stats span,
+.home-story__skills span {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+/* FAQ sombre */
+.home-faq__item summary {
+  color: #ffffff !important;
+}
+
+.home-faq__item summary::after {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+}
+
+.home-faq__item[open] {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(255, 0, 200, 0.09), transparent 34%),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.115),
+      rgba(255, 255, 255, 0.03)
+    ),
+    rgba(8, 8, 22, 0.68) !important;
+}
+
+/* Hover propres */
+.home-story__value-list div:hover,
+.home-story__skills span:hover,
+.home-faq__item:hover {
+  border-color: rgba(255, 0, 200, 0.24) !important;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(255, 0, 200, 0.1), transparent 36%),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.035)
+    ),
+    rgba(8, 8, 22, 0.68) !important;
+}
+
+/* Footer raccord sombre */
+.footer {
+  background: transparent !important;
 }

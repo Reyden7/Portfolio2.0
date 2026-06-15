@@ -7,6 +7,7 @@ import "./ProjectDetail.css";
 import ModelViewer from "../../components/ModelViewer/ModelViewer";
 import usePageMeta from "../../hooks/usePageMeta";
 import useProjects from "../../hooks/useProjects";
+import BackgroundShapes from "../../components/BackgroundShapes/BackgroundShapes";
 
 function ProjectDetail() {
   useRevealOnScroll();
@@ -27,6 +28,7 @@ function ProjectDetail() {
     return (
       <main className="project-detail">
         <Header />
+        <BackgroundShapes variant="dark" />
       </main>
     );
   }
@@ -35,6 +37,7 @@ function ProjectDetail() {
     return (
       <main className="project-detail">
         <Header />
+        <BackgroundShapes variant="dark" />
 
         <section className="project-detail__not-found">
           <div className="project-detail__noise"></div>
@@ -59,6 +62,7 @@ function ProjectDetail() {
   return (
     <main className="project-detail">
       <Header />
+      <BackgroundShapes variant="dark" />
 
       <section className="project-detail__hero">
         <div className="project-detail__noise"></div>

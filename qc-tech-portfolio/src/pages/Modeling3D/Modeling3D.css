@@ -384,3 +384,130 @@
     font-size: clamp(2.05rem, 10vw, 2.85rem);
   }
 }
+
+/* =========================================================
+   MODELING PAGE — BACKGROUND UNIQUE SOBRE
+   ========================================================= */
+
+.modeling-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  color: #ffffff;
+  background: #050510;
+}
+
+.modeling-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(255, 0, 200, 0.075), transparent 28%),
+    radial-gradient(circle at 84% 18%, rgba(124, 60, 255, 0.07), transparent 32%),
+    radial-gradient(circle at 72% 88%, rgba(0, 212, 255, 0.055), transparent 30%);
+}
+
+.modeling-page::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.34;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.34) 1px, transparent 1px),
+    radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+  background-size: 42px 42px, 86px 86px;
+  background-position: 0 0, 23px 31px;
+  mask-image: radial-gradient(circle at center, black, transparent 76%);
+}
+
+/* Important : ne pas écraser le z-index du Header */
+.modeling-page > :not(.header) {
+  position: relative;
+  z-index: 1;
+}
+
+.modeling-page > .header {
+  position: fixed;
+  z-index: 100000 !important;
+}
+
+/* Sections transparentes */
+.modeling-page__hero,
+.modeling-page__list {
+  background: transparent !important;
+  color: #ffffff !important;
+}
+
+/* Suppression des anciens effets qui créaient les coupures */
+.modeling-page__hero::after,
+.modeling-page__list::before,
+.modeling-page__list::after {
+  display: none !important;
+}
+
+/* On garde le grand panneau du hero */
+.modeling-page__hero::before {
+  display: block !important;
+  z-index: 0;
+}
+
+.modeling-page__hero-inner,
+.modeling-page__inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* Textes */
+.modeling-page h1,
+.modeling-page h2,
+.modeling-page h3 {
+  color: #ffffff !important;
+}
+
+.modeling-page p,
+.modeling-page span,
+.modeling-page small {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.modeling-page__eyebrow {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.modeling-page__list-heading .section-kicker {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+/* Empty state en glass sombre */
+.modeling-page__empty {
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.105),
+      rgba(255, 255, 255, 0.026)
+    ),
+    rgba(8, 8, 22, 0.58) !important;
+  color: rgba(255, 255, 255, 0.68) !important;
+  backdrop-filter: blur(24px) saturate(1.35);
+  -webkit-backdrop-filter: blur(24px) saturate(1.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.035),
+    0 30px 90px rgba(0, 0, 0, 0.28) !important;
+}
+
+.modeling-page__empty p {
+  color: rgba(255, 255, 255, 0.68) !important;
+}
+
+/* Footer raccord */
+.modeling-page .footer {
+  background: transparent !important;
+}
+

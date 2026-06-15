@@ -24,6 +24,7 @@ function Footer() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showFireworks, setShowFireworks] = useState(false);
+  
 
   useEffect(() => {
     const handleProjectTypeSelection = (event) => {
@@ -181,7 +182,7 @@ function Footer() {
   return (
     <>
       <footer className="footer" id="contact">
-        <BackgroundShapes variant="dark" />
+        
         <div className="footer__inner">
           <div className="footer__hero">
             <p className="footer__kicker">{contactIntro.kicker}</p>
@@ -296,8 +297,7 @@ function Footer() {
             réservés.
           </p>
           <p>
-            Sites web, applications et expériences digitales pensées pour convertir
-            un visiteur en client.
+            Sites web, applications et modélisation d'objet 3D
           </p>
         </div>
       </footer>

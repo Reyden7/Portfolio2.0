@@ -60,6 +60,17 @@
   animation: shapeFloatThree 14s ease-in-out infinite;
 }
 
+.background-shapes__shape--five {
+  width: clamp(80px, 14vw, 360px);
+  height: clamp(32px, 16vw, 360px);
+  right: 80%;
+  bottom: 30%;
+  border-color: rgba(76, 0, 255, 0.87);
+  border-radius: 50%;
+  box-shadow: 0 0 38px rgba(212, 0, 255, 0.1);
+  animation: shapeFloatThree 14s ease-in-out infinite;
+}
+
 .background-shapes--light .background-shapes__shape {
   opacity: 0.75;
   filter: drop-shadow(0 0 18px rgba(124, 60, 255, 0.08));

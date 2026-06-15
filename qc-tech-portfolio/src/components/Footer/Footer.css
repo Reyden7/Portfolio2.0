@@ -488,3 +488,75 @@
     margin-top: 58px;
   }
 }
+
+/* =========================================================
+   FOOTER SELECT — NATIVE DESIGN IMPROVEMENT
+   ========================================================= */
+
+.footer__form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  cursor: pointer;
+
+  padding-right: 3rem;
+
+  background:
+    linear-gradient(45deg, transparent 50%, #00d4ff 50%),
+    linear-gradient(135deg, #00d4ff 50%, transparent 50%),
+    radial-gradient(circle at 100% 50%, rgba(0, 212, 255, 0.14), transparent 30%),
+    rgba(5, 5, 16, 0.72);
+
+  background-position:
+    calc(100% - 22px) 50%,
+    calc(100% - 16px) 50%,
+    100% 50%,
+    0 0;
+
+  background-size:
+    6px 6px,
+    6px 6px,
+    46px 46px,
+    100% 100%;
+
+  background-repeat: no-repeat;
+
+  color: #ffffff;
+  font-weight: 850;
+}
+
+.footer__form select:hover {
+  border-color: rgba(0, 212, 255, 0.35);
+  background-color: rgba(5, 5, 16, 0.82);
+}
+
+.footer__form select:focus {
+  border-color: rgba(255, 0, 200, 0.55);
+  background-color: rgba(5, 5, 16, 0.9);
+  box-shadow:
+    0 0 0 4px rgba(255, 0, 200, 0.09),
+    0 0 26px rgba(124, 60, 255, 0.16);
+}
+
+/* Options natives : amélioration limitée selon navigateur */
+.footer__form select option {
+  background: #10101d;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.footer__form select option:checked {
+  background: #7c3cff;
+  color: #ffffff;
+}
+
+.footer__form select option:hover {
+  background: #1c1c2e;
+  color: #ffffff;
+}
+
+.footer__form select {
+  position: relative;
+  z-index: 1;
+}
