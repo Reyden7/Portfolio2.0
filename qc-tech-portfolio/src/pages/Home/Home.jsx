@@ -53,7 +53,7 @@ function Home() {
 
         <div className="home-hero__content">
           <p className="home-hero__eyebrow">
-            Sites web • Applications • Expériences digitales
+            Sites web • Applications • Modélisation 3D
           </p>
 
           <h1>DigitalLoom</h1>
@@ -85,14 +85,14 @@ function Home() {
                   ?.scrollIntoView({ behavior: "smooth" })
               }
             >
-              Voir les réalisations
+              Voir nos réalisations
             </button>
           </div>
 
           <div className="home-hero__proofs">
             <span>Design impactant</span>
             <span>Développement sur mesure</span>
-            <span>Objectif conversion</span>
+            
           </div>
         </div>
 

@@ -98,7 +98,7 @@ function Loader({ onComplete }) {
 
           <p>Création d’expériences digitales modernes, mémorables et orientées résultats.</p>
 
-          <p>Freelance développeur</p>
+          
         </div>
 
         <div className="loader__progress">
