@@ -138,10 +138,8 @@ function Home() {
             </div>
 
             <div className="home-story__content">
-              <p>
-                Un bon site ne doit pas seulement être beau. Il doit être <b>clair,
-                ergonomique, s'adapter a plusieurs support numérique et  Rapide </b>. 
-              </p>
+              <p>DigitalLoom est un studio indépendant basé en Bourgogne-Franche-Comté, spécialisé dans la création de sites internet, d’applications métier et de contenus 3D pour les indépendants, artisans, associations et entreprises autour de Dijon, en Côte-d’Or et dans toute la région.</p>
+              
 
               <p>
                 Nous vous accompagnons de la réflexion à la mise
