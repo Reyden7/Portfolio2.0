@@ -104,7 +104,7 @@ export const faqItems = [
   },
   {
     number: "06",
-    question: "Est-ce que vous utiliser l'IA ?",
+    question: "Est-ce que vous utilisez l'IA ?",
     answer:
       "Oui. Nous utilisons l'IA en tant que support, cela nous permet de produire un travail plus efficace, rapide et de vous proposer des tarifs vraiment intéréssant",
   },

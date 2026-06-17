@@ -23,7 +23,7 @@ function Home() {
     title:
       "Création de sites internet à Dijon et en Bourgogne-Franche-Comté",
     description:
-      "DigitalLoom accompagne les indépendants, artisans et entreprises dans la création de sites internet, applications métier et expériences 3D à Dijon, en Côte-d'Or et en Bourgogne-Franche-Comté.",
+      "DigitalLoom accompagne les indépendants, artisans et entreprises dans la création de sites internet sécurisé et ergonomique, applications métier pertinantes et propose un service de modélisation 3D à Dijon, en Côte-d'Or et en Bourgogne-Franche-Comté.",
   });
 
   // useMagneticElements();
@@ -62,9 +62,7 @@ function Home() {
           <h1>DigitalLoom</h1>
 
           <p className="home-hero__subtitle">
-            DigitalLoom accompagne les indépendants et entreprises dans la
-            création d’expériences digitales modernes, rapides et pensées pour
-            transformer les visiteurs en clients.
+            Création de sites internet à Dijon et en Bourgogne-Franche-Comté pour indépendants, artisans et entreprises : sites vitrines, applications web, design moderne et développement sur mesure.
           </p>
 
           <div className="home-hero__actions">
@@ -144,7 +142,7 @@ function Home() {
 
               <p>
                 Nous vous accompagnons de la réflexion à la mise
-                en ligne pour vous construire une présence digitale cohérente,
+                en ligne pour vous construire une présence sur le web cohérente,
                 moderne et adaptée à vos objectifs réels.
               </p>
 
@@ -156,12 +154,17 @@ function Home() {
 
                 <div>
                   <span>02</span>
-                  <p>Une structure pensée pour convertir, pas seulement décorer.</p>
+                  <p>Une structure pensée pour convertir le visiteur en client, pas seulement décorer.</p>
                 </div>
 
                 <div>
                   <span>03</span>
                   <p>Un développement propre, rapide et maintenable dans le temps.</p>
+                </div>
+
+                <div>
+                  <span>04</span>
+                  <p>Des tarifs concurrentiels</p>
                 </div>
               </div>
 
