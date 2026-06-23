@@ -27,13 +27,6 @@ const cities = [
   "Longvic",
 ];
 
-const localServices = [
-  "Creation de sites vitrines pour artisans et independants",
-  "Applications metier pour simplifier les processus internes",
-  "Referencement local pour gagner en visibilite autour de Dijon",
-  "Modelisation 3D et experiences interactives pour presenter un produit",
-];
-
 export default function ZoneIntervention() {
   useRevealOnScroll();
 
@@ -91,31 +84,6 @@ export default function ZoneIntervention() {
           </div>
         </div>
       </section>
-
-      <section className="seo-section">
-        <div className="seo-section__heading reveal" data-reveal-direction="left">
-          <p className="seo-eyebrow">Services locaux</p>
-          <h2>Une presence en ligne construite pour le terrain.</h2>
-        </div>
-
-        <div className="seo-grid zone-service-grid">
-          {localServices.map((service, index) => (
-            <article
-              key={service}
-              className="seo-card reveal"
-              data-reveal-delay={index * 90}
-            >
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{service}</h3>
-              <p>
-                Chaque page doit connecter votre offre, votre zone et les
-                intentions de recherche concretes de vos futurs clients.
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <Footer />
     </main>
   );
