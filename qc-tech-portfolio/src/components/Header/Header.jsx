@@ -33,6 +33,11 @@ function Header() {
     navigateWithTransition("/services");
   };
 
+  const goToSeo = () => {
+    closeMenu();
+    navigateWithTransition("/referencement");
+  };
+
   useEffect(() => {
     if (pathname !== "/") {
       setActiveSection("");
@@ -78,6 +83,11 @@ function Header() {
       ? "header__nav-button is-active"
       : "header__nav-button";
 
+  const getSeoButtonClass = () =>
+    pathname === "/referencement"
+      ? "header__nav-button is-active"
+      : "header__nav-button";
+
   return (
     <header className={`header ${isMenuOpen ? "header--open" : ""}`}>
       <div className="header__brand">
@@ -99,14 +109,14 @@ function Header() {
           className={getNavButtonClass("story")}
           onClick={() => scrollToSection("story")}
         >
-          À propos
+          A propos
         </button>
 
         <button
           className={getNavButtonClass("method")}
           onClick={() => scrollToSection("method")}
         >
-          Méthode
+          Methode
         </button>
 
         <button
@@ -121,7 +131,7 @@ function Header() {
             className={`header__dropdown-trigger ${getNavButtonClass("projects")}`}
             onClick={() => scrollToSection("projects")}
           >
-            Réalisations
+            Realisations
           </button>
 
           <div className="header__dropdown-menu">
@@ -140,7 +150,7 @@ function Header() {
 
             <TransitionLink to="/modelisation-3d" className="header__dropdown-link">
               <span>03</span>
-              Modélisation 3D
+              Modelisation 3D
             </TransitionLink>
           </div>
         </div>
@@ -150,6 +160,10 @@ function Header() {
           onClick={goToServices}
         >
           Nos Prestations
+        </button>
+
+        <button className={getSeoButtonClass()} onClick={goToSeo}>
+          SEO
         </button>
 
         <button

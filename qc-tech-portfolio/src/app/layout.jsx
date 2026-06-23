@@ -19,6 +19,7 @@ import "../views/Home/Home.css";
 import "../views/Modeling3D/Modeling3D.css";
 import "../views/NotFound/NotFound.css";
 import "../views/ProjectDetail/ProjectDetail.css";
+import "../views/Seo/Seo.css";
 import "../views/Services/Services.css";
 import "../views/Websites/Websites.css";
 import { profile } from "../data/profile";
