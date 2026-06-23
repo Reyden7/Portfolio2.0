@@ -2,54 +2,65 @@
 
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import TransitionLink from "../../components/TransitionLink/TransitionLink";
 import BackgroundShapes from "../../components/BackgroundShapes/BackgroundShapes";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 
-const pillars = [
+const seoSteps = [
   {
     number: "01",
-    title: "Structure comprehensible",
-    text: "Une page doit repondre clairement a une intention : titre explicite, sections logiques, maillage interne, schema de donnees et contenu utile.",
+    title: "Comprendre l'activite et les recherches du client",
+    text: "Identifier les prestations importantes, les zones desservies, les clients vises et les questions que les visiteurs se posent avant de contacter l'entreprise.",
   },
   {
     number: "02",
-    title: "Technique propre",
-    text: "Performance, rendu serveur, accessibilite, sitemap, robots, metadata et URLs stables donnent a Google une base saine pour explorer le site.",
+    title: "Structurer les pages autour des bonnes intentions",
+    text: "Creer une architecture claire avec une page par sujet important : service, realisation, zone locale, methode, FAQ ou preuve client.",
   },
   {
     number: "03",
-    title: "Preuves et contexte",
-    text: "Les realisations, zones d'intervention, offres, FAQ et explications de methode aident le moteur a comprendre qui vous aidez et pourquoi.",
+    title: "Travailler les titres, metadata et contenus",
+    text: "Ecrire des titres lisibles, des descriptions utiles, des textes naturels et des sections qui repondent directement aux recherches des futurs clients.",
   },
   {
     number: "04",
-    title: "Pret pour l'agentic search",
-    text: "Les experiences IA de recherche comparent, synthetisent et croisent les sources. Le site doit donc etre citeable, precis et decoupe en reponses fiables.",
+    title: "Optimiser le maillage interne",
+    text: "Relier les pages entre elles de facon logique pour aider Google et les visiteurs a comprendre les services, les realisations et la zone d'intervention.",
+  },
+  {
+    number: "05",
+    title: "Ajouter des donnees structurees",
+    text: "Mettre en place du JSON-LD pour expliciter l'entreprise, les services, les questions frequentes, les projets et les zones desservies.",
+  },
+  {
+    number: "06",
+    title: "Renforcer le SEO local",
+    text: "Travailler Dijon, la Cote-d'Or et les villes dans le rayon d'intervention avec des contenus utiles, pas des pages remplies artificiellement.",
+  },
+  {
+    number: "07",
+    title: "Soigner les performances techniques",
+    text: "Verifier la vitesse, le rendu serveur, le sitemap, le fichier robots, l'accessibilite, les images, les URLs et la proprete du code.",
+  },
+  {
+    number: "08",
+    title: "Mesurer et ameliorer dans le temps",
+    text: "Suivre les pages importantes, ajuster les contenus, enrichir les realisations et faire evoluer la strategie selon les resultats observes.",
   },
 ];
 
-const workflow = [
-  "Audit des intentions de recherche utiles pour votre activite.",
-  "Architecture des pages : services, villes, realisations, FAQ et preuves.",
-  "Redaction orientee utilisateur avec titres clairs et reponses directes.",
-  "Ajout de donnees structurees JSON-LD adaptees au contenu.",
-  "Optimisation technique : vitesse, rendu serveur, indexation et sitemap.",
-  "Suivi des pages strategiques et ameliorations progressives.",
-];
-
 const agenticItems = [
-  "Des pages qui repondent a des questions completes, pas seulement a un mot-cle.",
-  "Des blocs courts et fiables que les moteurs IA peuvent comprendre et citer.",
-  "Une coherence entre les offres, les realisations, la zone locale et les appels a l'action.",
-  "Des donnees structurees pour expliciter les services, la FAQ, l'entreprise et les zones desservies.",
+  "Des reponses claires a des questions completes, pas seulement des mots-cles isoles.",
+  "Des sections courtes et bien nommees que Google peut comprendre, comparer et resumer.",
+  "Des preuves visibles : realisations, methode, zone d'intervention, services et FAQ coherents.",
+  "Des donnees structurees pour rendre les informations importantes lisibles par les moteurs.",
+  "Un contenu fiable, utile et suffisamment precis pour etre cite dans des parcours de recherche assistes par l'IA.",
 ];
 
 const faq = [
   {
-    question: "Pourquoi parler de recherche agentique maintenant ?",
+    question: "Pourquoi travailler le referencement des la creation du site ?",
     answer:
-      "Parce que Google evolue vers des experiences capables de decomposer une demande complexe, comparer plusieurs sources et proposer des etapes suivantes. Un site clair et structure sera plus facile a comprendre dans ce contexte.",
+      "Parce que la structure, les URLs, les titres, les contenus et les performances se preparent mieux au debut. Un site pense pour le SEO est plus simple a faire evoluer ensuite.",
   },
   {
     question: "Est-ce que le SEO local compte encore ?",
@@ -61,6 +72,11 @@ const faq = [
     answer:
       "Le referencement naturel se construit dans la duree. La base technique peut etre posee rapidement, puis le contenu, les realisations et les pages locales renforcent la visibilite mois apres mois.",
   },
+  {
+    question: "Le referencement remplace-t-il la publicite ?",
+    answer:
+      "Non. La publicite peut aider a obtenir des contacts rapidement. Le SEO sert plutot a construire une visibilite durable et une presence plus credible dans le temps.",
+  },
 ];
 
 export default function Seo() {
@@ -71,81 +87,32 @@ export default function Seo() {
       <Header />
       <BackgroundShapes variant="dark" />
 
-      <section className="seo-hero">
+      <section className="seo-hero seo-hero--simple">
         <p className="seo-eyebrow">Referencement naturel</p>
-        <h1>Un site lisible par vos clients, Google et les recherches IA.</h1>
+        <h1>Comment travailler sur le referencement d'un site ?</h1>
         <p>
-          Le referencement ne se limite pas a placer des mots-cles. Je structure
-          votre site pour qu'il soit rapide, clair, credible, localement visible
-          et pret pour les nouveaux parcours de recherche assistes par l'IA.
+          Le referencement repose sur un ensemble d'actions coherentes :
+          comprendre le client, structurer les pages, ecrire des contenus
+          utiles, optimiser la technique et faire evoluer le site dans le temps.
         </p>
-
-        <div className="seo-hero__actions">
-          <button
-            type="button"
-            className="seo-primary magnetic"
-            onClick={() =>
-              document.getElementById("contact")?.scrollIntoView({
-                behavior: "smooth",
-              })
-            }
-          >
-            Parler de mon referencement
-            <span>↗</span>
-          </button>
-
-          <TransitionLink to="/zone-intervention" className="seo-secondary">
-            Voir la zone d'intervention
-          </TransitionLink>
-        </div>
       </section>
 
-      <section className="seo-band reveal">
-        <article>
-          <span>Objectif</span>
-          <strong>Etre compris avant d'etre classe</strong>
-          <p>
-            Une page bien referencee est d'abord une page bien comprise : par un
-            humain presse, par Googlebot, par les extraits enrichis et par les
-            futures interfaces conversationnelles.
-          </p>
-        </article>
-
-        <article>
-          <span>Zone locale</span>
-          <strong>Dijon + 100 km</strong>
-          <p>
-            Les contenus sont relies aux vraies zones de service : Dijon,
-            Beaune, Dole, Chalon-sur-Saone, Langres et les communes proches.
-          </p>
-        </article>
-
-        <article>
-          <span>Socle</span>
-          <strong>Next.js, SSR et donnees structurees</strong>
-          <p>
-            Les pages importantes disposent d'un rendu serveur, de metadata, de
-            JSON-LD, d'un sitemap et d'une structure claire.
-          </p>
-        </article>
-      </section>
-
-      <section className="seo-section">
+      <section className="seo-section seo-section--first">
         <div className="seo-section__heading reveal" data-reveal-direction="left">
-          <p className="seo-eyebrow">Methode SEO</p>
-          <h2>Ce que je mets en place pour renforcer votre visibilite.</h2>
+          <p className="seo-eyebrow">Etapes et astuces</p>
+          <h2>Les points que je travaille pour le client.</h2>
         </div>
 
-        <div className="seo-grid">
-          {pillars.map((pillar, index) => (
+        <div className="seo-grid seo-grid--steps">
+          {seoSteps.map((step, index) => (
             <article
-              key={pillar.number}
+              key={step.number}
               className="seo-card reveal"
-              data-reveal-delay={index * 90}
+              data-reveal-delay={index * 70}
             >
-              <span>{pillar.number}</span>
-              <h3>{pillar.title}</h3>
-              <p>{pillar.text}</p>
+              <span>{step.number}</span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
             </article>
           ))}
         </div>
@@ -153,13 +120,14 @@ export default function Seo() {
 
       <section className="seo-agentic">
         <div className="seo-agentic__content reveal" data-reveal-direction="left">
-          <p className="seo-eyebrow">Agentic search</p>
-          <h2>Preparer le site a la recherche agentique de Google.</h2>
+          <p className="seo-eyebrow">Futur du SEO</p>
+          <h2>Preparer le referencement au futur Google Agentic.</h2>
           <p>
-            Google fait evoluer la recherche avec des experiences IA capables de
-            traiter des demandes plus longues, de poser des questions de suivi
-            et de reunir plusieurs angles de reponse. Pour rester visible, un
-            site doit devenir une source claire, fiable et facile a exploiter.
+            Google fait evoluer la recherche vers des experiences capables de
+            comprendre des demandes plus longues, de comparer plusieurs sources
+            et de proposer des reponses plus completes. Pour s'y preparer, le
+            site doit devenir une source claire, fiable, structuree et facile a
+            exploiter par un moteur comme par un assistant IA.
           </p>
         </div>
 
@@ -171,22 +139,6 @@ export default function Seo() {
             </div>
           ))}
         </div>
-      </section>
-
-      <section className="seo-process">
-        <div className="seo-section__heading reveal" data-reveal-direction="left">
-          <p className="seo-eyebrow">Plan d'action</p>
-          <h2>Un referencement structure, mesurable et evolutif.</h2>
-        </div>
-
-        <ol className="seo-timeline">
-          {workflow.map((step, index) => (
-            <li key={step} className="reveal" data-reveal-delay={index * 80}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <p>{step}</p>
-            </li>
-          ))}
-        </ol>
       </section>
 
       <section className="seo-faq">
