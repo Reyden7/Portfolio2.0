@@ -1,5 +1,5 @@
 export async function fetchProjectsFromApi() {
-  const response = await fetch("/.netlify/functions/projects");
+  const response = await fetch("/api/projects");
 
   if (!response.ok) {
     throw new Error("Impossible de charger les projets depuis l'API");
@@ -9,7 +9,7 @@ export async function fetchProjectsFromApi() {
 }
 
 export async function createProjectFromApi(project, adminPassword) {
-  const response = await fetch("/.netlify/functions/projects", {
+  const response = await fetch("/api/projects", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -26,7 +26,7 @@ export async function createProjectFromApi(project, adminPassword) {
 }
 
 export async function updateProjectFromApi(project, adminPassword) {
-  const response = await fetch("/.netlify/functions/projects", {
+  const response = await fetch("/api/projects", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -43,7 +43,7 @@ export async function updateProjectFromApi(project, adminPassword) {
 }
 
 export async function deleteProjectFromApi(projectId, adminPassword) {
-  const response = await fetch("/.netlify/functions/projects", {
+  const response = await fetch("/api/projects", {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -61,7 +61,7 @@ export async function deleteProjectFromApi(projectId, adminPassword) {
 
 
 export async function restoreProjectsToApi(projects, adminPassword) {
-  const response = await fetch("/.netlify/functions/projects/restore", {
+  const response = await fetch("/api/projects/restore", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -85,7 +85,7 @@ export async function uploadProjectMedia(file, adminPassword, options = {}) {
   formData.append("mediaType", options.mediaType || "media");
   formData.append("category", options.category || "general");
 
-  const response = await fetch("/.netlify/functions/upload-media", {
+  const response = await fetch("/api/upload-media", {
     method: "POST",
     headers: {
       "x-admin-password": adminPassword,

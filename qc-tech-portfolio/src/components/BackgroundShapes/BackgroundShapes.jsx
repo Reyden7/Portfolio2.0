@@ -1,4 +1,5 @@
-import "./BackgroundShapes.css";
+"use client";
+
 
 function BackgroundShapes({ variant = "dark" }) {
   return (

@@ -1,5 +1,6 @@
+"use client";
+
 import { useEffect, useRef } from "react";
-import "./ScrollProgress.css";
 
 function ScrollProgress() {
   const progressRef = useRef(null);

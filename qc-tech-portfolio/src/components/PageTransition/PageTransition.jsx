@@ -1,14 +1,15 @@
+"use client";
+
 import { useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { usePathname } from "next/navigation";
 import anime from "animejs";
-import "./PageTransition.css";
 
 function PageTransition() {
   const transitionRef = useRef(null);
   const labelRef = useRef(null);
-  const location = useLocation();
+  const pathname = usePathname();
 
-  const previousPathRef = useRef(location.pathname);
+  const previousPathRef = useRef(pathname);
   const hasMountedRef = useRef(false);
 
   useEffect(() => {
@@ -29,15 +30,15 @@ function PageTransition() {
 
     if (!hasMountedRef.current) {
       hasMountedRef.current = true;
-      previousPathRef.current = location.pathname;
+      previousPathRef.current = pathname;
       return;
     }
 
-    if (previousPathRef.current === location.pathname) {
+    if (previousPathRef.current === pathname) {
       return;
     }
 
-    previousPathRef.current = location.pathname;
+    previousPathRef.current = pathname;
 
     const timeline = anime.timeline({
       easing: "easeInOutExpo",
@@ -77,7 +78,7 @@ function PageTransition() {
     return () => {
       timeline.pause();
     };
-  }, [location.pathname]);
+  }, [pathname]);
 
   return (
     <div className="page-transition" ref={transitionRef}>

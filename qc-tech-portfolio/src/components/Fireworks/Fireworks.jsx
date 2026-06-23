@@ -1,4 +1,5 @@
-import "./Fireworks.css";
+"use client";
+
 
 function Fireworks({ active }) {
   if (!active) return null;

@@ -1,6 +1,7 @@
+"use client";
+
 import TransitionLink from "../TransitionLink/TransitionLink";
 import ModelViewer from "../ModelViewer/ModelViewer";
-import "./ModelProjectCard.css";
 
 function ModelProjectCard({ project, index = 0 }) {
   const technologies = project.technologies || project.tech || project.tags || [];

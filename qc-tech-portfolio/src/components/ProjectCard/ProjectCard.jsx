@@ -1,5 +1,6 @@
+"use client";
+
 import { useState } from "react";
-import "./ProjectCard.css";
 import TransitionLink from "../TransitionLink/TransitionLink";
 
 function ProjectCard({ project, index = 0 }) {

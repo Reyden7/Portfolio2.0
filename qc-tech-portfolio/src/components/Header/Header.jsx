@@ -1,15 +1,16 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { usePathname } from "next/navigation";
 import TransitionLink from "../TransitionLink/TransitionLink";
 import { usePageTransition } from "../../context/PageTransitionContext";
 import { profile } from "../../data/profile";
-import "./Header.css";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
-  const location = useLocation();
+  const pathname = usePathname();
   const { navigateWithTransition } = usePageTransition();
 
   const closeMenu = () => {
@@ -19,7 +20,7 @@ function Header() {
   const scrollToSection = (sectionId) => {
     closeMenu();
 
-    if (location.pathname !== "/") {
+    if (pathname !== "/") {
       navigateWithTransition("/", { scrollTarget: sectionId });
       return;
     }
@@ -33,7 +34,7 @@ function Header() {
   };
 
   useEffect(() => {
-    if (location.pathname !== "/") {
+    if (pathname !== "/") {
       setActiveSection("");
       return;
     }
@@ -65,7 +66,7 @@ function Header() {
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
-  }, [location.pathname]);
+  }, [pathname]);
 
   const getNavButtonClass = (sectionId) =>
     activeSection === sectionId
@@ -73,7 +74,7 @@ function Header() {
       : "header__nav-button";
 
   const getServicesButtonClass = () =>
-    location.pathname === "/services"
+    pathname === "/services"
       ? "header__nav-button is-active"
       : "header__nav-button";
 

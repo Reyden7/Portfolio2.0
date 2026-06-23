@@ -1,6 +1,7 @@
+"use client";
+
 import { useEffect, useRef } from "react";
 import anime from "animejs";
-import "./Loader.css";
 import { shouldReduceMotion } from "../../utils/motion";
 
 function Loader({ onComplete }) {
