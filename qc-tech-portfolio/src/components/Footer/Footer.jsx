@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 import { profile } from "../../data/profile";
 import { contactIntro, projectTypeOptions } from "../../data/contactContent";
 import Fireworks from "../Fireworks/Fireworks";
@@ -24,7 +23,6 @@ function Footer() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showFireworks, setShowFireworks] = useState(false);
-  
 
   useEffect(() => {
     const handleProjectTypeSelection = (event) => {
@@ -121,37 +119,29 @@ function Footer() {
       return;
     }
 
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-    if (!serviceId || !templateId || !publicKey) {
-      setFeedback({
-        type: "error",
-        message:
-          "La configuration EmailJS est manquante. Vérifiez votre fichier .env.",
-      });
-
-      return;
-    }
-
     setIsSubmitting(true);
 
     try {
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: formData.name.trim(),
-          from_email: formData.email.trim(),
-          reply_to: formData.email.trim(),
-          project_type: formData.projectType,
-          message: formData.message.trim(),
+      const formBody = new URLSearchParams({
+        "form-name": "contact",
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        projectType: formData.projectType,
+        message: formData.message.trim(),
+        website: formData.website,
+      });
+
+      const response = await fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        {
-          publicKey,
-        }
-      );
+        body: formBody.toString(),
+      });
+
+      if (!response.ok) {
+        throw new Error("L’envoi a échoué.");
+      }
 
       setFeedback({
         type: "success",
@@ -168,7 +158,7 @@ function Footer() {
         website: "",
       });
     } catch (error) {
-      console.error("EmailJS error:", error);
+      console.error("Netlify Forms error:", error);
 
       setFeedback({
         type: "error",
@@ -182,7 +172,6 @@ function Footer() {
   return (
     <>
       <footer className="footer" id="contact">
-        
         <div className="footer__inner">
           <div className="footer__hero">
             <p className="footer__kicker">{contactIntro.kicker}</p>
@@ -193,7 +182,16 @@ function Footer() {
           </div>
 
           <div className="footer__content">
-            <form className="footer__form" onSubmit={handleSubmit}>
+            <form
+              className="footer__form"
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="website"
+              onSubmit={handleSubmit}
+            >
+              <input type="hidden" name="form-name" value="contact" />
+
               <div className="footer__form-top">
                 <p>{contactIntro.formTitle}</p>
                 <span>{contactIntro.formBadge}</span>
@@ -296,9 +294,7 @@ function Footer() {
             © {new Date().getFullYear()} {profile.companyName}. Tous droits
             réservés.
           </p>
-          <p>
-            Sites web, applications et modélisation d'objet 3D
-          </p>
+          <p>Sites web, applications et modélisation d'objet 3D</p>
         </div>
       </footer>
 
