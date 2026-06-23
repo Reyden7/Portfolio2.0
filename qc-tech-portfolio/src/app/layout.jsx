@@ -76,6 +76,22 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="website"
+          hidden
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="text" name="name" />
+          <input type="email" name="email" />
+          <select name="projectType">
+            <option value=""></option>
+          </select>
+          <textarea name="message"></textarea>
+          <input type="text" name="website" />
+        </form>
         <Providers>{children}</Providers>
       </body>
     </html>
