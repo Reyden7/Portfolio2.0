@@ -13,12 +13,7 @@ npm run start
 
 ## Envoi de mail
 
-Le formulaire de contact envoie ses données vers `/api/contact`.
-Cette route s'exécute côté serveur sur Netlify et relaie le message à EmailJS.
+Le formulaire de contact utilise Netlify Forms.
+Les soumissions sont visibles dans Netlify, et les emails sont envoyés par les notifications configurées dans Forms > Emails and webhooks.
 
-Variables d'environnement à configurer côté Netlify :
-
-- `EMAILJS_SERVICE_ID`
-- `EMAILJS_TEMPLATE_ID`
-- `EMAILJS_PUBLIC_KEY`
-- `EMAILJS_PRIVATE_KEY` ou `EMAILJS_ACCESS_TOKEN` si le compte EmailJS l'utilise
+Aucune variable d'environnement EmailJS n'est nécessaire pour l'envoi de mail.

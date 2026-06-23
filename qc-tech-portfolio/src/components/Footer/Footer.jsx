@@ -122,24 +122,25 @@ function Footer() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          projectType: formData.projectType,
-          message: formData.message,
-          website: formData.website,
-        }),
+      const formBody = new URLSearchParams({
+        "form-name": "contact",
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        projectType: formData.projectType,
+        message: formData.message.trim(),
+        website: formData.website,
       });
 
-      const data = await response.json();
+      const response = await fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: formBody.toString(),
+      });
 
       if (!response.ok) {
-        throw new Error(data.message || "L’envoi a échoué.");
+        throw new Error("L’envoi a échoué.");
       }
 
       setFeedback({
@@ -157,7 +158,7 @@ function Footer() {
         website: "",
       });
     } catch (error) {
-      console.error("Contact form error:", error);
+      console.error("Netlify Forms error:", error);
 
       setFeedback({
         type: "error",
@@ -181,7 +182,16 @@ function Footer() {
           </div>
 
           <div className="footer__content">
-            <form className="footer__form" onSubmit={handleSubmit}>
+            <form
+              className="footer__form"
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="website"
+              onSubmit={handleSubmit}
+            >
+              <input type="hidden" name="form-name" value="contact" />
+
               <div className="footer__form-top">
                 <p>{contactIntro.formTitle}</p>
                 <span>{contactIntro.formBadge}</span>
