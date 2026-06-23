@@ -9,42 +9,34 @@ const seoSteps = [
   {
     number: "01",
     title: "Comprendre l'activite et les recherches du client",
-    text: "Identifier les prestations importantes, les zones desservies, les clients vises et les questions que les visiteurs se posent avant de contacter l'entreprise.",
   },
   {
     number: "02",
     title: "Structurer les pages autour des bonnes intentions",
-    text: "Creer une architecture claire avec une page par sujet important : service, realisation, zone locale, methode, FAQ ou preuve client.",
   },
   {
     number: "03",
     title: "Travailler les titres, metadata et contenus",
-    text: "Ecrire des titres lisibles, des descriptions utiles, des textes naturels et des sections qui repondent directement aux recherches des futurs clients.",
   },
   {
     number: "04",
     title: "Optimiser le maillage interne",
-    text: "Relier les pages entre elles de facon logique pour aider Google et les visiteurs a comprendre les services, les realisations et la zone d'intervention.",
   },
   {
     number: "05",
     title: "Ajouter des donnees structurees",
-    text: "Mettre en place du JSON-LD pour expliciter l'entreprise, les services, les questions frequentes, les projets et les zones desservies.",
   },
   {
     number: "06",
-    title: "Renforcer le SEO local",
-    text: "Travailler Dijon, la Cote-d'Or et les villes dans le rayon d'intervention avec des contenus utiles, pas des pages remplies artificiellement.",
+    title: "Adapter le SEO local a la zone du client",
   },
   {
     number: "07",
     title: "Soigner les performances techniques",
-    text: "Verifier la vitesse, le rendu serveur, le sitemap, le fichier robots, l'accessibilite, les images, les URLs et la proprete du code.",
   },
   {
     number: "08",
     title: "Mesurer et ameliorer dans le temps",
-    text: "Suivre les pages importantes, ajuster les contenus, enrichir les realisations et faire evoluer la strategie selon les resultats observes.",
   },
 ];
 
@@ -65,7 +57,7 @@ const faq = [
   {
     question: "Est-ce que le SEO local compte encore ?",
     answer:
-      "Oui. Pour une entreprise de service autour de Dijon, Google doit comprendre la zone, les villes couvertes, les prestations et les preuves locales. C'est un signal essentiel pour les recherches geographiques.",
+      "Oui, quand l'activite du client depend d'une zone precise. Google doit comprendre les villes couvertes, les prestations et les preuves locales. Cette zone peut etre n'importe ou en France selon le client.",
   },
   {
     question: "Combien de temps faut-il pour voir des resultats ?",
@@ -112,7 +104,6 @@ export default function Seo() {
             >
               <span>{step.number}</span>
               <h3>{step.title}</h3>
-              <p>{step.text}</p>
             </article>
           ))}
         </div>

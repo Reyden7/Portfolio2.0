@@ -230,7 +230,25 @@
 }
 
 .seo-grid--steps {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
+  max-width: 880px;
+}
+
+.seo-grid--steps .seo-card {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 1rem;
+  align-items: center;
+  min-height: 86px;
+  padding: 1.25rem 1.45rem;
+}
+
+.seo-grid--steps .seo-card span {
+  margin: 0;
+}
+
+.seo-grid--steps .seo-card h3 {
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
 }
 
 .seo-card h3 {

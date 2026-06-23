@@ -30,14 +30,7 @@ const seoJsonLd = {
         name: "DigitalLoom",
         url: siteUrl,
       },
-      areaServed: [
-        "Dijon",
-        "Cote-d'Or",
-        "Bourgogne-Franche-Comte",
-        "Beaune",
-        "Dole",
-        "Chalon-sur-Saone",
-      ],
+      areaServed: "France",
       serviceType: [
         "SEO technique",
         "SEO local",
