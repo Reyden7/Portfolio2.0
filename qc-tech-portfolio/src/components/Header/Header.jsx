@@ -155,6 +155,10 @@ function Header() {
           </div>
         </div>
 
+        <button className={getSeoButtonClass()} onClick={goToSeo}>
+          Le référencement (SEO)
+        </button>
+
         <button
           className={`${getServicesButtonClass()} header__services-button`}
           onClick={goToServices}
@@ -162,9 +166,7 @@ function Header() {
           Nos Prestations
         </button>
 
-        <button className={getSeoButtonClass()} onClick={goToSeo}>
-          SEO
-        </button>
+        
 
         <button
           className={`${getNavButtonClass("contact")} header__cta`}

@@ -90,10 +90,7 @@ export default function Seo() {
       </section>
 
       <section className="seo-section seo-section--first">
-        <div className="seo-section__heading reveal" data-reveal-direction="left">
-          <p className="seo-eyebrow">Etapes et astuces</p>
-          <h2>Les points que je travaille pour le client.</h2>
-        </div>
+        
 
         <div className="seo-grid seo-grid--steps">
           {seoSteps.map((step, index) => (
