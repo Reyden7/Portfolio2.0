@@ -1,10 +1,10 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { profile } from "../../data/profile";
 import { contactIntro, projectTypeOptions } from "../../data/contactContent";
-import "./Footer.css";
 import Fireworks from "../Fireworks/Fireworks";
-import BackgroundShapes from "../../components/BackgroundShapes/BackgroundShapes";
 
 function Footer() {
   const fireworksTimeoutRef = useRef(null);
@@ -121,9 +121,9 @@ function Footer() {
       return;
     }
 
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
     if (!serviceId || !templateId || !publicKey) {
       setFeedback({

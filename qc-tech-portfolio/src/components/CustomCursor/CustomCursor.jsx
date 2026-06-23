@@ -1,6 +1,7 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import anime from "animejs";
-import "./CustomCursor.css";
 import { shouldReduceMotion } from "../../utils/motion";
 
 function CustomCursor() {

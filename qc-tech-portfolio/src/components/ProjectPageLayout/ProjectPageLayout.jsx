@@ -1,7 +1,8 @@
+"use client";
+
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import ProjectCard from "../ProjectCard/ProjectCard";
-import "./ProjectPageLayout.css";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import usePageMeta from "../../hooks/usePageMeta";
 import BackgroundShapes from "../BackgroundShapes/BackgroundShapes";

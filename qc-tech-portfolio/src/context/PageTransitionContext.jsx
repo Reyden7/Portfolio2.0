@@ -1,7 +1,8 @@
+"use client";
+
 import { createContext, useContext, useRef } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { usePathname, useRouter } from "next/navigation";
 import anime from "animejs";
-import "../components/PageTransition/PageTransition.css";
 import { shouldReduceMotion } from "../utils/motion";
 
 const PageTransitionContext = createContext(null);
@@ -11,14 +12,14 @@ export function PageTransitionProvider({ children }) {
   const labelRef = useRef(null);
   const isAnimatingRef = useRef(false);
 
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const navigateWithTransition = (to, options = {}) => {
     const { scrollTarget } = options;
 
     if (shouldReduceMotion()) {
-      navigate(to);
+      router.push(to);
 
       requestAnimationFrame(() => {
         if (scrollTarget) {
@@ -33,13 +34,13 @@ export function PageTransitionProvider({ children }) {
 
     if (isAnimatingRef.current) return;
 
-    if (to === location.pathname && !scrollTarget) return;
+    if (to === pathname && !scrollTarget) return;
 
     const transition = transitionRef.current;
     const label = labelRef.current;
 
     if (!transition || !label) {
-      navigate(to);
+      router.push(to);
       return;
     }
 
@@ -80,7 +81,7 @@ export function PageTransitionProvider({ children }) {
       .add({
         duration: 80,
         complete: () => {
-          navigate(to);
+          router.push(to);
 
           requestAnimationFrame(() => {
             requestAnimationFrame(() => {

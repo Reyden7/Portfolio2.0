@@ -1,3 +1,5 @@
+"use client";
+
 import { usePageTransition } from "../../context/PageTransitionContext";
 
 function TransitionLink({ to, children, className, scrollTarget, ariaLabel }) {
