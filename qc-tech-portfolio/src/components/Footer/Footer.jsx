@@ -131,7 +131,7 @@ function Footer() {
         website: formData.website,
       });
 
-      const response = await fetch("/", {
+      const response = await fetch("/__forms.html", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -186,8 +186,6 @@ function Footer() {
               className="footer__form"
               name="contact"
               method="POST"
-              data-netlify="true"
-              netlify-honeypot="website"
               onSubmit={handleSubmit}
             >
               <input type="hidden" name="form-name" value="contact" />
