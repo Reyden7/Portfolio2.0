@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Providers from "./providers";
 import "../index.css";
 import "../components/BackgroundShapes/BackgroundShapes.css";
@@ -23,8 +24,11 @@ import "../views/Seo/Seo.css";
 import "../views/Services/Services.css";
 import "../views/Websites/Websites.css";
 import { profile } from "../data/profile";
+import GoogleAnalytics from "../components/GoogleAnalytics/GoogleAnalytics";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://digitalloom.fr";
+const googleAnalyticsId =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-Z4JK1T8BX4";
 const defaultDescription =
   "DigitalLoom : Création de sites internet, applications sur mesure et Modèle 3D.";
 
@@ -69,10 +73,11 @@ const organizationJsonLd = {
   ],
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
       <body>
+        <GoogleAnalytics measurementId={googleAnalyticsId} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
