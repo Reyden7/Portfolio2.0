@@ -2,7 +2,7 @@ export const methodSteps = [
   {
     number: "01",
     title: "Comprendre",
-    text: "Echange sur votre activité, vos objectifs, vos contraintes et les problèmes que le projet doit résoudre.",
+    text: "Échange sur votre activité, vos objectifs, vos contraintes et les problèmes que le projet doit résoudre.",
   },
   {
     number: "02",
@@ -76,7 +76,7 @@ export const faqItems = [
     number: "01",
     question: "Est-ce que je dois déjà avoir un cahier des charges complet ?",
     answer:
-      "Non. C’est même rarement le cas. On peut partir d’une idée simple, puis clarifier ensemble les objectifs, les fonctionnalités, les priorités et le périmètre du projet.",
+      "Non. C’est même rarement le cas. Nous pouvons partir d’une simple idée, puis clarifier ensemble les objectifs, les fonctionnalités, les priorités et le périmètre du projet.",
   },
   {
     number: "02",
@@ -92,21 +92,21 @@ export const faqItems = [
   },
   {
     number: "04",
-    question: "Est-ce que Digitaloom peu faire évoluer le projet après livraison ?",
+    question: "Est-ce que vous pouvez faire évoluer le projet après livraison ?",
     answer:
-      "Oui. Le projet est structuré pour rester maintenable. On peut prévoir des évolutions, ajouter des sections, améliorer des fonctionnalités ou faire évoluer l’interface plus tard. Cela dépend du plan de maintenance choisi",
+      "Oui. Le projet est structuré pour rester maintenable. Nous pouvons prévoir des évolutions, ajouter des sections, améliorer des fonctionnalités ou faire évoluer l’interface plus tard. Cela dépend du plan de maintenance choisi",
   },
   {
     number: "05",
     question: "Est-ce que vous pouvez m’aider à choisir la bonne solution ?",
     answer:
-      "Oui. Nôtre rôle n’est pas seulement d’exécuter. Nous pouvons vous aider à choisir entre un site vitrine, une landing page, une application métier, une solution simple ou une approche plus évolutive.",
+      "Oui. Notre rôle n’est pas seulement d’exécuter. Nous pouvons vous aider à choisir entre un site vitrine, une landing page, une application métier, une solution simple ou une approche plus évolutive.",
   },
   {
     number: "06",
     question: "Est-ce que vous utilisez l'IA ?",
     answer:
-      "Oui. Nous utilisons l'IA en tant que support, cela nous permet de produire un travail plus efficace, rapide et de vous proposer des tarifs vraiment intéréssant",
+      "Oui. Nous utilisons l'IA en tant que support, cela nous permet de produire un travail plus efficace, rapide et de vous proposer des tarifs vraiment intéréssants",
   },
 ];
 
@@ -164,7 +164,7 @@ export const offers = [
     label: "3D interactive",
     title: "3D",
     price: "À partir de 600 €",
-    text: "Pour me demander de modéliser  un objet ou un personnage en 3D.",
+    text: "Pour nous demander de modéliser un objet ou un personnage en 3D.",
     items: [
       "Modèle 3D optimisé",
       "Retopologie",
