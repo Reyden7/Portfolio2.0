@@ -4,7 +4,6 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import TransitionLink from "../../components/TransitionLink/TransitionLink";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
-import ModelViewer from "../../components/ModelViewer/ModelViewer";
 import usePageMeta from "../../hooks/usePageMeta";
 import useProjects from "../../hooks/useProjects";
 import BackgroundShapes from "../../components/BackgroundShapes/BackgroundShapes";
@@ -81,24 +80,12 @@ function ProjectDetail({ slug, initialProjects }) {
         <div className="project-detail__inner">
           <div
             className={`project-detail__media ${
-              project.model ? "project-detail__media--model" : ""
-            } ${
               project.detailMediaFit === "contain"
                 ? "project-detail__media--contain"
                 : ""
             }`}
           >
-            {project.model ? (
-              <ModelViewer
-                modelUrl={project.model}
-                fallbackImage={project.image}
-                alt={project.title}
-                scale={project.modelScale}
-                position={project.modelPosition}
-                rotation={project.modelRotation}
-                autoRotate={project.autoRotate}
-              />
-            ) : project.detailVideo ? (
+            {project.detailVideo ? (
               <video
                 src={project.detailVideo}
                 poster={project.detailImage || project.image}

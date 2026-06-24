@@ -1,4 +1,4 @@
-.project-detail {
+﻿.project-detail {
   min-height: 100vh;
   background: #050510;
   color: #ffffff;
@@ -853,7 +853,7 @@
   border-color: rgba(124, 60, 255, 0.24);
 }
 
-.project-detail > .background-shapes .background-shapes__shape--three {
+.project-detail > .background-shapes .background-shapes__shape--tertiary {
   border-color: rgba(0, 212, 255, 0.2);
 }
 

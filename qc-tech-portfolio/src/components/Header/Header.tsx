@@ -148,10 +148,6 @@ function Header() {
               Applications
             </TransitionLink>
 
-            <TransitionLink to="/modelisation-3d" className="header__dropdown-link">
-              <span>03</span>
-              Modelisation 3D
-            </TransitionLink>
           </div>
         </div>
 

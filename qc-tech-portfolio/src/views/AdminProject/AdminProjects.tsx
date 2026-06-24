@@ -29,12 +29,6 @@ function getEmptyProject() {
     status: "",
     context: "",
     goal: "",
-
-    model: "",
-    modelScale: "",
-    modelPosition: "0,0,0",
-    modelRotation: "0,0,0",
-    autoRotate: false,
   };
 }
 
@@ -187,13 +181,6 @@ function AdminProjects() {
       };
     }
 
-    if (category === "modeling") {
-      return {
-        categoryLabel: "Modélisation 3D",
-        backPath: "/modelisation-3d",
-      };
-    }
-
     return {
       categoryLabel: "Projet",
       backPath: "/",
@@ -214,16 +201,6 @@ function AdminProjects() {
       technologies: Array.isArray(selectedProject.technologies)
         ? selectedProject.technologies.join(", ")
         : selectedProject.technologies || "",
-      modelPosition: Array.isArray(selectedProject.modelPosition)
-        ? selectedProject.modelPosition.join(",")
-        : selectedProject.modelPosition || "0,0,0",
-      modelRotation: Array.isArray(selectedProject.modelRotation)
-        ? selectedProject.modelRotation.join(",")
-        : selectedProject.modelRotation || "0,0,0",
-      modelScale:
-        selectedProject.modelScale !== undefined
-          ? String(selectedProject.modelScale)
-          : "",
     });
 
     window.scrollTo({
@@ -284,22 +261,11 @@ function AdminProjects() {
         .filter(Boolean),
     };
 
-    if (project.category === "modeling") {
-      finalProject.modelScale = Number(project.modelScale || 1);
-      finalProject.modelPosition = project.modelPosition
-        .split(",")
-        .map((value) => Number(value.trim()));
-
-      finalProject.modelRotation = project.modelRotation
-        .split(",")
-        .map((value) => Number(value.trim()));
-    } else {
-      delete finalProject.model;
-      delete finalProject.modelScale;
-      delete finalProject.modelPosition;
-      delete finalProject.modelRotation;
-      delete finalProject.autoRotate;
-    }
+    delete finalProject.model;
+    delete finalProject.modelScale;
+    delete finalProject.modelPosition;
+    delete finalProject.modelRotation;
+    delete finalProject.autoRotate;
 
     try {
       setIsSaving(true);
@@ -400,7 +366,6 @@ function AdminProjects() {
             >
               <option value="websites">Site internet</option>
               <option value="apps">Application / logiciel</option>
-              <option value="modeling">Modélisation 3D</option>
             </select>
           </label>
 
@@ -516,7 +481,7 @@ function AdminProjects() {
               name="status"
               value={project.status}
               onChange={handleChange}
-              placeholder="Projet vitrine, WebGL, Outil sur mesure..."
+              placeholder="Projet vitrine, Outil sur mesure..."
             />
           </label>
 
@@ -537,62 +502,6 @@ function AdminProjects() {
               onChange={handleChange}
             />
           </label>
-
-          {project.category === "modeling" && (
-            <div className="admin-projects__model-fields">
-              <h2>Paramètres modèle 3D</h2>
-
-              <label>
-                Modèle FBX
-                <input
-                  name="model"
-                  value={project.model}
-                  onChange={handleChange}
-                  placeholder="/models/MonModele.fbx"
-                />
-              </label>
-
-              <label>
-                Scale
-                <input
-                  name="modelScale"
-                  value={project.modelScale}
-                  onChange={handleChange}
-                  placeholder="0.025"
-                />
-              </label>
-
-              <label>
-                Position
-                <input
-                  name="modelPosition"
-                  value={project.modelPosition}
-                  onChange={handleChange}
-                  placeholder="1,0,3.4"
-                />
-              </label>
-
-              <label>
-                Rotation
-                <input
-                  name="modelRotation"
-                  value={project.modelRotation}
-                  onChange={handleChange}
-                  placeholder="0,0.7,0"
-                />
-              </label>
-
-              <label className="admin-projects__checkbox">
-                <input
-                  type="checkbox"
-                  name="autoRotate"
-                  checked={project.autoRotate}
-                  onChange={handleChange}
-                />
-                Rotation automatique
-              </label>
-            </div>
-          )}
 
           <button type="submit" disabled={isSaving}>
             {isSaving

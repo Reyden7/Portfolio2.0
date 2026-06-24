@@ -14,10 +14,6 @@ const serviceTabs = [
     id: "apps",
     label: "Application métier",
   },
-  {
-    id: "3d",
-    label: "Modélisation 3D",
-  },
 ];
 
 const offers = {
@@ -137,60 +133,6 @@ const offers = {
     },
   ],
 
-  "3d": [
-    {
-      index: "01",
-      tag: "Essentiel",
-      title: "Essentielle",
-      projectType: "Modélisation 3D",
-      price: "À partir de 50 €",
-      description: "Pour la création d'un modèle 3D simple.",
-      features: [
-        "Objet simple",
-        "Export FBX, OBJ, STL ou GLB",
-        "1 aller-retour de correction",
-        "Références visuelles",
-        "Usage web ou présentation",
-      ],
-      button: "Demander un modèle",
-    },
-    {
-      index: "02",
-      tag: "Professionnelle",
-      title: "Professionnelle",
-      projectType: "Modélisation 3D",
-      price: "À partir de 250 €",
-      description:
-        "Pour créer un modèle 3D propre, optimisé et exploitable pour un site, une application ou un jeu.",
-      features: [
-        "Objet détaillé",
-        "Optimisation du modèle",
-        "UV propres",
-        "Textures simples",
-        "2 allers-retours de correction",
-        "Export complet",
-      ],
-      button: "Demander une 3D pro",
-    },
-    {
-      index: "03",
-      tag: "Sur mesure",
-      title: "Sur-Mesure",
-      projectType: "Modélisation 3D",
-      price: "À partir de 790 €",
-      description:
-        "Pour les projets 3D complexes nécessitant un niveau de détail élevé ou une contrainte technique spécifique.",
-      features: [
-        "Objet complexe",
-        "Personnage ou créature",
-        "Textures personnalisées",
-        "Optimisation selon usage",
-        "3 allers-retours de correction",
-        "Modèle jeu, web ou impression 3D",
-      ],
-      button: "Demander un devis",
-    },
-  ],
 };
 
 const maintenancePlans = {
@@ -350,7 +292,7 @@ export default function Services() {
         <span className="services-hero__eyebrow">DigitalLoom</span>
         <h1>Nos prestations</h1>
         <p>
-          Des offres claires pour créer un site moderne, une application métier utile ou un modèle 3D adapté à votre projet.
+          Des offres claires pour créer un site moderne ou une application métier utile, adaptée à vos objectifs.
         </p>
 
         <div className="services-tabs">

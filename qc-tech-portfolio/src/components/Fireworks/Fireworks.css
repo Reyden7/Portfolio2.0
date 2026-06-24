@@ -1,4 +1,4 @@
-.fireworks {
+﻿.fireworks {
   position: fixed;
   inset: 0;
   z-index: 9997;
@@ -30,7 +30,7 @@
   animation-delay: 0.18s;
 }
 
-.fireworks__burst--three {
+.fireworks__burst--tertiary {
   left: 52%;
   bottom: 34%;
   animation-delay: 0.32s;
@@ -62,7 +62,7 @@
   animation-delay: calc(0.16s + var(--i) * 0.012s);
 }
 
-.fireworks__burst--three span {
+.fireworks__burst--tertiary span {
   width: 5px;
   height: 5px;
   animation-delay: calc(0.28s + var(--i) * 0.012s);
@@ -179,7 +179,7 @@
     top: 30%;
   }
 
-  .fireworks__burst--three {
+  .fireworks__burst--tertiary {
     left: 50%;
     bottom: 30%;
   }

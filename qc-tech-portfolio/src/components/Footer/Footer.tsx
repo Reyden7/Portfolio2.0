@@ -16,7 +16,6 @@ const footerNavigation = [
 const footerProjects = [
   { label: "Sites internet", path: "/sites-internet" },
   { label: "Applications metier", path: "/applications-logiciels" },
-  { label: "Modelisation 3D", path: "/modelisation-3d" },
 ];
 
 const footerCities = [
@@ -323,8 +322,8 @@ function Footer() {
           <div className="footer__seo-brand">
             <h3>{profile.companyName}</h3>
             <p>
-              Création de sites internet, applications métier, expériences 3D
-              Et référencement naturel pour les entreprises autour de Dijon.
+              Création de sites internet, applications métier et référencement
+              naturel pour les entreprises en France.
             </p>
             <a href={`mailto:${profile.email}`}>{profile.email}</a>
           </div>
@@ -377,8 +376,8 @@ function Footer() {
 
         <p className="footer__seo-line">
           Création de site internet à Dijon, référencement naturel local,
-          applications métier et modélisation 3D : des pages structurées pour
-          les visiteurs, Google et les recherches IA.
+          applications métier : des pages structurées pour les visiteurs,
+          Google et les recherches IA.
         </p>
 
         <div className="footer__bottom">
@@ -386,7 +385,7 @@ function Footer() {
             © {new Date().getFullYear()} {profile.companyName}. Tous droits
             réservés.
           </p>
-          <p>Sites web, applications et modélisation d'objet 3D</p>
+          <p>Sites web et applications métier</p>
         </div>
       </footer>
 

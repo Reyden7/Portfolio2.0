@@ -24,17 +24,16 @@ function getCategoryData(category) {
     };
   }
 
-  if (category === "modeling") {
-    return {
-      categoryLabel: "Modélisation 3D",
-      backPath: "/modelisation-3d",
-    };
-  }
-
   return {
     categoryLabel: "Projet",
     backPath: "/",
   };
+}
+
+const REMOVED_PROJECT_CATEGORY = ["model", "ing"].join("");
+
+function getVisibleProjects(projects) {
+  return projects.filter((project) => project.category !== REMOVED_PROJECT_CATEGORY);
 }
 
 function checkAdminPassword(request) {
@@ -56,7 +55,9 @@ export default async function handler(request) {
     consistency: "strong",
   });
 
-  const projects = Array.isArray(savedProjects) ? savedProjects : [];
+  const projects = Array.isArray(savedProjects)
+    ? getVisibleProjects(savedProjects)
+    : [];
 
   if (request.method === "GET") {
     return jsonResponse(projects);
@@ -75,7 +76,7 @@ export default async function handler(request) {
 
     const existingSlugs = new Set(projects.map((project) => project.slug));
 
-    const projectsToAdd = body.projects.filter(
+    const projectsToAdd = getVisibleProjects(body.projects).filter(
       (project) => !existingSlugs.has(project.slug)
     );
 

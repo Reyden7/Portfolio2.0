@@ -31,6 +31,5 @@ export const profile = {
     "C#",
     "Flutter",
     "UX/UI",
-    "Blender",
   ],
 };

@@ -43,7 +43,6 @@ const zoneJsonLd = {
     "Création de sites internet",
     "Développement d'applications métier",
     "Référencement naturel",
-    "Modélisation 3D",
   ],
 };
 

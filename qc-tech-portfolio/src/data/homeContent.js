@@ -61,14 +61,6 @@ export const categoryCards = [
     path: "/applications-logiciels",
     className: "home-category-card--app",
   },
-  {
-    number: "03",
-    badge: "3D",
-    title: "Modélisation 3D",
-    text: "Objets, produits et concepts 3D",
-    path: "/modelisation-3d",
-    className: "home-category-card--model",
-  },
 ];
 
 export const faqItems = [
@@ -158,21 +150,5 @@ export const offers = [
     cta: "Application",
     featured: false,
     projectType: "Application métier",
-  },
-  {
-    number: "04",
-    label: "3D interactive",
-    title: "3D",
-    price: "À partir de 600 €",
-    text: "Pour nous demander de modéliser un objet ou un personnage en 3D.",
-    items: [
-      "Modèle 3D optimisé",
-      "Retopologie",
-      "Texture",
-      "Exportation FBX",
-    ],
-    cta: "Modèle 3D",
-    featured: false,
-    projectType: "Modélisation 3D",
   },
 ];

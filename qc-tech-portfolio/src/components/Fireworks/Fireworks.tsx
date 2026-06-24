@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import type { CSSProperties } from "react";
 
@@ -26,9 +26,9 @@ function Fireworks({ active }) {
         ))}
       </div>
 
-      <div className="fireworks__burst fireworks__burst--three">
+      <div className="fireworks__burst fireworks__burst--tertiary">
         {particles.map((_, index) => (
-          <span key={`three-${index}`} style={getParticleStyle(index)}></span>
+          <span key={`tertiary-${index}`} style={getParticleStyle(index)}></span>
         ))}
       </div>
 

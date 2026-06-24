@@ -41,7 +41,7 @@ export default function ZoneIntervention() {
         <p>
           DigitalLoom accompagne les entreprises, artisans, independants et
           associations de Bourgogne-Franche-Comte avec des sites internet,
-          applications, contenus 3D et pages SEO adaptees au territoire.
+          applications metier et pages SEO adaptees au territoire.
         </p>
 
         <div className="seo-hero__actions">

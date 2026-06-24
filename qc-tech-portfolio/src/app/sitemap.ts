@@ -15,7 +15,6 @@ export default async function sitemap() {
     ["/zone-intervention", 0.88],
     ["/sites-internet", 0.9],
     ["/applications-logiciels", 0.85],
-    ["/modelisation-3d", 0.8],
   ];
 
   return [

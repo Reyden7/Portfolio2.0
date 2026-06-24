@@ -8,8 +8,6 @@ import "../components/Fireworks/Fireworks.css";
 import "../components/Footer/Footer.css";
 import "../components/Header/Header.css";
 import "../components/Loader/Loader.css";
-import "../components/ModelProjectCard/ModelProjectCard.css";
-import "../components/ModelViewer/ModelViewer.css";
 import "../components/PageTransition/PageTransition.css";
 import "../components/ProjectCard/ProjectCard.css";
 import "../components/ProjectPageLayout/ProjectPageLayout.css";
@@ -17,7 +15,6 @@ import "../components/ScrollProgress/ScrollProgress.css";
 import "../views/AdminProject/AdminProjects.css";
 import "../views/Apps/Apps.css";
 import "../views/Home/Home.css";
-import "../views/Modeling3D/Modeling3D.css";
 import "../views/NotFound/NotFound.css";
 import "../views/ProjectDetail/ProjectDetail.css";
 import "../views/Seo/Seo.css";
@@ -30,7 +27,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://digitalloom.fr";
 const googleAnalyticsId =
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-Z4JK1T8BX4";
 const defaultDescription =
-  "Sites internet, applications métier et 3D pour entreprises. Design moderne, SEO propre et mise en ligne.";
+  "Sites internet et applications métier pour entreprises. Design moderne, SEO propre et mise en ligne.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -76,7 +73,6 @@ const organizationJsonLd = {
   serviceType: [
     "Création de sites internet",
     "Applications métier",
-    "Modélisation 3D",
     "Référencement naturel",
   ],
 };

@@ -60,7 +60,6 @@ export const projects = [
       "HTML",
       "CSS",
       "React JS",
-      "TreeJS",
       "Vite",
       "AnimeJS",
       "EmailJS",
@@ -72,7 +71,7 @@ export const projects = [
     status: "Presentation",
 
     context:
-      "J'ai créé mon entreprise de développeur freelance en 2026, mon objectif est de présenter mon travail. Je crée des sites internet, des applications mobiles et je fais de la modélisation 3D.",
+      "J'ai créé mon entreprise de développeur freelance en 2026, mon objectif est de présenter mon travail. Je crée des sites internet et des applications métier.",
 
     goal: "Présenter le travail de l'entreprise QCtech.",
   },
@@ -124,133 +123,6 @@ export const projects = [
 
     goal:
       "L'application devait avoir un système de gestion de compte pour stocker toutes les souris de chaque joueur. Le MJ a sa propre page lui permettant de créer des items avec plusieurs catégories. À la création de son compte, chaque MJ reçoit un code MJ qu'il peut partager avec ses joueurs. Lorsqu'un joueur crée un compte, il n'a plus qu'à renseigner le code de son MJ afin de voir uniquement les items qui lui sont propres.",
-  },
-  {
-    id: "model-01",
-    slug: "paleactica-character",
-    category: "modeling",
-    categoryLabel: "Modélisation 3D",
-    backPath: "/modelisation-3d",
-
-    type: "Personnage",
-    title: "Personnage du jeu Paleactica",
-    description:
-      "Modélisation 3D du personnage joueur du jeu vidéo Paleactica.",
-    technologies: ["Blender"],
-
-    model: "/models/Perso.fbx",
-    image: "/images/projects/modeling/Perso.png",
-    modelScale: 0.025,
-    modelPosition: [1, 0, 3.4],
-    modelRotation: [0, 0.7, 0],
-    autoRotate: false,
-
-    link: "#",
-    status: "WebGL",
-    context:
-      "Modèle 3D conçu pour un projet de jeu vidéo avec une intégration temps réel.",
-    goal: "Création d'un personnage en 3D dans Blender.",
-  },
-  {
-    id: "model-02",
-    slug: "paleactica-robotBOB",
-    category: "modeling",
-    categoryLabel: "Modélisation 3D",
-    backPath: "/modelisation-3d",
-
-    type: "Robot",
-    title: "Robot du jeu Paleactica",
-    description:
-      "Modélisation 3D du robot compagnon du jeu vidéo Paleactica.",
-    technologies: ["Blender"],
-
-    model: "/models/BOB.fbx",
-    image: "/images/projects/modeling/BOB.png",
-    modelScale: 0.005,
-    modelPosition: [-6, -1, 0],
-    modelRotation: [-1.7, -0.1, 1.1],
-    autoRotate: false,
-
-    link: "#",
-    status: "WebGL",
-    context:
-      "Modèle 3D conçu pour un projet de jeu vidéo avec une intégration temps réel.",
-    goal: "Création d'un robot en 3D dans Blender.",
-  },
-  {
-    id: "model-03",
-    slug: "paleactica-tools",
-    category: "modeling",
-    categoryLabel: "Modélisation 3D",
-    backPath: "/modelisation-3d",
-
-    type: "Outils",
-    title: "Une pelle",
-    description: "Modélisation 3D d'une pelle.",
-    technologies: ["Blender"],
-
-    model: "/models/Pelle.fbx",
-    image: "/images/projects/modeling/Pelle.png",
-    modelScale: 0.05,
-    modelPosition: [2, -4, 5],
-    modelRotation: [-1.7, -0.1, 1.1],
-    autoRotate: false,
-
-    link: "#",
-    status: "WebGL",
-    context:
-      "Modèle 3D conçu pour un projet de jeu vidéo avec une intégration temps réel.",
-    goal: "Création d'une pelle en 3D dans Blender.",
-  },
-  {
-    id: "model-04",
-    slug: "paleactica-flore",
-    category: "modeling",
-    categoryLabel: "Modélisation 3D",
-    backPath: "/modelisation-3d",
-
-    type: "Nature",
-    title: "Un champignon géant",
-    description: "Modélisation 3D d'un champignon géant.",
-    technologies: ["Blender"],
-
-    model: "/models/MushroomBigCavefbx.fbx",
-    image: "/images/projects/modeling/ChampiGeant.png",
-    modelScale: 0.01,
-    modelPosition: [2.4, 0, 5],
-    modelRotation: [-1.7, -0.1, 0],
-    autoRotate: false,
-
-    link: "#",
-    status: "WebGL",
-    context:
-      "Modèle 3D conçu pour un projet de jeu vidéo avec une intégration temps réel.",
-    goal: "Création d'un gros champignon en 3D dans Blender.",
-  },
-  {
-    id: "model-05",
-    slug: "paleactica-bot",
-    category: "modeling",
-    categoryLabel: "Modélisation 3D",
-    backPath: "/modelisation-3d",
-
-    type: "Robot",
-    title: "BOB version cube",
-    description: "Modélisation 3D de la version cube du robot BOB.",
-    technologies: ["Blender"],
-
-    model: "/models/BOBCube.fbx",
-    image: "/images/projects/modeling/BOBCube.png",
-    modelScale: 0.01,
-    modelPosition: [2.4, 0, 5],
-    modelRotation: [-1.7, -0.1, 0],
-    autoRotate: false,
-
-    link: "#",
-    status: "WebGL",
-    context:
-      "Modèle 3D conçu pour un projet de jeu vidéo avec une intégration temps réel.",
-    goal: "Création d'un petit cube robot en 3D dans Blender.",
   },
 ];
 

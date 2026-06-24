@@ -1,7 +1,6 @@
 export const projectTypeOptions = [
   "Site internet",
   "Application métier",
-  "Modélisation 3D",
   "Autre demande",
 ];
 

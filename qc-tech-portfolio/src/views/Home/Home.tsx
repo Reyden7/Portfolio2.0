@@ -21,7 +21,7 @@ function Home() {
     title:
       "Création de sites internet à Dijon et en Bourgogne-Franche-Comté",
     description:
-      "DigitalLoom accompagne les indépendants, artisans et entreprises dans la création de sites internet sécurisés, SEO et ergonomiques, applications métier pertinentes et propose un service de modélisation 3D à Dijon, en Côte-d'Or et en Bourgogne-Franche-Comté.",
+      "DigitalLoom accompagne les indépendants, artisans et entreprises dans la création de sites internet sécurisés, SEO et ergonomiques, ainsi que d'applications métier pertinentes.",
   });
 
   return (
@@ -121,7 +121,7 @@ function Home() {
             </div>
 
             <div className="home-story__content">
-              <p>Webmaster basé en Bourgogne-Franche-Comté, spécialisé dans la création de sites internet, d’applications métier et de contenus 3D pour les indépendants, artisans, associations et entreprises autour de Dijon, en Côte-d’Or et dans toute la région.</p>
+              <p>Webmaster basé en Bourgogne-Franche-Comté, spécialisé dans la création de sites internet et d’applications métier pour les indépendants, artisans, associations et entreprises en France.</p>
               
 
               <p>
@@ -243,7 +243,7 @@ function Home() {
             <h2>Nos Réalisations.</h2>
             <p>
               Chaque catégorie mène vers une sélection de réalisations adaptées :
-              Sites web, applications métier ou contenus 3D.
+              Sites web ou applications métier.
             </p>
           </div>
 
