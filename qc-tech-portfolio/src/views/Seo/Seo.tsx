@@ -197,7 +197,7 @@ export default function Seo() {
       <section className="seo-faq">
         <div className="seo-section__heading reveal" data-reveal-direction="left">
           <p className="seo-eyebrow">FAQ SEO</p>
-          <h2>Les questions importantes avant de travailler le référencement.</h2>
+          <h2>Les questions importantes</h2>
         </div>
 
         <div className="seo-faq__list">
