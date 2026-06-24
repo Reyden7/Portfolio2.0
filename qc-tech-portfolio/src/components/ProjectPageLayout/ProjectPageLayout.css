@@ -109,9 +109,9 @@
 .project-page__hero-inner h1 {
   max-width: 1080px;
   margin: 0 auto;
-  font-size: clamp(3.2rem, 7.4vw, 8.2rem);
-  line-height: 0.9;
-  letter-spacing: -0.085em;
+  font-size: clamp(2.75rem, 6.2vw, 6rem);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
   font-weight: 950;
 }
 
