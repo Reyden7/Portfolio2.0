@@ -32,6 +32,11 @@ const footerCities = [
   "Gray",
 ];
 
+const footerSocialLinks = [
+  { label: "Instagram", url: profile.instagram },
+  { label: "Facebook", url: profile.facebook },
+].filter((item) => item.url);
+
 function Footer() {
   const fireworksTimeoutRef = useRef(null);
 
@@ -339,6 +344,20 @@ function Footer() {
               <TransitionLink key={item.path} to={item.path}>
                 {item.label}
               </TransitionLink>
+            ))}
+          </nav>
+
+          <nav className="footer__seo-column" aria-label="Réseaux sociaux">
+            <span>Réseaux sociaux</span>
+            {footerSocialLinks.map((item) => (
+              <a
+                key={item.label}
+                href={item.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {item.label}
+              </a>
             ))}
           </nav>
 

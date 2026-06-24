@@ -9,6 +9,8 @@ export const profile = {
 
   github: "",
   linkedin: "",
+  instagram: "https://www.instagram.com/quentin.digitalloom/",
+  facebook: "https://www.facebook.com/profile.php?id=61591110850600",
 
   heroTitle: "DigitalLoom",
 

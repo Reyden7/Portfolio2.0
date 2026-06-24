@@ -67,7 +67,12 @@ const organizationJsonLd = {
   email: profile.email,
   areaServed: ["France", "Dijon", "Bourgogne-Franche-Comté", "Côte-d'Or"],
   description: profile.heroSubtitle,
-  sameAs: [profile.github, profile.linkedin].filter(Boolean),
+  sameAs: [
+    profile.github,
+    profile.linkedin,
+    profile.instagram,
+    profile.facebook,
+  ].filter(Boolean),
   serviceType: [
     "Création de sites internet",
     "Applications métier",
