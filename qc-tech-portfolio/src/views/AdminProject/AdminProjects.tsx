@@ -274,7 +274,7 @@ function AdminProjects() {
       return;
     }
 
-    const finalProject = {
+    const finalProject: any = {
       ...project,
       ...getCategoryData(project.category),
       id: editingProjectId || `${project.category}-${Date.now()}`,

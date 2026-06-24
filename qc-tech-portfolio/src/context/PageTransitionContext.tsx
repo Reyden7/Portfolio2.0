@@ -1,15 +1,25 @@
 "use client";
 
-import { createContext, useContext } from "react";
+import { createContext, useContext, type ReactNode } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
-const PageTransitionContext = createContext(null);
+type NavigateOptions = {
+  scrollTarget?: string;
+};
 
-export function PageTransitionProvider({ children }) {
+type PageTransitionContextValue = {
+  navigateWithTransition: (to: string, options?: NavigateOptions) => void;
+};
+
+const PageTransitionContext = createContext<PageTransitionContextValue | null>(
+  null
+);
+
+export function PageTransitionProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
 
-  const navigateWithTransition = (to, options = {}) => {
+  const navigateWithTransition = (to: string, options: NavigateOptions = {}) => {
     const { scrollTarget } = options;
 
     if (to !== pathname) {

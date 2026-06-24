@@ -7,7 +7,14 @@ import useRevealOnScroll from "../../hooks/useRevealOnScroll";
 import usePageMeta from "../../hooks/usePageMeta";
 import BackgroundShapes from "../BackgroundShapes/BackgroundShapes";
 
-function ProjectPageLayout({ title, description, projects }) {
+type ProjectPageLayoutProps = {
+  eyebrow?: string;
+  title: string;
+  description: string;
+  projects: any[];
+};
+
+function ProjectPageLayout({ title, description, projects }: ProjectPageLayoutProps) {
   useRevealOnScroll();
 
   usePageMeta({

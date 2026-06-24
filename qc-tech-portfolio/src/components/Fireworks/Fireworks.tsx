@@ -1,5 +1,11 @@
 "use client";
 
+import type { CSSProperties } from "react";
+
+const getParticleStyle = (index: number) =>
+  ({
+    "--i": index,
+  }) as CSSProperties;
 
 function Fireworks({ active }) {
   if (!active) return null;
@@ -10,19 +16,19 @@ function Fireworks({ active }) {
     <div className="fireworks" aria-hidden="true">
       <div className="fireworks__burst fireworks__burst--one">
         {particles.map((_, index) => (
-          <span key={`one-${index}`} style={{ "--i": index }}></span>
+          <span key={`one-${index}`} style={getParticleStyle(index)}></span>
         ))}
       </div>
 
       <div className="fireworks__burst fireworks__burst--two">
         {particles.map((_, index) => (
-          <span key={`two-${index}`} style={{ "--i": index }}></span>
+          <span key={`two-${index}`} style={getParticleStyle(index)}></span>
         ))}
       </div>
 
       <div className="fireworks__burst fireworks__burst--three">
         {particles.map((_, index) => (
-          <span key={`three-${index}`} style={{ "--i": index }}></span>
+          <span key={`three-${index}`} style={getParticleStyle(index)}></span>
         ))}
       </div>
 
