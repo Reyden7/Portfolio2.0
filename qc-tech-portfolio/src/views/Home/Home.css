@@ -2401,13 +2401,13 @@
   }
 
   .home-hero::before {
-    max-width: 292px;
-    height: clamp(372px, 56vh, 410px);
+    max-width: 350px;
+    height: clamp(372px, 80vh, 600px);
   }
 
   .home-hero__content {
     max-width: 292px;
-    margin-top: -72px;
+    margin-top: -500px;
   }
 
   .home-hero__eyebrow {
