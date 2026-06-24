@@ -3,16 +3,19 @@ import ZoneIntervention from "../../views/Seo/ZoneIntervention";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://digitalloom.fr";
 
 export const metadata = {
-  title: "Zone d'intervention autour de Dijon | DigitalLoom",
+  title: "Zone d'intervention",
   description:
-    "DigitalLoom accompagne les entreprises, artisans et independants dans un rayon d'environ 100 km autour de Dijon pour sites internet, applications et referencement.",
+    "DigitalLoom accompagne les entreprises, artisans et indépendants selon leur zone locale et leurs objectifs web.",
   alternates: {
     canonical: "/zone-intervention",
+    languages: {
+      "fr-FR": "/zone-intervention",
+    },
   },
   openGraph: {
-    title: "Creation de site internet dans un rayon de 100 km autour de Dijon",
+    title: "Zone d'intervention DigitalLoom",
     description:
-      "Dijon, Beaune, Dole, Chalon-sur-Saone, Langres, Auxonne, Nuits-Saint-Georges et communes voisines.",
+      "Création de sites, applications et référencement selon la zone locale de chaque client.",
     url: `${siteUrl}/zone-intervention`,
     type: "website",
   },
@@ -28,7 +31,7 @@ const zoneJsonLd = {
     "Dijon",
     "Beaune",
     "Dole",
-    "Chalon-sur-Saone",
+    "Chalon-sur-Saône",
     "Langres",
     "Auxonne",
     "Nuits-Saint-Georges",
@@ -37,10 +40,10 @@ const zoneJsonLd = {
     "Gray",
   ],
   serviceType: [
-    "Creation de sites internet",
-    "Developpement d'applications metier",
-    "Referencement naturel",
-    "Modelisation 3D",
+    "Création de sites internet",
+    "Développement d'applications métier",
+    "Référencement naturel",
+    "Modélisation 3D",
   ],
 };
 

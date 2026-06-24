@@ -4,9 +4,15 @@ import { getProjects } from "../../services/projectsServer";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Des sites web pensés pour inspirer confiance",
+  title: "Sites web professionnels",
   description:
-    "Votre site n'est pas seulement une vitrine. C'est souvent le premier point de contact avec vos futurs clients.",
+    "Sites vitrines modernes, rapides et clairs pour présenter votre activité, rassurer vos visiteurs et générer des contacts.",
+  alternates: {
+    canonical: "/sites-internet",
+    languages: {
+      "fr-FR": "/sites-internet",
+    },
+  },
 };
 
 export default async function Page() {

@@ -1,7 +1,7 @@
 export const profile = {
   companyName: "DigitalLoom",
   displayName: "DigitalLoom",
-  jobTitle: "Agence digital",
+  jobTitle: "Agence digitale",
 
   email: "contact@digitalloom.fr",
 

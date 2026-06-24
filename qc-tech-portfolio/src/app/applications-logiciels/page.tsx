@@ -6,7 +6,13 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Applications & logiciels",
   description:
-    "Des applications et outils sur mesure pensés pour simplifier les usages, automatiser les tâches et améliorer l'efficacité.",
+    "Applications métier sur mesure pour automatiser les tâches, simplifier les usages et gagner du temps.",
+  alternates: {
+    canonical: "/applications-logiciels",
+    languages: {
+      "fr-FR": "/applications-logiciels",
+    },
+  },
 };
 
 export default async function Page() {

@@ -3,16 +3,19 @@ import Seo from "../../views/Seo/Seo";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://digitalloom.fr";
 
 export const metadata = {
-  title: "Referencement naturel a Dijon et SEO pret pour la recherche agentique",
+  title: "Référencement naturel SEO",
   description:
-    "DigitalLoom structure votre site pour le referencement naturel, le SEO local autour de Dijon et les nouveaux usages de recherche assistes par l'IA.",
+    "SEO technique, contenus, sitemap, robots, données structurées et indexation pour rendre votre site plus visible.",
   alternates: {
     canonical: "/referencement",
+    languages: {
+      "fr-FR": "/referencement",
+    },
   },
   openGraph: {
-    title: "Referencement naturel et SEO agentic-ready a Dijon",
+    title: "Référencement naturel SEO",
     description:
-      "Une methode claire pour rendre votre site comprehensible, rapide, structure et exploitable par Google, les moteurs IA et les assistants de recherche.",
+      "Une méthode claire pour rendre votre site compréhensible, rapide, structuré et exploitable par Google.",
     url: `${siteUrl}/referencement`,
     type: "website",
   },
@@ -24,7 +27,7 @@ const seoJsonLd = {
     {
       "@type": "Service",
       "@id": `${siteUrl}/referencement#service`,
-      name: "Referencement naturel et optimisation SEO agentic-ready",
+      name: "Référencement naturel et optimisation SEO",
       provider: {
         "@type": "ProfessionalService",
         name: "DigitalLoom",
@@ -34,8 +37,8 @@ const seoJsonLd = {
       serviceType: [
         "SEO technique",
         "SEO local",
-        "Strategie de contenu",
-        "Donnees structurées",
+        "Stratégie de contenu",
+        "Données structurées",
         "Optimisation pour la recherche IA",
       ],
       url: `${siteUrl}/referencement`,
@@ -49,15 +52,15 @@ const seoJsonLd = {
           name: "Qu'est-ce qu'un site agentic-ready ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "C'est un site clair, rapide et structure pour etre compris par les moteurs classiques, les experiences IA de Google et les assistants capables de comparer plusieurs sources avant de proposer une reponse.",
+            text: "C'est un site clair, rapide et structuré pour être compris par les moteurs classiques, les expériences IA de Google et les assistants capables de comparer plusieurs sources.",
           },
         },
         {
           "@type": "Question",
-          name: "Le referencement remplace-t-il la publicite ?",
+          name: "Le référencement remplace-t-il la publicité ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Non. Le SEO construit une visibilite durable. La publicite peut accelerer une campagne, mais un site bien structure reste utile a long terme.",
+            text: "Non. Le SEO construit une visibilité durable. La publicité peut accélérer une campagne, mais un site bien structuré reste utile à long terme.",
           },
         },
       ],

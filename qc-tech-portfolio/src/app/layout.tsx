@@ -30,17 +30,23 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://digitalloom.fr";
 const googleAnalyticsId =
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-Z4JK1T8BX4";
 const defaultDescription =
-  "DigitalLoom : Création de sites internet, applications sur mesure et Modèle 3D.";
+  "Sites internet, applications métier et 3D pour entreprises. Design moderne, SEO propre et mise en ligne.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${profile.companyName} — ${profile.jobTitle}`,
-    template: `%s — ${profile.companyName}`,
+    default: `${profile.companyName} - ${profile.jobTitle}`,
+    template: `%s - ${profile.companyName}`,
   },
   description: defaultDescription,
+  alternates: {
+    canonical: "/",
+    languages: {
+      "fr-FR": "/",
+    },
+  },
   openGraph: {
-    title: `${profile.companyName} â€” ${profile.jobTitle}`,
+    title: `${profile.companyName} - ${profile.jobTitle}`,
     description: defaultDescription,
     url: siteUrl,
     siteName: profile.companyName,
@@ -49,11 +55,7 @@ export const metadata = {
     type: "website",
   },
   icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.png", type: "image/png" },
-    ],
+    icon: [{ url: "/favicon.ico" }, { url: "/favicon.png", type: "image/png" }],
   },
 };
 
@@ -63,13 +65,14 @@ const organizationJsonLd = {
   name: profile.companyName,
   url: siteUrl,
   email: profile.email,
-  areaServed: ["Dijon", "Bourgogne-Franche-Comté", "Côte-d'Or"],
+  areaServed: ["France", "Dijon", "Bourgogne-Franche-Comté", "Côte-d'Or"],
   description: profile.heroSubtitle,
   sameAs: [profile.github, profile.linkedin].filter(Boolean),
   serviceType: [
     "Création de sites internet",
     "Applications métier",
     "Modélisation 3D",
+    "Référencement naturel",
   ],
 };
 
