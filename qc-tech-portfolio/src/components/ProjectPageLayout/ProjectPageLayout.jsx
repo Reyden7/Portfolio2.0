@@ -24,7 +24,7 @@ function ProjectPageLayout({ eyebrow, title, description, projects }) {
         <div className="project-page__noise"></div>
 
         <div className="project-page__hero-inner">
-          <p className="project-page__eyebrow">{eyebrow}</p>
+          
 
           <h1>{title}</h1>
 

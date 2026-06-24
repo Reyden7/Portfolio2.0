@@ -19,13 +19,14 @@ import "../views/Home/Home.css";
 import "../views/Modeling3D/Modeling3D.css";
 import "../views/NotFound/NotFound.css";
 import "../views/ProjectDetail/ProjectDetail.css";
+import "../views/Seo/Seo.css";
 import "../views/Services/Services.css";
 import "../views/Websites/Websites.css";
 import { profile } from "../data/profile";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://digitalloom.fr";
 const defaultDescription =
-  "Portfolio DigitalLoom : développement de sites internet, applications sur mesure et expériences 3D interactives.";
+  "DigitalLoom : Création de sites internet, applications sur mesure et Modèle 3D.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),

@@ -17,7 +17,7 @@ function Apps({ initialProjects }) {
   return (
     <ProjectPageLayout
       eyebrow="Applications / Logiciels"
-      title="Applications & logiciels"
+      title="Applications métiers"
       description="Des applications et outils sur mesure pensés pour simplifier les usages, automatiser les tâches et améliorer l’efficacité."
       projects={appProjects}
     />

@@ -4,6 +4,33 @@ import { useEffect, useRef, useState } from "react";
 import { profile } from "../../data/profile";
 import { contactIntro, projectTypeOptions } from "../../data/contactContent";
 import Fireworks from "../Fireworks/Fireworks";
+import TransitionLink from "../TransitionLink/TransitionLink";
+
+const footerNavigation = [
+  { label: "Accueil", path: "/" },
+  { label: "Prestations", path: "/services" },
+  { label: "Referencement", path: "/referencement" },
+  { label: "Zone d'intervention", path: "/zone-intervention" },
+];
+
+const footerProjects = [
+  { label: "Sites internet", path: "/sites-internet" },
+  { label: "Applications metier", path: "/applications-logiciels" },
+  { label: "Modelisation 3D", path: "/modelisation-3d" },
+];
+
+const footerCities = [
+  "Dijon",
+  "Beaune",
+  "Dole",
+  "Chalon-sur-Saone",
+  "Langres",
+  "Auxonne",
+  "Nuits-Saint-Georges",
+  "Is-sur-Tille",
+  "Seurre",
+  "Gray",
+];
 
 function Footer() {
   const fireworksTimeoutRef = useRef(null);
@@ -286,6 +313,54 @@ function Footer() {
             </aside>
           </div>
         </div>
+
+        <div className="footer__seo-band">
+          <div className="footer__seo-brand">
+            <h3>{profile.companyName}</h3>
+            <p>
+              Création de sites internet, applications métier, expériences 3D
+              Et référencement naturel pour les entreprises autour de Dijon.
+            </p>
+            <a href={`mailto:${profile.email}`}>{profile.email}</a>
+          </div>
+
+          <nav className="footer__seo-column" aria-label="Navigation footer">
+            <span>Navigation</span>
+            {footerNavigation.map((item) => (
+              <TransitionLink key={item.path} to={item.path}>
+                {item.label}
+              </TransitionLink>
+            ))}
+          </nav>
+
+          <nav className="footer__seo-column" aria-label="Realisations">
+            <span>Nos realisations</span>
+            {footerProjects.map((item) => (
+              <TransitionLink key={item.path} to={item.path}>
+                {item.label}
+              </TransitionLink>
+            ))}
+          </nav>
+
+          <div className="footer__seo-zone">
+            <span>Zone d'intervention</span>
+            <p>
+              Intervention dans un rayon d'environ 100 km autour de Dijon, en
+              Côte-d'Or et Bourgogne-Franche-Comté.
+            </p>
+            <div>
+              {footerCities.map((city) => (
+                <span key={city}>{city}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <p className="footer__seo-line">
+          Création de site internet à Dijon, référencement naturel local,
+          applications métier et modélisation 3D : des pages structurées pour
+          les visiteurs, Google et les recherches IA.
+        </p>
 
         <div className="footer__bottom">
           <p>

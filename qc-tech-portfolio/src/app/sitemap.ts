@@ -11,6 +11,8 @@ export default async function sitemap() {
   const staticRoutes = [
     ["", 1],
     ["/services", 0.95],
+    ["/referencement", 0.95],
+    ["/zone-intervention", 0.88],
     ["/sites-internet", 0.9],
     ["/applications-logiciels", 0.85],
     ["/modelisation-3d", 0.8],
