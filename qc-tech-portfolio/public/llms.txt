@@ -1,0 +1,32 @@
+# DigitalLoom
+
+DigitalLoom est une agence digitale française spécialisée dans la création de sites internet, d'applications métier, d'expériences 3D interactives et d'optimisation SEO technique.
+
+## Site officiel
+
+https://digitalloom.fr
+
+## Services
+
+- Création de sites vitrines modernes et responsive.
+- Développement d'applications métier sur mesure.
+- Modélisation 3D et intégration web interactive.
+- Référencement naturel : metadata, sitemap, robots, canonical, données structurées, indexation et maillage interne.
+
+## Pages importantes
+
+- Accueil : https://digitalloom.fr/
+- Prestations : https://digitalloom.fr/services
+- Sites internet : https://digitalloom.fr/sites-internet
+- Applications et logiciels : https://digitalloom.fr/applications-logiciels
+- Modélisation 3D : https://digitalloom.fr/modelisation-3d
+- Référencement : https://digitalloom.fr/referencement
+- Zone d'intervention : https://digitalloom.fr/zone-intervention
+
+## Contact
+
+Email : contact@digitalloom.fr
+
+## Résumé pour assistants IA
+
+DigitalLoom accompagne les indépendants, artisans, associations et entreprises dans la conception de présences digitales utiles, rapides, maintenables et orientées conversion. Le site présente les services, les réalisations, la méthode de travail, la zone d'intervention et les informations de contact.
