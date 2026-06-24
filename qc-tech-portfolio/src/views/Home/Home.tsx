@@ -40,13 +40,13 @@ function Home() {
 
         <div className="home-hero__content">
           <p className="home-hero__eyebrow">
-            Sites web • Applications • Modélisation 3D
+            Sites web Et Applications métier
           </p>
 
           <h1>DigitalLoom</h1>
 
           <p className="home-hero__subtitle">
-            Création de sites internet à Dijon et en Bourgogne-Franche-Comté pour indépendants, artisans et entreprises : sites vitrines, applications web, design moderne et développement sur mesure.
+            Création de sites internet à Dijon pour indépendants et petites entreprises.
           </p>
 
           <div className="home-hero__actions">
@@ -104,7 +104,7 @@ function Home() {
           <div className="home-story__grid reveal" data-reveal-direction="left">
             <div className="home-story__heading">
               <h2>
-                Création d'expériences qui donnent envie de passer à l’action.
+                Création de sites internet à Dijon pour indépendants et petites entreprises
               </h2>
 
               <div className="home-story__stats">
@@ -121,7 +121,7 @@ function Home() {
             </div>
 
             <div className="home-story__content">
-              <p>DigitalLoom est un studio indépendant basé en Bourgogne-Franche-Comté, spécialisé dans la création de sites internet, d’applications métier et de contenus 3D pour les indépendants, artisans, associations et entreprises autour de Dijon, en Côte-d’Or et dans toute la région.</p>
+              <p>Webmaster basé en Bourgogne-Franche-Comté, spécialisé dans la création de sites internet, d’applications métier et de contenus 3D pour les indépendants, artisans, associations et entreprises autour de Dijon, en Côte-d’Or et dans toute la région.</p>
               
 
               <p>
