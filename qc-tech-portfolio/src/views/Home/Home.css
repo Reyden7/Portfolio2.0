@@ -1978,9 +1978,9 @@
   .home-hero::before {
    width: 100%;
   max-width: 320px;
-  height: 75vh;
+  height: min(68vh, 500px);
   left: 50%;
-  top: 52%;
+  top: 50%;
   border-radius: 34px;
   transform: translate(-50%, -50%);
 }
@@ -1988,7 +1988,7 @@
   
 
  .home-hero__content {
-  margin-top: -50px;
+  margin-top: -18px;
   width: 100%;
   max-width: 320px;
   margin-inline: auto;
@@ -2003,22 +2003,23 @@
   .home-hero__eyebrow {
     max-width: 320px;
     justify-content: center;
-    
+    margin-bottom: 14px;
+    padding: 7px 12px;
     font-size: 0.58rem;
     letter-spacing: 0.1em;
   }
 
   .home-hero h1 {
     max-width: 340px;
-    font-size: clamp(2.8rem, 13vw, 4.3rem);
-    line-height: 0.9;
-    letter-spacing: -0.065em;
+    font-size: clamp(2.35rem, 11vw, 3.55rem);
+    line-height: 0.96;
+    letter-spacing: -0.055em;
   }
 
   .home-hero__subtitle {
     width: 100%;
     max-width: 330px;
-    margin: 26px auto 0;
+    margin: 18px auto 0;
     font-size: 0.96rem;
     line-height: 1.65;
   }
@@ -2029,7 +2030,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 12px;
-    margin: 34px auto 0;
+    margin: 26px auto 0;
   }
 
   .home-hero__actions button {
@@ -2039,7 +2040,7 @@
 
   .home-hero__proofs {
     max-width: 310px;
-    margin: 26px auto 0;
+    margin: 18px auto 0;
   }
 
   .home-hero__proofs span {
@@ -2407,7 +2408,7 @@
 
   .home-hero h1 {
     max-width: 300px;
-    font-size: clamp(2.45rem, 12.5vw, 3.4rem);
+    font-size: clamp(2.25rem, 11.5vw, 3rem);
   }
 
   .home-hero__subtitle {
