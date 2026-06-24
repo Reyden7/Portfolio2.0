@@ -1,32 +1,33 @@
 # DigitalLoom
 
-DigitalLoom est une agence digitale française spécialisée dans la création de sites internet, d'applications métier, d'expériences 3D interactives et d'optimisation SEO technique.
+> DigitalLoom crée des sites internet, applications métier, expériences 3D et optimisations SEO pour les indépendants, artisans, associations et entreprises en France.
 
-## Site officiel
-
-https://digitalloom.fr
+DigitalLoom accompagne les projets digitaux avec une approche orientée clarté, performance, référencement naturel, conversion et maintenance.
 
 ## Services
 
-- Création de sites vitrines modernes et responsive.
-- Développement d'applications métier sur mesure.
-- Modélisation 3D et intégration web interactive.
-- Référencement naturel : metadata, sitemap, robots, canonical, données structurées, indexation et maillage interne.
+- [Création de sites internet](https://digitalloom.fr/sites-internet): sites vitrines modernes, rapides, responsive et structurés pour le SEO.
+- [Applications et logiciels métier](https://digitalloom.fr/applications-logiciels): outils web sur mesure pour automatiser des tâches et simplifier les processus.
+- [Modélisation 3D](https://digitalloom.fr/modelisation-3d): modèles 3D et intégrations web interactives pour présenter des produits, objets ou univers.
+- [Référencement naturel](https://digitalloom.fr/referencement): metadata, canonical, sitemap, robots, JSON-LD, indexation, maillage interne et contenus utiles.
 
-## Pages importantes
+## Pages clés
 
-- Accueil : https://digitalloom.fr/
-- Prestations : https://digitalloom.fr/services
-- Sites internet : https://digitalloom.fr/sites-internet
-- Applications et logiciels : https://digitalloom.fr/applications-logiciels
-- Modélisation 3D : https://digitalloom.fr/modelisation-3d
-- Référencement : https://digitalloom.fr/referencement
-- Zone d'intervention : https://digitalloom.fr/zone-intervention
+- [Accueil](https://digitalloom.fr/): présentation de DigitalLoom, services, méthode, réalisations et contact.
+- [Prestations](https://digitalloom.fr/services): offres pour sites internet, applications métier, modélisation 3D et maintenance.
+- [Zone d'intervention](https://digitalloom.fr/zone-intervention): explication des zones locales pouvant être travaillées selon le client.
+- [Sitemap XML](https://digitalloom.fr/sitemap.xml): liste des URLs indexables du site.
+- [Robots.txt](https://digitalloom.fr/robots.txt): directives d'exploration pour les robots.
 
 ## Contact
 
-Email : contact@digitalloom.fr
+- [Email](mailto:contact@digitalloom.fr): contact@digitalloom.fr
+- [Instagram](https://www.instagram.com/quentin.digitalloom/): compte Instagram de DigitalLoom.
+- [Facebook](https://www.facebook.com/profile.php?id=61591110850600): page Facebook de DigitalLoom.
 
-## Résumé pour assistants IA
+## Notes pour agents IA
 
-DigitalLoom accompagne les indépendants, artisans, associations et entreprises dans la conception de présences digitales utiles, rapides, maintenables et orientées conversion. Le site présente les services, les réalisations, la méthode de travail, la zone d'intervention et les informations de contact.
+- Le site est en français.
+- Les pages importantes utilisent des metadata Next.js, canonical, hreflang fr-FR et données structurées JSON-LD.
+- Les prestations peuvent être réalisées pour des clients en France.
+- Le SEO local dépend de la zone réelle du client.
