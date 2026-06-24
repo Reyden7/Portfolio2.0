@@ -235,16 +235,46 @@
 }
 
 .seo-grid--steps .seo-card {
+  min-height: 0;
+  padding: 0;
+}
+
+.seo-step-details summary {
   display: grid;
   grid-template-columns: 72px 1fr;
   gap: 1rem;
-  align-items: start;
-  min-height: 0;
+  align-items: center;
+  min-height: 86px;
   padding: clamp(1.25rem, 2vw, 1.65rem);
+  cursor: pointer;
+  list-style: none;
+}
+
+.seo-step-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.seo-step-details summary::after {
+  content: "+";
+  grid-column: 1 / -1;
+  justify-self: end;
+  margin-top: -2.9rem;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #00d4ff;
+  font-weight: 950;
+}
+
+.seo-step-details[open] summary::after {
+  content: "-";
 }
 
 .seo-grid--steps .seo-card span {
-  margin: 0.22rem 0 0;
+  margin: 0;
 }
 
 .seo-grid--steps .seo-card h3 {
@@ -254,6 +284,8 @@
 .seo-card__content {
   display: grid;
   gap: 1rem;
+  padding: 0 clamp(1.25rem, 2vw, 1.65rem) clamp(1.25rem, 2vw, 1.65rem)
+    calc(72px + clamp(1.25rem, 2vw, 1.65rem) + 1rem);
 }
 
 .seo-card__content ul {

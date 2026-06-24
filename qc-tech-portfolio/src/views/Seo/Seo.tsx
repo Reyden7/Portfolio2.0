@@ -140,16 +140,17 @@ export default function Seo() {
       <section className="seo-section seo-section--first">
         <div className="seo-grid seo-grid--steps">
           {seoSteps.map((step, index) => (
-            <article
+            <details
               key={step.number}
-              className="seo-card reveal"
+              className="seo-card seo-step-details reveal"
               data-reveal-delay={index * 70}
             >
-              <span>{step.number}</span>
+              <summary>
+                <span>{step.number}</span>
+                <h3>{step.title}</h3>
+              </summary>
 
               <div className="seo-card__content">
-                <h3>{step.title}</h3>
-
                 <ul>
                   {step.details.map((detail) => (
                     <li key={detail}>{detail}</li>
@@ -165,7 +166,7 @@ export default function Seo() {
                   ))}
                 </div>
               </div>
-            </article>
+            </details>
           ))}
         </div>
       </section>
