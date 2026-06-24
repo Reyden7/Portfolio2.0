@@ -121,7 +121,7 @@ function Home() {
             </div>
 
             <div className="home-story__content">
-              <p>Webmaster basé en Bourgogne-Franche-Comté, spécialisé dans la création de sites internet et d’applications métier pour les indépendants, artisans, associations et entreprises en France.</p>
+              <p>Webmaster basé à Dijon, spécialisé dans la création de sites internet et d’applications métier pour les indépendants, artisans</p>
               
 
               <p>
@@ -129,33 +129,6 @@ function Home() {
                 en ligne pour vous construire une présence sur le web cohérente,
                 Moderne et adaptée à vos objectifs réels.
               </p>
-
-              <div className="home-story__value-list">
-                <div>
-                  <span>01</span>
-                  <p>Une direction artistique plus marquante pour sortir du lot.</p>
-                </div>
-
-                <div>
-                  <span>02</span>
-                  <p>Une structure pensée pour convertir le visiteur en client, pas seulement décorée.</p>
-                </div>
-
-                <div>
-                  <span>03</span>
-                  <p>Un développement propre, rapide et maintenable dans le temps.</p>
-                </div>
-
-                <div>
-                  <span>04</span>
-                  <p>Un travail SEO exemplaire</p>
-                </div>
-
-                <div>
-                  <span>05</span>
-                  <p>Des tarifs concurrentiels</p>
-                </div>
-              </div>
 
               <div className="home-story__skills">
                 {profile.skills.map((skill) => (

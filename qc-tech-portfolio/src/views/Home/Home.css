@@ -2397,17 +2397,17 @@
   /* Hero */
 
   .home-hero {
-    padding-inline: 18px;
+    padding-inline: 18px; 
   }
 
   .home-hero::before {
     max-width: calc(100vw - 28px);
-    height: clamp(372px, 56vh, 410px);
+    height: clamp(372px, 56vh, 600px);
   }
 
   .home-hero__content {
     max-width: calc(100vw - 28px);
-    margin-top: -72px;
+    margin-top: -500px;
   }
 
   .home-hero__eyebrow {
