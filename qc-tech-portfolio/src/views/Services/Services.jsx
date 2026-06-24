@@ -27,8 +27,8 @@ const offers = {
       tag: "Essentielle",
       title: "Essentielle",
       projectType: "Site internet",
-      oldPrice: "990 €",
-      price: "650 €",
+      oldPrice: "1200 €",
+      price: "850 €",
       promoLabel: "Promo de lancement",
       description:
         "Pour les artisans, indépendants, associations et petites entreprises souhaitant une présence professionnelle sur internet.",
@@ -95,7 +95,7 @@ const offers = {
         "Authentification",
         "Base de données",
         "Formulaires de saisie",
-        "Android et iOS",
+        "Android",
       ],
       button: "Demander une app",
     },
@@ -350,8 +350,7 @@ export default function Services() {
         <span className="services-hero__eyebrow">DigitalLoom</span>
         <h1>Nos prestations</h1>
         <p>
-          Des offres claires pour créer un site moderne, une application métier
-          utile ou un modèle 3D adapté à votre projet.
+          Des offres claires pour créer un site moderne, une application métier utile ou un modèle 3D adapté à votre projet.
         </p>
 
         <div className="services-tabs">

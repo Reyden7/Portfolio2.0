@@ -4,9 +4,9 @@ import { getProjects } from "../../services/projectsServer";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Des sites web pensÃ©s pour inspirer confiance",
+  title: "Des sites web pensés pour inspirer confiance",
   description:
-    "Votre site nâ€™est pas seulement une vitrine. Câ€™est souvent le premier point de contact avec vos futurs clients.",
+    "Votre site n'est pas seulement une vitrine. C'est souvent le premier point de contact avec vos futurs clients.",
 };
 
 export default async function Page() {

@@ -21,7 +21,7 @@ function Home() {
     title:
       "Création de sites internet à Dijon et en Bourgogne-Franche-Comté",
     description:
-      "DigitalLoom accompagne les indépendants, artisans et entreprises dans la création de sites internet sécurisé et ergonomique, applications métier pertinantes et propose un service de modélisation 3D à Dijon, en Côte-d'Or et en Bourgogne-Franche-Comté.",
+      "DigitalLoom accompagne les indépendants, artisans et entreprises dans la création de sites internet sécurisés, SEO et ergonomiques, applications métier pertinentes et propose un service de modélisation 3D à Dijon, en Côte-d'Or et en Bourgogne-Franche-Comté.",
   });
 
   return (
@@ -127,7 +127,7 @@ function Home() {
               <p>
                 Nous vous accompagnons de la réflexion à la mise
                 en ligne pour vous construire une présence sur le web cohérente,
-                moderne et adaptée à vos objectifs réels.
+                Moderne et adaptée à vos objectifs réels.
               </p>
 
               <div className="home-story__value-list">
@@ -138,7 +138,7 @@ function Home() {
 
                 <div>
                   <span>02</span>
-                  <p>Une structure pensée pour convertir le visiteur en client, pas seulement décorer.</p>
+                  <p>Une structure pensée pour convertir le visiteur en client, pas seulement décorée.</p>
                 </div>
 
                 <div>
@@ -148,6 +148,11 @@ function Home() {
 
                 <div>
                   <span>04</span>
+                  <p>Un travail SEO exemplaire</p>
+                </div>
+
+                <div>
+                  <span>05</span>
                   <p>Des tarifs concurrentiels</p>
                 </div>
               </div>
@@ -174,8 +179,8 @@ function Home() {
             <p>
               Nous vous accompagnons étape par étape : clarification du besoin,
               direction artistique, développement, mise en ligne et
-              optimisation. Le but est d’avancer vite, proprement, sans zone
-              floue.
+              Optimisation. Le but est d’avancer vite, proprement, sans zone
+              Floue.
             </p>
           </div>
 
@@ -205,9 +210,7 @@ function Home() {
             <h2>Les questions qui reviennent souvent.</h2>
 
             <p>
-              Avant de démarrer, voici les réponses aux questions les plus
-              fréquentes. Le but est simple : avancer clairement, sans mauvaise
-              surprise.
+              Avant de démarrer, voici les réponses aux questions les plus fréquentes. Le but est simple : avancer clairement, sans mauvaise surprise.
             </p>
           </div>
 
@@ -240,7 +243,7 @@ function Home() {
             <h2>Nos Réalisations.</h2>
             <p>
               Chaque catégorie mène vers une sélection de réalisations adaptées :
-              sites web, applications métier ou contenus 3D.
+              Sites web, applications métier ou contenus 3D.
             </p>
           </div>
 

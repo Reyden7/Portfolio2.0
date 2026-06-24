@@ -318,8 +318,8 @@ function Footer() {
           <div className="footer__seo-brand">
             <h3>{profile.companyName}</h3>
             <p>
-              Creation de sites internet, applications metier, experiences 3D
-              et referencement naturel pour les entreprises autour de Dijon.
+              Création de sites internet, applications métier, expériences 3D
+              Et référencement naturel pour les entreprises autour de Dijon.
             </p>
             <a href={`mailto:${profile.email}`}>{profile.email}</a>
           </div>
@@ -346,7 +346,7 @@ function Footer() {
             <span>Zone d'intervention</span>
             <p>
               Intervention dans un rayon d'environ 100 km autour de Dijon, en
-              Cote-d'Or et Bourgogne-Franche-Comte.
+              Côte-d'Or et Bourgogne-Franche-Comté.
             </p>
             <div>
               {footerCities.map((city) => (
@@ -357,8 +357,8 @@ function Footer() {
         </div>
 
         <p className="footer__seo-line">
-          Creation de site internet a Dijon, referencement naturel local,
-          applications metier et modelisation 3D : des pages structurees pour
+          Création de site internet à Dijon, référencement naturel local,
+          applications métier et modélisation 3D : des pages structurées pour
           les visiteurs, Google et les recherches IA.
         </p>
 

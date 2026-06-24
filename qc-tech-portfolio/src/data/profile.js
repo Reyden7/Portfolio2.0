@@ -22,6 +22,7 @@ export const profile = {
     "Avec une double vision technique et projet, je peux accompagner un client depuis la réflexion jusqu’à la mise en ligne. Je cherche toujours à construire proprement : une interface soignée, un code maintenable, une expérience fluide et un résultat qui sert vraiment le besoin.",
 
   skills: [
+    "NextJS",
     "React.js",
     "JavaScript",
     "PHP",

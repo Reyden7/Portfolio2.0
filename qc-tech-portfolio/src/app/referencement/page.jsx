@@ -35,7 +35,7 @@ const seoJsonLd = {
         "SEO technique",
         "SEO local",
         "Strategie de contenu",
-        "Donnees structurees",
+        "Donnees structurées",
         "Optimisation pour la recherche IA",
       ],
       url: `${siteUrl}/referencement`,

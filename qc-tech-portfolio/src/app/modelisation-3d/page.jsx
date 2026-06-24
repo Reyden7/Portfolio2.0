@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "ModÃ©lisation 3D",
   description:
-    "CrÃ©ation et intÃ©gration de modÃ¨les 3D interactifs pour enrichir une expÃ©rience web, prÃ©senter un produit ou crÃ©er un effet mÃ©morable.",
+    "Création et intégration de modèles 3D interactifs pour enrichir une expérience web, présenter un produit ou créer un effet mémorable.",
 };
 
 export default async function Page() {
