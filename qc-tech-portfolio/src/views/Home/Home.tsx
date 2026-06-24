@@ -242,8 +242,8 @@ function Home() {
           <div className="home-projects__heading reveal" data-reveal-direction="right">
             <h2>Nos Réalisations.</h2>
             <p>
-              Chaque catégorie mène vers une sélection de réalisations adaptées :
-              Sites web ou applications métier.
+              Deux familles de projets, un objectif : montrer des interfaces
+              utiles, lisibles et pensées pour convertir.
             </p>
           </div>
 
