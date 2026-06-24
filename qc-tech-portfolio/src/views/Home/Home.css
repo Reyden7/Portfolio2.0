@@ -1969,8 +1969,8 @@
   /* Hero */
 
   .home-hero {
-    min-height: 100svh;
-    padding: 124px 20px 76px;
+    min-height: 92svh;
+    padding: 108px 20px 58px;
     overflow: hidden;
     padding-inline: 18px;
   }
@@ -1978,9 +1978,9 @@
   .home-hero::before {
    width: 100%;
   max-width: 320px;
-  height: min(68vh, 500px);
+  height: clamp(390px, 58vh, 440px);
   left: 50%;
-  top: 50%;
+  top: 48%;
   border-radius: 34px;
   transform: translate(-50%, -50%);
 }
@@ -1988,7 +1988,7 @@
   
 
  .home-hero__content {
-  margin-top: -18px;
+  margin-top: -76px;
   width: 100%;
   max-width: 320px;
   margin-inline: auto;
@@ -2049,7 +2049,7 @@
   }
 
   .home-hero__scroll {
-    bottom: 5px;
+    bottom: 12px;
   }
 
   .home-hero__scroll span {
@@ -2398,6 +2398,16 @@
 
   .home-hero {
     padding-inline: 18px;
+  }
+
+  .home-hero::before {
+    max-width: 292px;
+    height: clamp(372px, 56vh, 410px);
+  }
+
+  .home-hero__content {
+    max-width: 292px;
+    margin-top: -72px;
   }
 
   .home-hero__eyebrow {
