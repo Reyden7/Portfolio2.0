@@ -270,7 +270,6 @@ function Home() {
             {methodSteps.map((step, index) => (
               <Fragment key={step.number}>
                 <article className="home-method__step">
-                  <span>{step.number}</span>
                   <h3>{step.title}</h3>
                   <p>{step.text}</p>
                 </article>
