@@ -40,10 +40,11 @@ function Home() {
 
         <div className="home-hero__content">
           <p className="home-hero__eyebrow">
-            Sites web Et Applications métier
+            Sites internet Et Applications métier
           </p>
 
           <h1>DigitalLoom</h1>
+          
 
           <p className="home-hero__subtitle">
             Création de sites internet à Dijon pour indépendants et petites entreprises.
@@ -74,11 +75,7 @@ function Home() {
             </button>
           </div>
 
-          <div className="home-hero__proofs">
-            <span>Design impactant</span>
-            <span>Développement sur mesure</span>
-            
-          </div>
+          
         </div>
 
         <button
