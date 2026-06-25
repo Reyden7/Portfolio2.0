@@ -33,8 +33,30 @@ function getTypewriterDelay({ isDeleting, letterIndex, phraseLength }) {
   return (isNearEnd ? 92 : 66) + naturalVariation;
 }
 
+function splitTypewriterText(text) {
+  if (text.startsWith("e ")) {
+    return {
+      connector: text.slice(0, 2),
+      service: text.slice(2),
+    };
+  }
+
+  if (text.startsWith("'")) {
+    return {
+      connector: text.slice(0, 1),
+      service: text.slice(1),
+    };
+  }
+
+  return {
+    connector: "",
+    service: text,
+  };
+}
+
 function Home() {
   const [typewriterText, setTypewriterText] = useState("");
+  const { connector, service } = splitTypewriterText(typewriterText);
 
   useRevealOnScroll();
 
@@ -120,9 +142,8 @@ function Home() {
 
           <p className="home-hero__typewriter" aria-live="polite">
             <span className="home-hero__typewriter-prefix">Création d</span>
-            <span className="home-hero__typewriter-dynamic">
-              {typewriterText}
-            </span>
+            <span className="home-hero__typewriter-connector">{connector}</span>
+            <span className="home-hero__typewriter-dynamic">{service}</span>
           </p>
 
           <ul className="home-hero__typewriter-fallback">
