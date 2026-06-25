@@ -224,14 +224,14 @@
 .home-hero__typewriter::after {
   content: "";
   display: inline-block;
-  width: 3px;
+  width: 2px;
   height: 0.82em;
   margin-left: 8px;
   border-radius: 999px;
   background: #ff00c8;
-  box-shadow: 0 0 18px rgba(255, 0, 200, 0.75);
+  box-shadow: 0 0 16px rgba(255, 0, 200, 0.65);
   vertical-align: -0.08em;
-  animation: typewriterCaret 900ms steps(1) infinite;
+  animation: typewriterCaret 1.08s ease-in-out infinite;
 }
 
 .home-hero__typewriter-fallback {
@@ -1906,14 +1906,16 @@
 }
 
 @keyframes typewriterCaret {
-  0%,
-  45% {
+  0% {
     opacity: 1;
   }
 
-  46%,
+  50% {
+    opacity: 0.18;
+  }
+
   100% {
-    opacity: 0;
+    opacity: 1;
   }
 }
 

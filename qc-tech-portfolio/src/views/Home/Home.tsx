@@ -16,11 +16,22 @@ import {
 } from "../../data/homeContent";
 
 const typewriterPhrases = [
-  { label: "e site internet", suffix: "e site internet" },
-  { label: "e site vitrine", suffix: "e site vitrine" },
-  { label: "e site e-commerce", suffix: "e site e-commerce" },
-  { label: "'application métier", suffix: "'application métier" },
+  { label: "Création de site internet", suffix: "e site internet" },
+  { label: "Création de site vitrine", suffix: "e site vitrine" },
+  { label: "Création de site e-commerce", suffix: "e site e-commerce" },
+  { label: "Création d'application métier", suffix: "'application métier" },
 ];
+
+function getTypewriterDelay({ isDeleting, letterIndex, phraseLength }) {
+  if (isDeleting) {
+    return 24 + Math.sin(letterIndex * 1.7) * 8;
+  }
+
+  const isNearEnd = phraseLength - letterIndex < 4;
+  const naturalVariation = Math.sin(letterIndex * 1.35) * 18;
+
+  return (isNearEnd ? 92 : 66) + naturalVariation;
+}
 
 function Home() {
   const [typewriterText, setTypewriterText] = useState("");
@@ -46,25 +57,39 @@ function Home() {
 
       if (!isDeleting && letterIndex < currentPhrase.length) {
         letterIndex += 1;
-        timeoutId = window.setTimeout(type, 62);
+        timeoutId = window.setTimeout(
+          type,
+          getTypewriterDelay({
+            isDeleting,
+            letterIndex,
+            phraseLength: currentPhrase.length,
+          })
+        );
         return;
       }
 
       if (!isDeleting && letterIndex === currentPhrase.length) {
         isDeleting = true;
-        timeoutId = window.setTimeout(type, 1150);
+        timeoutId = window.setTimeout(type, 1450);
         return;
       }
 
       if (isDeleting && letterIndex > 0) {
         letterIndex -= 1;
-        timeoutId = window.setTimeout(type, 34);
+        timeoutId = window.setTimeout(
+          type,
+          getTypewriterDelay({
+            isDeleting,
+            letterIndex,
+            phraseLength: currentPhrase.length,
+          })
+        );
         return;
       }
 
       isDeleting = false;
       phraseIndex = (phraseIndex + 1) % typewriterPhrases.length;
-      timeoutId = window.setTimeout(type, 260);
+      timeoutId = window.setTimeout(type, 420);
     };
 
     type();
