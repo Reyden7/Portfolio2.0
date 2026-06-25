@@ -16,10 +16,10 @@ import {
 } from "../../data/homeContent";
 
 const typewriterPhrases = [
-  { label: "Création de site internet", suffix: "e site internet" },
-  { label: "Création de site vitrine", suffix: "e site vitrine" },
-  { label: "Création de site e-commerce", suffix: "e site e-commerce" },
-  { label: "Création d'application métier", suffix: "'application métier" },
+  { label: "e site internet", suffix: "e site internet" },
+  { label: "e site vitrine", suffix: "e site vitrine" },
+  { label: "e site e-commerce", suffix: "e site e-commerce" },
+  { label: "'application métier", suffix: "'application métier" },
 ];
 
 function Home() {
