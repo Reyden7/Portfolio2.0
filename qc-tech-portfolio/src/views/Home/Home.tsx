@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import TransitionLink from "../../components/TransitionLink/TransitionLink";
 import Header from "../../components/Header/Header";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
@@ -268,15 +268,22 @@ function Home() {
 
           <div className="home-method__steps">
             {methodSteps.map((step, index) => (
-              <article
-                key={step.number}
-                className="home-method__step reveal"
-                data-reveal-delay={index * 110}
-              >
-                <span>{step.number}</span>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-              </article>
+              <Fragment key={step.number}>
+                <article
+                  className="home-method__step reveal"
+                  data-reveal-delay={index * 110}
+                >
+                  <span>{step.number}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                </article>
+
+                {index < methodSteps.length - 1 && (
+                  <div className="home-method__arrow" aria-hidden="true">
+                    <span></span>
+                  </div>
+                )}
+              </Fragment>
             ))}
           </div>
         </div>

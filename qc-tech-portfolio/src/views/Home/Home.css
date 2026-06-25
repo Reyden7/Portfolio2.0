@@ -669,14 +669,15 @@
   }
 
   .home-method__steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
     margin-top: 66px;
   }
 
   .home-method__step {
     position: relative;
+    flex: 1 1 0;
     overflow: hidden;
     min-height: 320px;
     padding: 28px;
@@ -731,6 +732,38 @@
     opacity: 0;
     transition: opacity var(--transition-medium);
     pointer-events: none;
+  }
+
+  .home-method__arrow {
+    flex: 0 0 34px;
+    display: grid;
+    place-items: center;
+    align-self: center;
+    color: #00d4ff;
+    opacity: 0.86;
+  }
+
+  .home-method__arrow span {
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(0, 212, 255, 0.25), #00d4ff);
+    box-shadow: 0 0 22px rgba(0, 212, 255, 0.28);
+  }
+
+  .home-method__arrow span::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: translateY(-50%) rotate(45deg);
+    transform-origin: center;
   }
 
   .home-method__step:hover {
@@ -1984,10 +2017,6 @@
     max-width: 680px;
   }
 
-  .home-method__steps {
-    grid-template-columns: 1fr;
-  }
-
   .home-trust__grid,
   .home-offers__grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2218,17 +2247,56 @@
     width: 100%;
     max-width: none;
     margin: 42px auto 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     justify-items: center;
   }
 
   .home-method__step {
     width: 100%;
     min-height: auto;
-    padding: 24px;
+    padding: 18px;
     box-sizing: border-box;
+    border-radius: 24px;
+  }
+
+  .home-method__step span {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 32px;
+    border-radius: 13px;
+    font-size: 0.7rem;
+  }
+
+  .home-method__step h3 {
+    font-size: clamp(1.25rem, 6vw, 1.65rem);
+    letter-spacing: -0.045em;
+  }
+
+  .home-method__step p {
+    margin-top: 14px;
+    font-size: 0.92rem;
+    line-height: 1.62;
+  }
+
+  .home-method__arrow {
+    flex: 0 0 28px;
+    align-self: center;
+  }
+
+  .home-method__arrow span {
+    width: 2px;
+    height: 24px;
+    background: linear-gradient(180deg, rgba(0, 212, 255, 0.25), #00d4ff);
+  }
+
+  .home-method__arrow span::after {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: 0;
+    transform: translateX(-50%) rotate(135deg);
   }
 
   /* Trust */
