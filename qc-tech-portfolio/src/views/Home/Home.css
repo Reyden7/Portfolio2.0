@@ -634,7 +634,7 @@
   .home-method__inner {
     position: relative;
     z-index: 1;
-    width: min(var(--container-width), 100%);
+    width: min(1500px, 100%);
     margin: 0 auto;
   }
 
@@ -671,7 +671,7 @@
   .home-method__steps {
     display: flex;
     align-items: stretch;
-    gap: 12px;
+    gap: 8px;
     margin-top: 66px;
   }
 
@@ -735,7 +735,7 @@
   }
 
   .home-method__arrow {
-    flex: 0 0 34px;
+    flex: 0 0 28px;
     display: grid;
     place-items: center;
     align-self: center;
@@ -2255,7 +2255,8 @@
 
   .home-method__step {
     width: 100%;
-    min-height: auto;
+    flex: none;
+    min-height: 220px;
     padding: 18px;
     box-sizing: border-box;
     border-radius: 24px;

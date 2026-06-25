@@ -269,10 +269,7 @@ function Home() {
           <div className="home-method__steps">
             {methodSteps.map((step, index) => (
               <Fragment key={step.number}>
-                <article
-                  className="home-method__step reveal"
-                  data-reveal-delay={index * 110}
-                >
+                <article className="home-method__step">
                   <span>{step.number}</span>
                   <h3>{step.title}</h3>
                   <p>{step.text}</p>
