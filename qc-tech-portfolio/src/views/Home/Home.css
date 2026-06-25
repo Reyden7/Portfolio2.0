@@ -2394,9 +2394,9 @@
 
   .home-category-card {
     width: 100%;
-    min-height: 390px;
-    padding: 24px;
-    border-radius: 28px;
+    min-height: 310px;
+    padding: 20px;
+    border-radius: 24px;
     box-sizing: border-box;
   }
 
@@ -2405,52 +2405,54 @@
   }
 
   .home-category-card__visual {
-    top: 78px;
-    right: 24px;
-    width: 96px;
-    height: 96px;
-    border-radius: 26px;
+    top: 62px;
+    right: 20px;
+    width: 78px;
+    height: 78px;
+    border-radius: 22px;
   }
 
   .home-category-card__visual i:nth-child(1) {
-    width: 40px;
-    top: 26px;
-    left: 18px;
+    width: 32px;
+    top: 22px;
+    left: 15px;
   }
 
   .home-category-card__visual i:nth-child(2) {
-    width: 62px;
-    top: 48px;
-    left: 18px;
+    width: 50px;
+    top: 40px;
+    left: 15px;
   }
 
   .home-category-card__visual i:nth-child(3) {
-    width: 28px;
-    height: 28px;
-    right: 14px;
-    bottom: 12px;
+    width: 24px;
+    height: 24px;
+    right: 12px;
+    bottom: 10px;
   }
 
   .home-category-card__content {
-    padding-top: 130px;
+    padding-top: 96px;
   }
 
   .home-category-card h3 {
     max-width: 100%;
-    font-size: clamp(2rem, 9vw, 2.8rem);
+    font-size: clamp(1.75rem, 8vw, 2.35rem);
   }
 
   .home-category-card p {
     max-width: 100%;
-    font-size: 0.96rem;
-    line-height: 1.65;
+    margin-top: 16px;
+    padding-right: 42px;
+    font-size: 0.9rem;
+    line-height: 1.55;
   }
 
   .home-category-card__arrow {
-    right: 22px;
-    bottom: 22px;
-    width: 42px;
-    height: 42px;
+    right: 18px;
+    bottom: 18px;
+    width: 38px;
+    height: 38px;
   }
 
   /* Offers */
@@ -2626,9 +2628,9 @@
   }
 
   .home-category-card {
-    min-height: 370px;
-    padding: 22px;
-    border-radius: 24px;
+    min-height: 290px;
+    padding: 18px;
+    border-radius: 22px;
   }
 
   .home-category-card__badge {
@@ -2636,12 +2638,39 @@
     letter-spacing: 0.1em;
   }
 
+  .home-category-card__visual {
+    top: 58px;
+    right: 18px;
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+  }
+
+  .home-category-card__content {
+    padding-top: 82px;
+  }
+
+  .home-category-card__number {
+    font-size: 5.8rem;
+  }
+
   .home-category-card h3 {
-    font-size: clamp(1.9rem, 8.5vw, 2.5rem);
+    font-size: clamp(1.65rem, 7.6vw, 2.15rem);
   }
 
   .home-category-card p {
     max-width: 100%;
+    margin-top: 14px;
+    padding-right: 38px;
+    font-size: 0.86rem;
+    line-height: 1.52;
+  }
+
+  .home-category-card__arrow {
+    width: 36px;
+    height: 36px;
+    right: 16px;
+    bottom: 16px;
   }
 
   /* Offers */
