@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import TransitionLink from "../../components/TransitionLink/TransitionLink";
 import Header from "../../components/Header/Header";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
@@ -14,15 +15,62 @@ import {
   faqItems,
 } from "../../data/homeContent";
 
+const typewriterPhrases = [
+  "Création de site internet",
+  "Création de site vitrine",
+  "Création de site e-commerce",
+  "Création d'application métier",
+];
+
 function Home() {
+  const [typewriterText, setTypewriterText] = useState("");
+
   useRevealOnScroll();
 
   usePageMeta({
-    title:
-      "Création de sites internet à Dijon et en Bourgogne-Franche-Comté",
+    title: "Création site internet Dijon",
     description:
-      "DigitalLoom accompagne les indépendants, artisans et entreprises dans la création de sites internet sécurisés, SEO et ergonomiques, ainsi que d'applications métier pertinentes.",
+      "DigitalLoom crée des sites internet, sites vitrines, sites e-commerce et applications métier pour indépendants et petites entreprises en Bourgogne-Franche-Comté.",
   });
+
+  useEffect(() => {
+    let phraseIndex = 0;
+    let letterIndex = 0;
+    let isDeleting = false;
+    let timeoutId;
+
+    const type = () => {
+      const currentPhrase = typewriterPhrases[phraseIndex];
+
+      setTypewriterText(currentPhrase.slice(0, letterIndex));
+
+      if (!isDeleting && letterIndex < currentPhrase.length) {
+        letterIndex += 1;
+        timeoutId = window.setTimeout(type, 62);
+        return;
+      }
+
+      if (!isDeleting && letterIndex === currentPhrase.length) {
+        isDeleting = true;
+        timeoutId = window.setTimeout(type, 1150);
+        return;
+      }
+
+      if (isDeleting && letterIndex > 0) {
+        letterIndex -= 1;
+        timeoutId = window.setTimeout(type, 34);
+        return;
+      }
+
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % typewriterPhrases.length;
+      timeoutId = window.setTimeout(type, 260);
+    };
+
+    type();
+
+    return () => window.clearTimeout(timeoutId);
+  }, []);
 
   return (
     <main className="home">
@@ -44,10 +92,21 @@ function Home() {
           </p>
 
           <h1>DigitalLoom</h1>
-          
+
+          <p className="home-hero__typewriter" aria-live="polite">
+            {typewriterText}
+          </p>
+
+          <ul className="home-hero__typewriter-fallback">
+            {typewriterPhrases.map((phrase) => (
+              <li key={phrase}>{phrase}</li>
+            ))}
+          </ul>
+
+          <p className="home-hero__seo-title">Création site internet Dijon</p>
 
           <p className="home-hero__subtitle">
-            Création de sites internet à Dijon pour indépendants et petites entreprises.
+            Pour indépendants et petites entreprises en Bourgogne-Franche-Comté.
           </p>
 
           <div className="home-hero__actions">
@@ -101,7 +160,7 @@ function Home() {
           <div className="home-story__grid reveal" data-reveal-direction="left">
             <div className="home-story__heading">
               <h2>
-                Création de sites internet à Dijon pour indépendants et petites entreprises
+                Création site internet Dijon
               </h2>
 
               <div className="home-story__stats">
@@ -118,7 +177,11 @@ function Home() {
             </div>
 
             <div className="home-story__content">
-              <p>Webmaster basé à Dijon, spécialisé dans la création de sites internet et d’applications métier pour les indépendants, artisans</p>
+              <p>
+                Webmaster basé à Dijon, spécialisé dans la création de sites
+                internet et d’applications métier pour les indépendants, artisans
+                et petites entreprises.
+              </p>
               
 
               <p>

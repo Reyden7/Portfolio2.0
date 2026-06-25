@@ -1,9 +1,9 @@
 import Home from "../views/Home/Home";
 
 export const metadata = {
-  title: "Création de sites internet et apps sur mesure",
+  title: "Création site internet Dijon",
   description:
-    "Sites internet et apps métier pour indépendants, artisans et entreprises. Design moderne, SEO propre et mise en ligne.",
+    "Création de sites internet, sites vitrines, sites e-commerce et applications métier pour indépendants et petites entreprises en Bourgogne-Franche-Comté.",
   alternates: {
     canonical: "/",
     languages: {
