@@ -234,6 +234,14 @@
   animation: typewriterCaret 1.08s ease-in-out infinite;
 }
 
+.home-hero__typewriter-dynamic {
+  background: linear-gradient(135deg, #ff00c8 0%, #7c3cff 58%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 26px rgba(255, 0, 200, 0.14);
+}
+
 .home-hero__typewriter-fallback {
   position: absolute;
   width: 1px;
