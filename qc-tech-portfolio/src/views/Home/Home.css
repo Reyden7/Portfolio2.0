@@ -2917,6 +2917,13 @@
   color: transparent !important;
 }
 
+.home-method__step h3 {
+  background: linear-gradient(135deg, #ff00c8 0%, #7c3cff 58%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
 .home-story__stats span,
 .home-story__skills span {
   color: rgba(255, 255, 255, 0.72) !important;
