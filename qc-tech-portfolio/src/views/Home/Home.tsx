@@ -16,10 +16,10 @@ import {
 } from "../../data/homeContent";
 
 const typewriterPhrases = [
-  "Création de site internet",
-  "Création de site vitrine",
-  "Création de site e-commerce",
-  "Création d'application métier",
+  { label: "Création de site internet", suffix: "e site internet" },
+  { label: "Création de site vitrine", suffix: "e site vitrine" },
+  { label: "Création de site e-commerce", suffix: "e site e-commerce" },
+  { label: "Création d'application métier", suffix: "'application métier" },
 ];
 
 function Home() {
@@ -40,7 +40,7 @@ function Home() {
     let timeoutId;
 
     const type = () => {
-      const currentPhrase = typewriterPhrases[phraseIndex];
+      const currentPhrase = typewriterPhrases[phraseIndex].suffix;
 
       setTypewriterText(currentPhrase.slice(0, letterIndex));
 
@@ -94,12 +94,15 @@ function Home() {
           <h1>DigitalLoom</h1>
 
           <p className="home-hero__typewriter" aria-live="polite">
-            {typewriterText}
+            <span className="home-hero__typewriter-prefix">Création d</span>
+            <span className="home-hero__typewriter-dynamic">
+              {typewriterText}
+            </span>
           </p>
 
           <ul className="home-hero__typewriter-fallback">
             {typewriterPhrases.map((phrase) => (
-              <li key={phrase}>{phrase}</li>
+              <li key={phrase.label}>{phrase.label}</li>
             ))}
           </ul>
 
