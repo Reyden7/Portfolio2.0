@@ -16,6 +16,85 @@ const serviceTabs = [
   },
 ];
 
+const customSiteTypes = [
+  {
+    id: "site-vitrine",
+    label: "Site vitrine",
+    basePrice: 850,
+    includedPages: 3,
+  },
+  {
+    id: "landing-page",
+    label: "Landing page",
+    basePrice: 650,
+    includedPages: 1,
+  },
+  {
+    id: "site-ecommerce",
+    label: "Site e-commerce",
+    basePrice: 1800,
+    includedPages: 5,
+  },
+];
+
+const customSeoLevels = [
+  {
+    id: "base",
+    label: "SEO de base",
+    price: 0,
+  },
+  {
+    id: "renforce",
+    label: "SEO renforcé",
+    price: 450,
+  },
+  {
+    id: "local",
+    label: "SEO local complet",
+    price: 650,
+  },
+];
+
+const customSiteOptions = [
+  {
+    id: "google-reviews",
+    label: "Bandeau avis Google",
+    price: 250,
+  },
+  {
+    id: "google-map",
+    label: "Localisation Google Map",
+    price: 150,
+  },
+  {
+    id: "advanced-form",
+    label: "Formulaire avancé",
+    price: 220,
+  },
+  {
+    id: "faq",
+    label: "FAQ optimisée SEO",
+    price: 180,
+  },
+  {
+    id: "booking",
+    label: "Prise de rendez-vous",
+    price: 300,
+  },
+  {
+    id: "blog",
+    label: "Actualités / blog",
+    price: 350,
+  },
+];
+
+const formatPrice = (value) =>
+  new Intl.NumberFormat("fr-FR", {
+    style: "currency",
+    currency: "EUR",
+    maximumFractionDigits: 0,
+  }).format(value);
+
 const offers = {
   sites: [
     {
@@ -31,7 +110,7 @@ const offers = {
       features: [
         "Design moderne personnalisé",
         "Site responsive",
-        "Jusqu'à 5 pages",
+        "Jusqu'à 3 pages",
         "Formulaire de contact",
         "SEO de base",
         "Mise en ligne incluse",
@@ -59,20 +138,13 @@ const offers = {
     {
       index: "03",
       tag: "Sur mesure",
-      title: "Sur-Mesure",
+      title: "Sur-mesure",
       projectType: "Site internet",
-      price: "À partir de 3 490 €",
+      price: "À partir de 850 €",
       description:
-        "Pour les entreprises qui souhaitent un site haut de gamme, différenciant et doté de fonctionnalités avancées.",
-      features: [
-        "Design premium sur mesure",
-        "Jusqu'à 12 pages",
-        "Animations modernes",
-        "Réservation simple possible",
-        "Automatisation légère",
-        "Intégration vidéo",
-      ],
-      button: "Demander un devis",
+        "Composez votre site selon vos besoins : une base claire, puis les options utiles à votre activité.",
+      configurator: "site",
+      button: "Discuter de cette configuration",
     },
   ],
 
@@ -204,8 +276,45 @@ const maintenancePlans = {
 };
 
 function OfferCard({ offer, onRequest }) {
+  const isSiteConfigurator = offer.configurator === "site";
+  const [selectedSiteType, setSelectedSiteType] = useState(customSiteTypes[0].id);
+  const [pageCount, setPageCount] = useState(customSiteTypes[0].includedPages);
+  const [selectedSeoLevel, setSelectedSeoLevel] = useState(customSeoLevels[0].id);
+  const [selectedOptions, setSelectedOptions] = useState(["google-reviews"]);
+
+  const siteType =
+    customSiteTypes.find((type) => type.id === selectedSiteType) ||
+    customSiteTypes[0];
+  const seoLevel =
+    customSeoLevels.find((level) => level.id === selectedSeoLevel) ||
+    customSeoLevels[0];
+  const safePageCount = Math.max(1, Number(pageCount) || 1);
+  const extraPages = Math.max(0, safePageCount - siteType.includedPages);
+  const selectedOptionTotal = customSiteOptions
+    .filter((option) => selectedOptions.includes(option.id))
+    .reduce((total, option) => total + option.price, 0);
+  const estimate =
+    siteType.basePrice + extraPages * 150 + seoLevel.price + selectedOptionTotal;
+
+  const handleSiteTypeChange = (event) => {
+    const nextType = customSiteTypes.find((type) => type.id === event.target.value);
+
+    setSelectedSiteType(event.target.value);
+    setPageCount(nextType?.includedPages || 1);
+  };
+
+  const toggleOption = (optionId) => {
+    setSelectedOptions((currentOptions) =>
+      currentOptions.includes(optionId)
+        ? currentOptions.filter((id) => id !== optionId)
+        : [...currentOptions, optionId]
+    );
+  };
+
   return (
-    <article className="service-card">
+    <article
+      className={`service-card${isSiteConfigurator ? " service-card--configurator" : ""}`}
+    >
       
 
       <h2>{offer.title}</h2>
@@ -224,16 +333,89 @@ function OfferCard({ offer, onRequest }) {
       </div>
       <p>{offer.description}</p>
 
-      <ul>
-        {offer.features.map((feature) => (
-          <li key={feature}>{feature}</li>
-        ))}
-      </ul>
+      {isSiteConfigurator ? (
+        <div className="service-configurator">
+          <div className="service-configurator__row">
+            <label>
+              <span>Type de projet</span>
+              <select value={selectedSiteType} onChange={handleSiteTypeChange}>
+                {customSiteTypes.map((type) => (
+                  <option key={type.id} value={type.id}>
+                    {type.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label>
+              <span>Nombre de pages</span>
+              <input
+                type="number"
+                min="1"
+                max="30"
+                value={pageCount}
+                onChange={(event) => setPageCount(Number(event.target.value))}
+              />
+            </label>
+          </div>
+
+          <label className="service-configurator__field">
+            <span>Niveau de SEO</span>
+            <select
+              value={selectedSeoLevel}
+              onChange={(event) => setSelectedSeoLevel(event.target.value)}
+            >
+              {customSeoLevels.map((level) => (
+                <option key={level.id} value={level.id}>
+                  {level.label}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <fieldset className="service-configurator__options">
+            <legend>Options possibles</legend>
+
+            <div>
+              {customSiteOptions.map((option) => (
+                <label key={option.id}>
+                  <input
+                    type="checkbox"
+                    checked={selectedOptions.includes(option.id)}
+                    onChange={() => toggleOption(option.id)}
+                  />
+                  <span>
+                    <strong>{option.label}</strong>
+                    <small>+ {formatPrice(option.price)}</small>
+                  </span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <div className="service-configurator__estimate">
+            <span>Estimation indicative</span>
+            <strong>À partir de {formatPrice(estimate)}</strong>
+            <small>
+              Chaque projet reste ajusté après échange, selon le contenu, le
+              design et les contraintes techniques.
+            </small>
+          </div>
+        </div>
+      ) : (
+        <ul>
+          {offer.features.map((feature) => (
+            <li key={feature}>{feature}</li>
+          ))}
+        </ul>
+      )}
 
       <button
         type="button"
         className="service-card__button"
-        onClick={() => onRequest(offer.projectType)}
+        onClick={() =>
+          onRequest(isSiteConfigurator ? `${siteType.label} sur-mesure` : offer.projectType)
+        }
       >
         {offer.button}
         <span>↗</span>
