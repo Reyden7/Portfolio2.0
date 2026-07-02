@@ -175,6 +175,145 @@ const customSiteOptionGroups = [
 
 const customSiteOptions = customSiteOptionGroups.flatMap((group) => group.options);
 
+const customAppTypes = [
+  {
+    id: "outil-interne",
+    label: "Outil interne simple",
+    basePrice: 2990,
+    includedScreens: 3,
+  },
+  {
+    id: "dashboard",
+    label: "Dashboard métier",
+    basePrice: 4200,
+    includedScreens: 5,
+  },
+  {
+    id: "app-mobile",
+    label: "Application mobile",
+    basePrice: 5990,
+    includedScreens: 6,
+  },
+];
+
+const customAppComplexityLevels = [
+  {
+    id: "simple",
+    label: "Processus simple",
+    price: 0,
+  },
+  {
+    id: "roles",
+    label: "Gestion des rôles",
+    price: 650,
+  },
+  {
+    id: "automation",
+    label: "Automatisations avancées",
+    price: 1200,
+  },
+];
+
+const customAppOptionGroups = [
+  {
+    title: "Utilisateurs",
+    options: [
+      {
+        id: "auth",
+        label: "Authentification",
+        price: 450,
+      },
+      {
+        id: "roles",
+        label: "Gestion des rôles",
+        price: 650,
+      },
+      {
+        id: "admin-space",
+        label: "Espace administrateur",
+        price: 800,
+      },
+    ],
+  },
+  {
+    title: "Données",
+    options: [
+      {
+        id: "advanced-database",
+        label: "Base de données avancée",
+        price: 900,
+      },
+      {
+        id: "exports",
+        label: "Exports PDF / Excel",
+        price: 450,
+      },
+      {
+        id: "imports",
+        label: "Import CSV / Excel",
+        price: 380,
+      },
+    ],
+  },
+  {
+    title: "Automatisations",
+    options: [
+      {
+        id: "email-notifications",
+        label: "Notifications email",
+        price: 350,
+      },
+      {
+        id: "api-connection",
+        label: "Connexion API",
+        price: 700,
+      },
+      {
+        id: "business-automation",
+        label: "Automatisations métier",
+        price: 950,
+      },
+    ],
+  },
+  {
+    title: "Interface",
+    options: [
+      {
+        id: "dashboard-view",
+        label: "Tableau de bord",
+        price: 750,
+      },
+      {
+        id: "search-filters",
+        label: "Recherche et filtres",
+        price: 350,
+      },
+      {
+        id: "pwa-mobile",
+        label: "Mode mobile / PWA",
+        price: 500,
+      },
+    ],
+  },
+  {
+    title: "Sécurité",
+    options: [
+      {
+        id: "activity-log",
+        label: "Journal d’activité",
+        price: 400,
+      },
+      {
+        id: "simple-backup",
+        label: "Sauvegarde simple",
+        price: 350,
+      },
+    ],
+  },
+];
+
+const customAppOptions = customAppOptionGroups.flatMap((group) => group.options);
+
 const formatPrice = (value) =>
   new Intl.NumberFormat("fr-FR", {
     style: "currency",
@@ -276,20 +415,13 @@ const offers = {
     {
       index: "03",
       tag: "Sur mesure",
-      title: "Sur-Mesure",
+      title: "Sur-mesure",
       projectType: "Application métier",
-      price: "À partir de 9 990 €",
+      price: "À partir de 2 990 €",
       description:
-        "Pour créer une application mobile complète, stratégique et adaptée aux processus internes.",
-      features: [
-        "Interface premium",
-        "Nombre d'écrans selon projet",
-        "Permissions avancées",
-        "Exports PDF / Excel",
-        "Connexions API",
-        "Automatisations métier",
-      ],
-      button: "Demander un devis",
+        "Composez votre outil métier selon vos processus : écrans, rôles, données et automatisations utiles.",
+      configurator: "app",
+      button: "Discuter de cette application",
     },
   ],
 
@@ -365,33 +497,67 @@ const maintenancePlans = {
 
 function OfferCard({ offer, onRequest }) {
   const isSiteConfigurator = offer.configurator === "site";
+  const isAppConfigurator = offer.configurator === "app";
+  const isConfigurator = isSiteConfigurator || isAppConfigurator;
   const [selectedSiteType, setSelectedSiteType] = useState(customSiteTypes[0].id);
   const [pageCount, setPageCount] = useState(customSiteTypes[0].includedPages);
   const [selectedSeoLevel, setSelectedSeoLevel] = useState(customSeoLevels[0].id);
-  const [selectedOptions, setSelectedOptions] = useState(["google-reviews"]);
+  const [selectedOptions, setSelectedOptions] = useState(
+    isAppConfigurator ? ["auth"] : ["google-reviews"]
+  );
+  const [selectedAppType, setSelectedAppType] = useState(customAppTypes[0].id);
+  const [screenCount, setScreenCount] = useState(customAppTypes[0].includedScreens);
+  const [selectedAppComplexity, setSelectedAppComplexity] = useState(
+    customAppComplexityLevels[0].id
+  );
   const [openOptionGroups, setOpenOptionGroups] = useState([
-    customSiteOptionGroups[0].title,
+    isAppConfigurator
+      ? customAppOptionGroups[0].title
+      : customSiteOptionGroups[0].title,
   ]);
 
+  const optionGroups = isAppConfigurator
+    ? customAppOptionGroups
+    : customSiteOptionGroups;
+  const options = isAppConfigurator ? customAppOptions : customSiteOptions;
   const siteType =
     customSiteTypes.find((type) => type.id === selectedSiteType) ||
     customSiteTypes[0];
   const seoLevel =
     customSeoLevels.find((level) => level.id === selectedSeoLevel) ||
     customSeoLevels[0];
+  const appType =
+    customAppTypes.find((type) => type.id === selectedAppType) ||
+    customAppTypes[0];
+  const appComplexity =
+    customAppComplexityLevels.find((level) => level.id === selectedAppComplexity) ||
+    customAppComplexityLevels[0];
   const safePageCount = Math.max(1, Number(pageCount) || 1);
   const extraPages = Math.max(0, safePageCount - siteType.includedPages);
-  const selectedOptionTotal = customSiteOptions
+  const safeScreenCount = Math.max(1, Number(screenCount) || 1);
+  const extraScreens = Math.max(0, safeScreenCount - appType.includedScreens);
+  const selectedOptionTotal = options
     .filter((option) => selectedOptions.includes(option.id))
     .reduce((total, option) => total + option.price, 0);
-  const estimate =
-    siteType.basePrice + extraPages * 150 + seoLevel.price + selectedOptionTotal;
+  const estimate = isAppConfigurator
+    ? appType.basePrice +
+      extraScreens * 350 +
+      appComplexity.price +
+      selectedOptionTotal
+    : siteType.basePrice + extraPages * 150 + seoLevel.price + selectedOptionTotal;
 
   const handleSiteTypeChange = (event) => {
     const nextType = customSiteTypes.find((type) => type.id === event.target.value);
 
     setSelectedSiteType(event.target.value);
     setPageCount(nextType?.includedPages || 1);
+  };
+
+  const handleAppTypeChange = (event) => {
+    const nextType = customAppTypes.find((type) => type.id === event.target.value);
+
+    setSelectedAppType(event.target.value);
+    setScreenCount(nextType?.includedScreens || 1);
   };
 
   const toggleOption = (optionId) => {
@@ -412,7 +578,7 @@ function OfferCard({ offer, onRequest }) {
 
   return (
     <article
-      className={`service-card${isSiteConfigurator ? " service-card--configurator" : ""}`}
+      className={`service-card${isConfigurator ? " service-card--configurator" : ""}`}
     >
       
 
@@ -432,51 +598,78 @@ function OfferCard({ offer, onRequest }) {
       </div>
       <p>{offer.description}</p>
 
-      {isSiteConfigurator ? (
+      {isConfigurator ? (
         <div className="service-configurator">
           <div className="service-configurator__row">
             <label>
-              <span>Type de projet</span>
-              <select value={selectedSiteType} onChange={handleSiteTypeChange}>
-                {customSiteTypes.map((type) => (
-                  <option key={type.id} value={type.id}>
-                    {type.label}
-                  </option>
-                ))}
-              </select>
+              <span>{isAppConfigurator ? "Type d’application" : "Type de projet"}</span>
+              {isAppConfigurator ? (
+                <select value={selectedAppType} onChange={handleAppTypeChange}>
+                  {customAppTypes.map((type) => (
+                    <option key={type.id} value={type.id}>
+                      {type.label}
+                    </option>
+                  ))}
+                </select>
+              ) : (
+                <select value={selectedSiteType} onChange={handleSiteTypeChange}>
+                  {customSiteTypes.map((type) => (
+                    <option key={type.id} value={type.id}>
+                      {type.label}
+                    </option>
+                  ))}
+                </select>
+              )}
             </label>
 
             <label>
-              <span>Nombre de pages</span>
+              <span>{isAppConfigurator ? "Nombre d’écrans" : "Nombre de pages"}</span>
               <input
                 type="number"
                 min="1"
                 max="30"
-                value={pageCount}
-                onChange={(event) => setPageCount(Number(event.target.value))}
+                value={isAppConfigurator ? screenCount : pageCount}
+                onChange={(event) =>
+                  isAppConfigurator
+                    ? setScreenCount(Number(event.target.value))
+                    : setPageCount(Number(event.target.value))
+                }
               />
             </label>
           </div>
 
           <label className="service-configurator__field">
-            <span>Niveau de SEO</span>
-            <select
-              value={selectedSeoLevel}
-              onChange={(event) => setSelectedSeoLevel(event.target.value)}
-            >
-              {customSeoLevels.map((level) => (
-                <option key={level.id} value={level.id}>
-                  {level.label}
-                </option>
-              ))}
-            </select>
+            <span>{isAppConfigurator ? "Niveau de complexité" : "Niveau de SEO"}</span>
+            {isAppConfigurator ? (
+              <select
+                value={selectedAppComplexity}
+                onChange={(event) => setSelectedAppComplexity(event.target.value)}
+              >
+                {customAppComplexityLevels.map((level) => (
+                  <option key={level.id} value={level.id}>
+                    {level.label}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              <select
+                value={selectedSeoLevel}
+                onChange={(event) => setSelectedSeoLevel(event.target.value)}
+              >
+                {customSeoLevels.map((level) => (
+                  <option key={level.id} value={level.id}>
+                    {level.label}
+                  </option>
+                ))}
+              </select>
+            )}
           </label>
 
           <fieldset className="service-configurator__options">
             <legend>Options possibles</legend>
 
             <div>
-              {customSiteOptionGroups.map((group) => {
+              {optionGroups.map((group) => {
                 const isOpen = openOptionGroups.includes(group.title);
                 const selectedCount = group.options.filter((option) =>
                   selectedOptions.includes(option.id)
@@ -544,7 +737,11 @@ function OfferCard({ offer, onRequest }) {
         type="button"
         className="service-card__button"
         onClick={() =>
-          onRequest(isSiteConfigurator ? `${siteType.label} sur-mesure` : offer.projectType)
+          onRequest(
+            isConfigurator
+              ? `${isAppConfigurator ? appType.label : siteType.label} sur-mesure`
+              : offer.projectType
+          )
         }
       >
         {offer.button}
