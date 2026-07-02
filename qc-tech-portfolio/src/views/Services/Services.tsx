@@ -55,38 +55,125 @@ const customSeoLevels = [
   },
 ];
 
-const customSiteOptions = [
+const customSiteOptionGroups = [
   {
-    id: "google-reviews",
-    label: "Bandeau avis Google",
-    price: 250,
+    title: "Confiance",
+    options: [
+      {
+        id: "google-reviews",
+        label: "Bandeau avis Google",
+        price: 250,
+      },
+      {
+        id: "partners-logos",
+        label: "Logo partenaires / certifications",
+        price: 180,
+      },
+    ],
   },
   {
-    id: "google-map",
-    label: "Localisation Google Map",
-    price: 150,
+    title: "Conversion",
+    options: [
+      {
+        id: "announcement",
+        label: "Pop-up ou bandeau d’annonce",
+        price: 180,
+      },
+      {
+        id: "advanced-form",
+        label: "Formulaire avancé",
+        price: 220,
+      },
+      {
+        id: "booking",
+        label: "Prise de rendez-vous",
+        price: 300,
+      },
+      {
+        id: "brochure-download",
+        label: "Téléchargement de brochure / PDF",
+        price: 180,
+      },
+    ],
   },
   {
-    id: "advanced-form",
-    label: "Formulaire avancé",
-    price: 220,
+    title: "Local et SEO",
+    options: [
+      {
+        id: "google-map",
+        label: "Localisation Google Map",
+        price: 150,
+      },
+      {
+        id: "faq",
+        label: "FAQ optimisée SEO",
+        price: 180,
+      },
+    ],
   },
   {
-    id: "faq",
-    label: "FAQ optimisée SEO",
-    price: 180,
+    title: "Contenus",
+    options: [
+      {
+        id: "photo-gallery",
+        label: "Galerie photos",
+        price: 260,
+      },
+      {
+        id: "video-embed",
+        label: "Vidéo intégrée",
+        price: 160,
+      },
+      {
+        id: "filterable-portfolio",
+        label: "Portfolio / réalisations filtrables",
+        price: 380,
+      },
+      {
+        id: "team-page",
+        label: "Page équipe",
+        price: 220,
+      },
+      {
+        id: "pricing-page",
+        label: "Page tarifs",
+        price: 220,
+      },
+      {
+        id: "blog",
+        label: "Actualités / blog",
+        price: 350,
+      },
+    ],
   },
   {
-    id: "booking",
-    label: "Prise de rendez-vous",
-    price: 300,
-  },
-  {
-    id: "blog",
-    label: "Actualités / blog",
-    price: 350,
+    title: "Fonctions avancées",
+    options: [
+      {
+        id: "client-area",
+        label: "Espace client simple",
+        price: 650,
+      },
+      {
+        id: "product-catalog",
+        label: "Catalogue produits",
+        price: 550,
+      },
+      {
+        id: "multilingual",
+        label: "Multilingue",
+        price: 480,
+      },
+      {
+        id: "external-tool",
+        label: "Connexion à un outil externe",
+        price: 700,
+      },
+    ],
   },
 ];
+
+const customSiteOptions = customSiteOptionGroups.flatMap((group) => group.options);
 
 const formatPrice = (value) =>
   new Intl.NumberFormat("fr-FR", {
@@ -99,6 +186,17 @@ const offers = {
   sites: [
     {
       index: "01",
+      tag: "Sur mesure",
+      title: "Sur-mesure",
+      projectType: "Site internet",
+      price: "À partir de 850 €",
+      description:
+        "Composez votre site selon vos besoins : une base claire, puis les options utiles à votre activité.",
+      configurator: "site",
+      button: "Discuter de cette configuration",
+    },
+    {
+      index: "02",
       tag: "Essentielle",
       title: "Essentielle",
       projectType: "Site internet",
@@ -118,7 +216,7 @@ const offers = {
       button: "Demander un site",
     },
     {
-      index: "02",
+      index: "03",
       tag: "Professionnel",
       title: "Professionnelle",
       projectType: "Site internet",
@@ -135,17 +233,7 @@ const offers = {
       ],
       button: "Demander un site pro",
     },
-    {
-      index: "03",
-      tag: "Sur mesure",
-      title: "Sur-mesure",
-      projectType: "Site internet",
-      price: "À partir de 850 €",
-      description:
-        "Composez votre site selon vos besoins : une base claire, puis les options utiles à votre activité.",
-      configurator: "site",
-      button: "Discuter de cette configuration",
-    },
+    
   ],
 
   apps: [
@@ -377,18 +465,29 @@ function OfferCard({ offer, onRequest }) {
             <legend>Options possibles</legend>
 
             <div>
-              {customSiteOptions.map((option) => (
-                <label key={option.id}>
-                  <input
-                    type="checkbox"
-                    checked={selectedOptions.includes(option.id)}
-                    onChange={() => toggleOption(option.id)}
-                  />
-                  <span>
-                    <strong>{option.label}</strong>
-                    <small>+ {formatPrice(option.price)}</small>
-                  </span>
-                </label>
+              {customSiteOptionGroups.map((group) => (
+                <section
+                  className="service-configurator__option-group"
+                  key={group.title}
+                >
+                  <h3>{group.title}</h3>
+
+                  <div>
+                    {group.options.map((option) => (
+                      <label key={option.id}>
+                        <input
+                          type="checkbox"
+                          checked={selectedOptions.includes(option.id)}
+                          onChange={() => toggleOption(option.id)}
+                        />
+                        <span>
+                          <strong>{option.label}</strong>
+                          <small>+ {formatPrice(option.price)}</small>
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                </section>
               ))}
             </div>
           </fieldset>

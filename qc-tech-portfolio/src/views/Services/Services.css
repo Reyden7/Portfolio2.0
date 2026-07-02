@@ -612,6 +612,25 @@
 
 .service-configurator__options > div {
   display: grid;
+  gap: 0.9rem;
+}
+
+.service-configurator__option-group {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.service-configurator__option-group h3 {
+  margin: 0;
+  color: #ff74f4;
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.service-configurator__option-group > div {
+  display: grid;
   gap: 0.55rem;
 }
 
@@ -699,6 +718,10 @@
 
   .service-configurator__options label {
     padding: 0.6rem 0.7rem;
+  }
+
+  .service-configurator__option-group {
+    gap: 0.45rem;
   }
 
   .service-configurator__options label > span {
