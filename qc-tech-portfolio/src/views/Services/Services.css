@@ -620,13 +620,61 @@
   gap: 0.5rem;
 }
 
-.service-configurator__option-group h3 {
-  margin: 0;
+.service-configurator__group-toggle {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  min-height: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  padding: 0.75rem 0.85rem;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.028)),
+    rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.service-configurator__group-toggle > span {
+  min-width: 0;
   color: #ff74f4;
   font-size: 0.78rem;
   font-weight: 950;
   letter-spacing: 0.1em;
+  text-align: left;
   text-transform: uppercase;
+}
+
+.service-configurator__group-toggle small {
+  display: grid;
+  place-items: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 999px;
+  background: rgba(255, 0, 200, 0.18);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 950;
+}
+
+.service-configurator__group-toggle strong {
+  display: grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #00d4ff;
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 0.22s ease;
+}
+
+.service-configurator__option-group.is-open .service-configurator__group-toggle strong {
+  transform: rotate(180deg);
 }
 
 .service-configurator__option-group > div {
@@ -722,6 +770,15 @@
 
   .service-configurator__option-group {
     gap: 0.45rem;
+  }
+
+  .service-configurator__group-toggle {
+    min-height: 2.75rem;
+    padding: 0.65rem 0.7rem;
+  }
+
+  .service-configurator__group-toggle > span {
+    font-size: 0.72rem;
   }
 
   .service-configurator__options label > span {

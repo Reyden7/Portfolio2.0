@@ -220,7 +220,7 @@ const offers = {
       tag: "Professionnel",
       title: "Professionnelle",
       projectType: "Site internet",
-      price: "À partir de 1 990 €",
+      price: "À partir de 2300 €",
       description:
         "Pour les entreprises qui souhaitent un site plus complet, plus crédible et davantage orienté conversion.",
       features: [
@@ -369,6 +369,9 @@ function OfferCard({ offer, onRequest }) {
   const [pageCount, setPageCount] = useState(customSiteTypes[0].includedPages);
   const [selectedSeoLevel, setSelectedSeoLevel] = useState(customSeoLevels[0].id);
   const [selectedOptions, setSelectedOptions] = useState(["google-reviews"]);
+  const [openOptionGroups, setOpenOptionGroups] = useState([
+    customSiteOptionGroups[0].title,
+  ]);
 
   const siteType =
     customSiteTypes.find((type) => type.id === selectedSiteType) ||
@@ -396,6 +399,14 @@ function OfferCard({ offer, onRequest }) {
       currentOptions.includes(optionId)
         ? currentOptions.filter((id) => id !== optionId)
         : [...currentOptions, optionId]
+    );
+  };
+
+  const toggleOptionGroup = (groupTitle) => {
+    setOpenOptionGroups((currentGroups) =>
+      currentGroups.includes(groupTitle)
+        ? currentGroups.filter((title) => title !== groupTitle)
+        : [...currentGroups, groupTitle]
     );
   };
 
@@ -465,14 +476,32 @@ function OfferCard({ offer, onRequest }) {
             <legend>Options possibles</legend>
 
             <div>
-              {customSiteOptionGroups.map((group) => (
-                <section
-                  className="service-configurator__option-group"
-                  key={group.title}
-                >
-                  <h3>{group.title}</h3>
+              {customSiteOptionGroups.map((group) => {
+                const isOpen = openOptionGroups.includes(group.title);
+                const selectedCount = group.options.filter((option) =>
+                  selectedOptions.includes(option.id)
+                ).length;
 
-                  <div>
+                return (
+                  <section
+                    className={`service-configurator__option-group${
+                      isOpen ? " is-open" : ""
+                    }`}
+                    key={group.title}
+                  >
+                    <button
+                      type="button"
+                      className="service-configurator__group-toggle"
+                      aria-expanded={isOpen}
+                      onClick={() => toggleOptionGroup(group.title)}
+                    >
+                      <span>{group.title}</span>
+                      {selectedCount > 0 && <small>{selectedCount}</small>}
+                      <strong>⌄</strong>
+                    </button>
+
+                    {isOpen && (
+                      <div>
                     {group.options.map((option) => (
                       <label key={option.id}>
                         <input
@@ -486,9 +515,11 @@ function OfferCard({ offer, onRequest }) {
                         </span>
                       </label>
                     ))}
-                  </div>
-                </section>
-              ))}
+                      </div>
+                    )}
+                  </section>
+                );
+              })}
             </div>
           </fieldset>
 
