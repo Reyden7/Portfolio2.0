@@ -378,6 +378,17 @@ const offers = {
   apps: [
     {
       index: "01",
+      tag: "Sur mesure",
+      title: "Sur-mesure",
+      projectType: "Application métier",
+      price: "À partir de 2 990 €",
+      description:
+        "Composez votre outil métier selon vos processus : écrans, rôles, données et automatisations utiles.",
+      configurator: "app",
+      button: "Discuter de cette application",
+    },
+    {
+      index: "02",
       tag: "Essentiel",
       title: "Essentielle",
       projectType: "Application métier",
@@ -387,19 +398,16 @@ const offers = {
       features: [
         "Interface mobile moderne",
         "Jusqu'à 3 écrans",
-        "Authentification",
-        "Base de données",
-        "Formulaires de saisie",
         "Android",
       ],
       button: "Demander une app",
     },
     {
-      index: "02",
+      index: "03",
       tag: "Professionnelle",
       title: "Professionnelle",
       projectType: "Application métier",
-      price: "À partir de 5 990 €",
+      price: "À partir de 7 290 €",
       description:
         "Pour les entreprises qui souhaitent digitaliser et automatiser une partie importante de leur activité.",
       features: [
@@ -412,17 +420,7 @@ const offers = {
       ],
       button: "Demander une app pro",
     },
-    {
-      index: "03",
-      tag: "Sur mesure",
-      title: "Sur-mesure",
-      projectType: "Application métier",
-      price: "À partir de 2 990 €",
-      description:
-        "Composez votre outil métier selon vos processus : écrans, rôles, données et automatisations utiles.",
-      configurator: "app",
-      button: "Discuter de cette application",
-    },
+    
   ],
 
 };
@@ -576,11 +574,38 @@ function OfferCard({ offer, onRequest }) {
     );
   };
 
+  const resetConfigurator = () => {
+    if (isAppConfigurator) {
+      setSelectedAppType(customAppTypes[0].id);
+      setScreenCount(customAppTypes[0].includedScreens);
+      setSelectedAppComplexity(customAppComplexityLevels[0].id);
+      setSelectedOptions(["auth"]);
+      setOpenOptionGroups([customAppOptionGroups[0].title]);
+      return;
+    }
+
+    setSelectedSiteType(customSiteTypes[0].id);
+    setPageCount(customSiteTypes[0].includedPages);
+    setSelectedSeoLevel(customSeoLevels[0].id);
+    setSelectedOptions(["google-reviews"]);
+    setOpenOptionGroups([customSiteOptionGroups[0].title]);
+  };
+
   return (
     <article
       className={`service-card${isConfigurator ? " service-card--configurator" : ""}`}
     >
       
+      {isConfigurator && (
+        <button
+          type="button"
+          className="service-card__reset"
+          aria-label="Réinitialiser la configuration"
+          onClick={resetConfigurator}
+        >
+          ↺
+        </button>
+      )}
 
       <h2>{offer.title}</h2>
 
