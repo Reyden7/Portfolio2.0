@@ -574,12 +574,51 @@ function OfferCard({ offer, onRequest }) {
     );
   };
 
+  const selectedOptionLines = optionGroups.flatMap((group) =>
+    group.options
+      .filter((option) => selectedOptions.includes(option.id))
+      .map(
+        (option) =>
+          `- ${group.title} : ${option.label} (+ ${formatPrice(option.price)})`
+      )
+  );
+
+  const configurationMessage = isAppConfigurator
+    ? [
+        "Bonjour, je souhaite discuter de cette configuration d’application métier :",
+        "",
+        `Type d’application : ${appType.label}`,
+        `Nombre d’écrans : ${safeScreenCount}`,
+        `Niveau de complexité : ${appComplexity.label}`,
+        "",
+        "Options sélectionnées :",
+        selectedOptionLines.length ? selectedOptionLines.join("\n") : "- Aucune option",
+        "",
+        `Estimation indicative : à partir de ${formatPrice(estimate)}`,
+        "",
+        "Je souhaite en discuter pour vérifier ce qui est le plus adapté à mon besoin.",
+      ].join("\n")
+    : [
+        "Bonjour, je souhaite discuter de cette configuration de site internet :",
+        "",
+        `Type de projet : ${siteType.label}`,
+        `Nombre de pages : ${safePageCount}`,
+        `Niveau de SEO : ${seoLevel.label}`,
+        "",
+        "Options sélectionnées :",
+        selectedOptionLines.length ? selectedOptionLines.join("\n") : "- Aucune option",
+        "",
+        `Estimation indicative : à partir de ${formatPrice(estimate)}`,
+        "",
+        "Je souhaite en discuter pour vérifier ce qui est le plus adapté à mon besoin.",
+      ].join("\n");
+
   const resetConfigurator = () => {
     if (isAppConfigurator) {
       setSelectedAppType(customAppTypes[0].id);
       setScreenCount(customAppTypes[0].includedScreens);
       setSelectedAppComplexity(customAppComplexityLevels[0].id);
-      setSelectedOptions(["auth"]);
+      setSelectedOptions([""]);
       setOpenOptionGroups([customAppOptionGroups[0].title]);
       return;
     }
@@ -587,7 +626,7 @@ function OfferCard({ offer, onRequest }) {
     setSelectedSiteType(customSiteTypes[0].id);
     setPageCount(customSiteTypes[0].includedPages);
     setSelectedSeoLevel(customSeoLevels[0].id);
-    setSelectedOptions(["google-reviews"]);
+    setSelectedOptions([""]);
     setOpenOptionGroups([customSiteOptionGroups[0].title]);
   };
 
@@ -763,9 +802,8 @@ function OfferCard({ offer, onRequest }) {
         className="service-card__button"
         onClick={() =>
           onRequest(
-            isConfigurator
-              ? `${isAppConfigurator ? appType.label : siteType.label} sur-mesure`
-              : offer.projectType
+            offer.projectType,
+            isConfigurator ? configurationMessage : ""
           )
         }
       >
@@ -800,11 +838,12 @@ export default function Services() {
   const currentOffers = offers[activeTab];
   const currentMaintenance = maintenancePlans[activeTab];
 
-  const handleRequest = (projectType) => {
+  const handleRequest = (projectType, message = "") => {
     window.dispatchEvent(
       new CustomEvent("digitalloom-project-type", {
         detail: {
           projectType,
+          message,
         },
       })
     );

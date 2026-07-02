@@ -58,12 +58,14 @@ function Footer() {
   useEffect(() => {
     const handleProjectTypeSelection = (event) => {
       const projectType = event.detail?.projectType;
+      const message = event.detail?.message;
 
       if (!projectType) return;
 
       setFormData((current) => ({
         ...current,
         projectType,
+        message: message || current.message,
       }));
     };
 
