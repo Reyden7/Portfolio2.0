@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import {
@@ -44,7 +44,25 @@ function AdminProjects() {
   const [adminProjects, setAdminProjects] = useState([]);
   const [editingProjectId, setEditingProjectId] = useState(null);
   const [project, setProject] = useState(getEmptyProject());
-  const [uploadingField, setUploadingField] = useState(null);
+  const [uploadingFields, setUploadingFields] = useState<Record<string, boolean>>({});
+  const fileInputRefs = useRef<Record<string, HTMLInputElement | null>>({});
+  const formVersionRef = useRef(0);
+  const isUploadingMedia = Object.values(uploadingFields).some(Boolean);
+
+  function clearFileInputs() {
+    Object.values(fileInputRefs.current).forEach((input) => {
+      if (input) {
+        input.value = "";
+      }
+    });
+  }
+
+  function resetProjectForm() {
+    formVersionRef.current += 1;
+    setEditingProjectId(null);
+    setProject(getEmptyProject());
+    clearFileInputs();
+  }
 
   async function loadAdminProjects() {
     try {
@@ -91,7 +109,11 @@ function AdminProjects() {
     loadAdminProjects();
   }, []);
 
-  async function handleMediaUpload(fieldName, file, mediaType) {
+  async function handleMediaUpload(
+    fieldName: string,
+    file: File | undefined,
+    mediaType: string
+  ) {
   if (!file) {
     return;
   }
@@ -107,22 +129,37 @@ function AdminProjects() {
   }
 
   try {
-    setUploadingField(fieldName);
+    const uploadFormVersion = formVersionRef.current;
+
+    setUploadingFields((currentFields) => ({
+      ...currentFields,
+      [fieldName]: true,
+    }));
 
     const result = await uploadProjectMedia(file, adminPassword, {
       mediaType,
       category: project.category,
     });
 
-    setProject((currentProject) => ({
-      ...currentProject,
-      [fieldName]: result.url,
-    }));
+    if (formVersionRef.current === uploadFormVersion) {
+      setProject((currentProject) => ({
+        ...currentProject,
+        [fieldName]: result.url,
+      }));
+    }
   } catch (error) {
     console.error(error);
     alert("Erreur pendant l'import du fichier.");
   } finally {
-    setUploadingField(null);
+    if (fileInputRefs.current[fieldName]) {
+      fileInputRefs.current[fieldName].value = "";
+    }
+
+    setUploadingFields((currentFields) => {
+      const nextFields = { ...currentFields };
+      delete nextFields[fieldName];
+      return nextFields;
+    });
   }
 }
 
@@ -194,6 +231,8 @@ function AdminProjects() {
     }
 
     setEditingProjectId(selectedProject.id);
+    formVersionRef.current += 1;
+    clearFileInputs();
 
     setProject({
       ...getEmptyProject(),
@@ -230,8 +269,7 @@ function AdminProjects() {
       await loadAdminProjects();
 
       if (editingProjectId === projectId) {
-        setEditingProjectId(null);
-        setProject(getEmptyProject());
+        resetProjectForm();
       }
 
       alert("Projet supprimé !");
@@ -248,6 +286,11 @@ function AdminProjects() {
 
     if (!isAdminUnlocked) {
       alert("Déverrouille l’espace admin avant de continuer.");
+      return;
+    }
+
+    if (isUploadingMedia) {
+      alert("Attends la fin de l'import des fichiers avant de sauvegarder.");
       return;
     }
 
@@ -288,8 +331,7 @@ function AdminProjects() {
         alert("Projet ajouté !");
       }
 
-      setEditingProjectId(null);
-      setProject(getEmptyProject());
+      resetProjectForm();
       await loadAdminProjects();
     } catch (error) {
       console.error(error);
@@ -418,12 +460,16 @@ function AdminProjects() {
             <input
               type="file"
               accept="image/*"
+              ref={(input) => {
+                fileInputRefs.current.image = input;
+              }}
+              disabled={isSaving || isUploadingMedia}
               onChange={(event) =>
                 handleMediaUpload("image", event.target.files?.[0], "image")
               }
             />
 
-            {uploadingField === "image" && <small>Import de l’image...</small>}
+            {uploadingFields.image && <small>Import de l’image...</small>}
 
             {project.image && (
               <small className="admin-projects__file-path">
@@ -437,12 +483,16 @@ function AdminProjects() {
             <input
               type="file"
               accept="image/*"
+              ref={(input) => {
+                fileInputRefs.current.detailImage = input;
+              }}
+              disabled={isSaving || isUploadingMedia}
               onChange={(event) =>
                 handleMediaUpload("detailImage", event.target.files?.[0], "detail-image")
               }
             />
 
-            {uploadingField === "detailImage" && <small>Import de l’image détail...</small>}
+            {uploadingFields.detailImage && <small>Import de l’image détail...</small>}
 
             {project.detailImage && (
               <small className="admin-projects__file-path">
@@ -456,12 +506,16 @@ function AdminProjects() {
             <input
               type="file"
               accept="video/*"
+              ref={(input) => {
+                fileInputRefs.current.detailVideo = input;
+              }}
+              disabled={isSaving || isUploadingMedia}
               onChange={(event) =>
                 handleMediaUpload("detailVideo", event.target.files?.[0], "video")
               }
             />
 
-            {uploadingField === "detailVideo" && <small>Import de la vidéo...</small>}
+            {uploadingFields.detailVideo && <small>Import de la vidéo...</small>}
 
             {project.detailVideo && (
               <small className="admin-projects__file-path">
@@ -503,8 +557,10 @@ function AdminProjects() {
             />
           </label>
 
-          <button type="submit" disabled={isSaving}>
-            {isSaving
+          <button type="submit" disabled={isSaving || isUploadingMedia}>
+            {isUploadingMedia
+              ? "Import des fichiers..."
+              : isSaving
               ? "Sauvegarde..."
               : editingProjectId
               ? "Modifier le projet"
@@ -515,9 +571,9 @@ function AdminProjects() {
             <button
               type="button"
               onClick={() => {
-                setEditingProjectId(null);
-                setProject(getEmptyProject());
+                resetProjectForm();
               }}
+              disabled={isSaving || isUploadingMedia}
             >
               Annuler la modification
             </button>
