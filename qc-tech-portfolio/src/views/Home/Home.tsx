@@ -4,7 +4,6 @@ import { Fragment, useEffect, useState } from "react";
 import TransitionLink from "../../components/TransitionLink/TransitionLink";
 import Header from "../../components/Header/Header";
 import useRevealOnScroll from "../../hooks/useRevealOnScroll";
-import { profile } from "../../data/profile";
 import Footer from "../../components/Footer/Footer";
 import usePageMeta from "../../hooks/usePageMeta";
 import BackgroundShapes from "../../components/BackgroundShapes/BackgroundShapes";
@@ -208,43 +207,49 @@ function Home() {
 
           <div className="home-story__grid reveal" data-reveal-direction="left">
             <div className="home-story__heading">
-              <h2>
-                Création site internet Dijon
-              </h2>
-
-              <div className="home-story__stats">
-                <div>
-                  <strong>6+</strong>
-                  <span>années d’expérience</span>
-                </div>
-
-                <div>
-                  <strong>100%</strong>
-                  <span>sur mesure</span>
-                </div>
-              </div>
+              <h2>Qui sommes nous ?</h2>
+              <p>
+                Développeur basé à Dijon, diplômés d’un{" "}
+                <strong>Master en développement informatique et cybersécurité</strong>,
+                avec près de <strong>6 ans d’expérience professionnelle</strong> dans
+                le web, le logiciel et les solutions sur mesure.
+              </p>
             </div>
 
             <div className="home-story__content">
               <p>
-                Webmaster basé à Dijon, spécialisé dans la création de sites
-                internet et d’applications métier pour les indépendants, artisans
-                et petites entreprises.
+                Avec <strong>DigitalLoom</strong>, Création de{" "}
+                <strong>sites professionnels, modernes et rapides</strong> pour
+                les indépendants, artisans, commerçants et entreprises. Nous prennons
+                le temps de comprendre votre métier pour concevoir une solution qui
+                vous ressemble, inspire confiance et soutient votre activité, avec
+                un accompagnement de la première idée à la mise en ligne et à la
+                maintenance.
               </p>
-              
-
-              <p>
-                Nous vous accompagnons de la réflexion à la mise
-                en ligne pour vous construire une présence sur le web cohérente,
-                Moderne et adaptée à vos objectifs réels.
-              </p>
-
-              <div className="home-story__skills">
-                {profile.skills.map((skill) => (
-                  <span key={skill}>{skill}</span>
-                ))}
-              </div>
             </div>
+
+            <ul className="home-story__highlights" aria-label="Parcours et expertise">
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="m2 9 10-5 10 5-10 5-10-5Z" />
+                  <path d="M6 11v6c3 3 9 3 12 0v-6M22 9v7" />
+                </svg>
+                <span>Master Informatique &amp; Cybersécurité</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v5l3 2" />
+                </svg>
+                <span>6 ans d’expérience</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="m7 7-5 5 5 5m10-10 5 5-5 5m-3-13-4 18" />
+                </svg>
+                <span>Développement web &amp; solutions sur mesure</span>
+              </li>
+            </ul>
           </div>
         </div>
       </section>

@@ -439,14 +439,14 @@
 
 .home-story__grid {
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   gap: clamp(34px, 6vw, 90px);
+  row-gap: 28px;
   align-items: start;
 }
 
 .home-story__heading {
-  position: sticky;
-  top: 120px;
+  min-width: 0;
 }
 
 .home-story h2 {
@@ -511,11 +511,65 @@
   box-shadow: 0 30px 90px rgba(7, 16, 20, 0.08);
 }
 
+.home-story__heading p,
 .home-story__content p {
   margin: 0 0 22px;
   color: rgba(7, 16, 20, 0.72);
   font-size: clamp(1rem, 1.7vw, 1.16rem);
   line-height: 1.85;
+}
+
+.home-story__heading p {
+  margin: 24px 0 0;
+}
+
+.home-story__content p:last-child {
+  margin-bottom: 0;
+}
+
+.home-story__heading strong,
+.home-story__content strong {
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+.home-story__highlights {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-story__highlights li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.025)
+  );
+  color: var(--color-white);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.home-story__highlights svg {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #00d4ff;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .home-story__value-list {
@@ -1993,10 +2047,6 @@
     max-width: 680px;
   }
 
-  .home-story__heading {
-    position: static;
-  }
-
   .home-projects__heading {
     display: grid;
     grid-template-columns: 1fr;
@@ -2194,6 +2244,7 @@
     border-radius: 28px;
   }
 
+  .home-story__heading p,
   .home-story__content p {
     font-size: 0.96rem;
     line-height: 1.75;
@@ -2206,6 +2257,15 @@
 
   .home-story__skills {
     margin-top: 28px;
+  }
+
+  .home-story__highlights {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .home-story__highlights li {
+    padding: 14px 18px;
   }
 
   /* Method */
