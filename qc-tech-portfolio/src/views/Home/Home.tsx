@@ -209,7 +209,7 @@ function Home() {
             <div className="home-story__heading">
               <h2>Qui sommes nous ?</h2>
               <p>
-                Développeur basé à Dijon, diplômés d’un{" "}
+                Développeurs basés à Dijon, diplômés d’un{" "}
                 <strong>Master en développement informatique et cybersécurité</strong>,
                 avec près de <strong>6 ans d’expérience professionnelle</strong> dans
                 le web, le logiciel et les solutions sur mesure.
