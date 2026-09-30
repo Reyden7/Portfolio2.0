@@ -1,0 +1,19 @@
+.intro {
+  margin-top: 28px;
+}
+
+.steps {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.notice {
+  padding: 16px 20px;
+  border-left: 3px solid #bca4ff;
+  border-radius: 0 8px 8px 0;
+  background: rgba(124, 60, 255, 0.08);
+}
+
+.notice strong {
+  color: var(--color-white);
+}

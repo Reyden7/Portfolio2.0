@@ -350,10 +350,10 @@ const sections = [
           Après suppression, cette opération est irréversible.
         </p>
         <p>
-          Une page Web dédiée à la suppression du compte sera disponible à l’adresse suivante :
+          Une page Web dédiée à la suppression du compte est disponible à l’adresse suivante :
         </p>
         <p>
-          <code>https://digitalloom.fr/artiz/suppression-compte</code>
+          <a href="/artiz/suppression-compte">https://digitalloom.fr/artiz/suppression-compte</a>
         </p>
       </>
     ),

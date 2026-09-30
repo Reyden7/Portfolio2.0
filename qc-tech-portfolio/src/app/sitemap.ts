@@ -8,7 +8,7 @@ export default async function sitemap() {
   const projects = await getProjects();
   const now = new Date();
 
-  // /artiz/cgu et /artiz/confidentialite sont volontairement exclues : accès par URL directe.
+  // Les pages juridiques /artiz/* sont volontairement exclues : accès par URL directe.
   const staticRoutes = [
     ["", 1],
     ["/services", 0.95],
