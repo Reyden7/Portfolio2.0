@@ -8,6 +8,7 @@ export default async function sitemap() {
   const projects = await getProjects();
   const now = new Date();
 
+  // /artiz/cgu est volontairement exclue : page juridique accessible par URL directe.
   const staticRoutes = [
     ["", 1],
     ["/services", 0.95],
